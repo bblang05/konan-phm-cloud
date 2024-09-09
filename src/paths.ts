@@ -1,10 +1,8 @@
 export const paths = {
     home: '/',
     auth: {
-        // signUp: '/auth/sign-up',
-        // resetPassword: '/auth/reset-password',
-
         signIn: '/auth/sign-in',
+        signUp: '/auth/sign-up',
         passwordChange: '/auth/password-change',
         changePassword: '/auth/change-password',
         changePasswordDay: '/auth/change-password-day',
@@ -13,11 +11,6 @@ export const paths = {
     },
     dashboard: {
         overview: '/dashboard',
-        // account: '/dashboard/account',
-        // password: '/dashboard/password',
-        // customers: '/dashboard/customers',
-        // integrations: '/dashboard/integrations',
-        // settings: '/dashboard/settings',
 
         userList: '/dashboard/user-list',
         userEdit: '/dashboard/user-edit',
@@ -28,6 +21,7 @@ export const paths = {
         usageSettings: '/dashboard/usage-setting',
         tenantCreate: '/dashboard/create-tenant',
         groupSetting: '/dashboard/group-setting',
+        usageSetting: '/dashboard/usage-setting',
     },
     errors: {notFound: '/errors/not-found'},
 } as const;

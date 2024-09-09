@@ -23,6 +23,10 @@ export const MuiButton = {
             border: '1px solid #D3D7DE',
             color: '#777D87',
         },
+        textPrimary: {
+          fontWeight: 'normal',
+            color: '#555759',
+        },
         startIcon: {
             marginRight: '4px',
         },

@@ -20,16 +20,13 @@ const CustomTreeItem = styled(TreeItem)({
             opacity: 0.3,
         },
     },
-    [`& .selected`]: {
-        background: '#f00',
-    }
 });
 
 function Minus(props: SvgIconProps) {
     return (
         <SvgIcon
             fontSize="inherit"
-            style={{width: 14, height: 14}}
+            style={{width: 12, height: 12}}
             {...props}
         >
             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
@@ -47,7 +44,7 @@ function Collapse(props: SvgIconProps) {
     return (
         <SvgIcon
             fontSize="inherit"
-            style={{width: 14, height: 14}}
+            style={{width: 12, height: 12}}
             {...props}
         >
             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
@@ -65,7 +62,7 @@ function Expand(props: SvgIconProps) {
     return (
         <SvgIcon
             fontSize="inherit"
-            style={{width: 14, height: 14, transform: 'rotate(90deg)'}}
+            style={{width: 12, height: 12, transform: 'rotate(90deg)'}}
             {...props}
         >
             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
@@ -121,7 +118,7 @@ export function MenuList(): React.JSX.Element {
                     startIcon={
                         <Box
                             component="img"
-                            alt="logo"
+                            alt=""
                             src="/images/ico_edit-nor.svg"
                             sx={{display: 'inline-block', height: '14px', width: '14px'}}
                         />

@@ -36,27 +36,29 @@ export function CreateTableForm(): React.JSX.Element {
                         }}
                     >
                         <TableContainer>
-                            <Table size="small" sx={{minWidth: 650}} aria-label="simple table"
+                            <Table sx={{minWidth: 650}} aria-label="simple table"
                                    className="form-table">
+                                <colgroup>
+                                    <col width="160px"/>
+                                    <col width=""/>
+                                </colgroup>
                                 <TableBody>
                                     <TableRow>
                                         <TableCell component="th" scope="row">
                                             이름<span className="required"/>
                                         </TableCell>
                                         <TableCell>
-                                            <form>
-                                                <Box display="flex" alignItems="center" gap={1}>
-                                                    <Box width={640}>
-                                                        <FormControl fullWidth>
-                                                            <OutlinedInput
-                                                                required
-                                                                type="id"
-                                                                size="small"
-                                                            />
-                                                        </FormControl>
-                                                    </Box>
+                                            <Box display="flex" alignItems="center" gap={1}>
+                                                <Box width={640}>
+                                                    <FormControl fullWidth>
+                                                        <OutlinedInput
+                                                            required
+                                                            type="id"
+                                                            size="small"
+                                                        />
+                                                    </FormControl>
                                                 </Box>
-                                            </form>
+                                            </Box>
                                         </TableCell>
                                     </TableRow>
 
@@ -65,19 +67,17 @@ export function CreateTableForm(): React.JSX.Element {
                                             아이디(이메일)<span className="required"/>
                                         </TableCell>
                                         <TableCell>
-                                            <form>
-                                                <Box display="flex" alignItems="center" gap={1}>
-                                                    <Box width={640}>
-                                                        <FormControl fullWidth>
-                                                            <OutlinedInput
-                                                                required
-                                                                type="id"
-                                                                size="small"
-                                                            />
-                                                        </FormControl>
-                                                    </Box>
+                                            <Box display="flex" alignItems="center" gap={1}>
+                                                <Box width={640}>
+                                                    <FormControl fullWidth>
+                                                        <OutlinedInput
+                                                            required
+                                                            type="id"
+                                                            size="small"
+                                                        />
+                                                    </FormControl>
                                                 </Box>
-                                            </form>
+                                            </Box>
                                         </TableCell>
                                     </TableRow>
 
@@ -86,25 +86,23 @@ export function CreateTableForm(): React.JSX.Element {
                                             권한<span className="required"/>
                                         </TableCell>
                                         <TableCell>
-                                            <form>
-                                                <Box display="flex" alignItems="center" gap={1}>
-                                                    <Box width={320}>
-                                                        <FormControl fullWidth>
-                                                            <Select
-                                                                onChange={handleChange}
-                                                                displayEmpty
-                                                                placeholder="권한 선택"
-                                                                id="select"
-                                                                value="0"
-                                                            >
-                                                                <MenuItem value={0}>관리자</MenuItem>
-                                                                <MenuItem value={1}>운영자</MenuItem>
-                                                                <MenuItem value={2}>사용자</MenuItem>
-                                                            </Select>
-                                                        </FormControl>
-                                                    </Box>
+                                            <Box display="flex" alignItems="center" gap={1}>
+                                                <Box width={320}>
+                                                    <FormControl fullWidth>
+                                                        <Select
+                                                            onChange={handleChange}
+                                                            displayEmpty
+                                                            placeholder="권한 선택"
+                                                            id="select"
+                                                            value="0"
+                                                        >
+                                                            <MenuItem value={0}>관리자</MenuItem>
+                                                            <MenuItem value={1}>운영자</MenuItem>
+                                                            <MenuItem value={2}>사용자</MenuItem>
+                                                        </Select>
+                                                    </FormControl>
                                                 </Box>
-                                            </form>
+                                            </Box>
                                         </TableCell>
                                     </TableRow>
 
@@ -113,23 +111,21 @@ export function CreateTableForm(): React.JSX.Element {
                                             설명
                                         </TableCell>
                                         <TableCell>
-                                            <form>
-                                                <Box display="flex" alignItems="center" gap={1}>
-                                                    <Box width={640}>
-                                                        <FormControl fullWidth>
-                                                            <OutlinedInput
-                                                                multiline
-                                                                rows={5}
-                                                                type="id"
-                                                                sx={{
-                                                                    height: '100px',
-                                                                }}
-                                                                size="small"
-                                                            />
-                                                        </FormControl>
-                                                    </Box>
+                                            <Box display="flex" alignItems="center" gap={1}>
+                                                <Box width={640}>
+                                                    <FormControl fullWidth>
+                                                        <OutlinedInput
+                                                            multiline
+                                                            rows={5}
+                                                            type="id"
+                                                            sx={{
+                                                                height: '100px',
+                                                            }}
+                                                            size="small"
+                                                        />
+                                                    </FormControl>
                                                 </Box>
-                                            </form>
+                                            </Box>
                                         </TableCell>
                                     </TableRow>
 
@@ -138,21 +134,19 @@ export function CreateTableForm(): React.JSX.Element {
                                             비밀번호<span className="required"/>
                                         </TableCell>
                                         <TableCell>
-                                            <form>
-                                                <Box display="flex" alignItems="center">
-                                                    <Box width={320} mr="12px">
-                                                        <FormControl fullWidth>
-                                                            <OutlinedInput
-                                                                required
-                                                                type="id"
-                                                                size="small"
-                                                            />
-                                                        </FormControl>
-                                                    </Box>
-                                                    <FormHelperText>영문 대소문자, 숫자, 특수문자(!@#$%^&*-=+)를 혼합하여 9~24자
-                                                        이내로 입력하시기 바랍니다.</FormHelperText>
+                                            <Box display="flex" alignItems="center">
+                                                <Box width={320} mr="12px">
+                                                    <FormControl fullWidth>
+                                                        <OutlinedInput
+                                                            required
+                                                            type="id"
+                                                            size="small"
+                                                        />
+                                                    </FormControl>
                                                 </Box>
-                                            </form>
+                                                <FormHelperText>영문 대소문자, 숫자, 특수문자(!@#$%^&*-=+)를 혼합하여 9~24자
+                                                    이내로 입력하시기 바랍니다.</FormHelperText>
+                                            </Box>
                                         </TableCell>
                                     </TableRow>
 
@@ -161,19 +155,17 @@ export function CreateTableForm(): React.JSX.Element {
                                             비밀번호 확인<span className="required"/>
                                         </TableCell>
                                         <TableCell>
-                                            <form>
-                                                <Box display="flex" alignItems="center" gap={1}>
-                                                    <Box width={320}>
-                                                        <FormControl fullWidth>
-                                                            <OutlinedInput
-                                                                required
-                                                                type="id"
-                                                                size="small"
-                                                            />
-                                                        </FormControl>
-                                                    </Box>
+                                            <Box display="flex" alignItems="center" gap={1}>
+                                                <Box width={320}>
+                                                    <FormControl fullWidth>
+                                                        <OutlinedInput
+                                                            required
+                                                            type="id"
+                                                            size="small"
+                                                        />
+                                                    </FormControl>
                                                 </Box>
-                                            </form>
+                                            </Box>
                                         </TableCell>
                                     </TableRow>
                                 </TableBody>

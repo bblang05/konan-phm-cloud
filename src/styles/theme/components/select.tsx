@@ -18,5 +18,6 @@ export const MuiSelect = {
             fontSize: '13px',
             paddingLeft: '8px',
         },
+
     },
 } satisfies Components<Theme>['MuiSelect'];

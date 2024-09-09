@@ -26,6 +26,8 @@ import {MuiContainer} from "./container";
 import {MuiListItem} from "./listItem";
 import {MuiList} from "./list";
 import {MuiCheckbox} from "./checkbox";
+import {MuiToggleButton} from "@/styles/theme/components/toggle-button";
+import {MuiRadio} from "@/styles/theme/components/radio";
 
 export const components = {
     MuiAvatar,
@@ -52,5 +54,7 @@ export const components = {
     MuiContainer,
     MuiListItem,
     MuiList,
-    MuiCheckbox
+    MuiCheckbox,
+    MuiToggleButton,
+    MuiRadio,
 } satisfies Components<Theme>;

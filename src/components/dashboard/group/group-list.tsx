@@ -13,7 +13,6 @@ import {
 import MenuItem from "@mui/material/MenuItem";
 
 import {CreateGroup} from './create-group'
-import {DotsThreeVertical as DotsThreeVerticalIcon} from "@phosphor-icons/react/dist/ssr/DotsThreeVertical";
 
 export function GroupList(): React.JSX.Element {
 
@@ -39,7 +38,7 @@ export function GroupList(): React.JSX.Element {
                     <ListItemIcon sx={{minWidth: '20px !important', marginRight: '8px'}}>
                         <Box
                             component="img"
-                            alt="새로고침"
+                            alt="그룹"
                             src="/images/ico_group.svg"
                             sx={{display: 'inline-block', height: '20px', width: '20px'}}
                         />
@@ -54,7 +53,12 @@ export function GroupList(): React.JSX.Element {
                         onClick={handleClick}
                         size="small"
                     >
-                        <DotsThreeVerticalIcon/>
+                        <Box
+                            component="img"
+                            alt="더보기"
+                            src="/images/ico_more.svg"
+                            sx={{display: 'inline-block', height: '16px', width: '16px'}}
+                        />
                     </IconButton>
 
                     <Menu
@@ -75,7 +79,7 @@ export function GroupList(): React.JSX.Element {
                     <ListItemIcon sx={{minWidth: '20px !important', marginRight: '8px'}}>
                         <Box
                             component="img"
-                            alt="새로고침"
+                            alt="그룹"
                             src="/images/ico_group.svg"
                             sx={{display: 'inline-block', height: '20px', width: '20px'}}
                         />
@@ -90,7 +94,12 @@ export function GroupList(): React.JSX.Element {
                         onClick={handleClick}
                         size="small"
                     >
-                        <DotsThreeVerticalIcon/>
+                        <Box
+                            component="img"
+                            alt="더보기"
+                            src="/images/ico_more.svg"
+                            sx={{display: 'inline-block', height: '16px', width: '16px'}}
+                        />
                     </IconButton>
 
                     <Menu

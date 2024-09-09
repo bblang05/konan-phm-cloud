@@ -20,7 +20,7 @@ import {useSelection} from '@/hooks/use-selection';
 function createData(
     startDay: Date,
     endDay: Date,
-    state: string,
+    state: React.ReactNode,
 ) {
     return {startDay, endDay, state};
 }
@@ -65,7 +65,7 @@ export function BillingTable(): React.JSX.Element {
                 </Stack>
             </Box>
             <Box sx={{overflowX: 'auto'}}>
-                <Table size="small" sx={{minWidth: '800px'}} className="even-table">
+                <Table sx={{minWidth: '800px'}} className="even-table">
                     <TableHead>
                         <TableRow>
                             <TableCell>
@@ -119,8 +119,7 @@ export function BillingTable(): React.JSX.Element {
                         {rows.map((row) => {
                             const isSelected = selected?.has(row.startDay);
                             return (
-                                <TableRow hover
-                                          key={row.startDay}
+                                <TableRow hover key={row.startDay}
                                           selected={isSelected}
                                 >
                                     <TableCell component="th" scope="row">

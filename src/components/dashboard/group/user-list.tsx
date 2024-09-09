@@ -17,16 +17,13 @@ import {
 import {useSelection} from "@/hooks/use-selection";
 
 import {AddUser} from "@/components/dashboard/group/add-user";
-import {DotsThreeVertical as DotsThreeVerticalIcon} from "@phosphor-icons/react/dist/ssr/DotsThreeVertical";
 
 function createData(
     name: string,
     email: string,
     authority: string,
-    group: string,
-    lastAccessDate: Date
 ) {
-    return {name, email, authority, group, lastAccessDate};
+    return {name, email, authority};
 }
 
 const rows = [
@@ -67,7 +64,7 @@ export function UserList(): React.JSX.Element {
             </Box>
 
             <Box sx={{overflowX: 'auto'}}>
-                <Table size="small" className="even-table">
+                <Table className="even-table">
                     <TableHead>
                         <TableRow>
                             <TableCell>
@@ -116,7 +113,6 @@ export function UserList(): React.JSX.Element {
                                 />
                             </TableCell>
                             <TableCell/>
-                            <TableCell/>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -132,7 +128,6 @@ export function UserList(): React.JSX.Element {
                                     </TableCell>
                                     <TableCell sx={{paddingTop: '2px', paddingBottom: '2px'}}>{row.email}</TableCell>
                                     <TableCell sx={{paddingTop: '2px', paddingBottom: '2px'}}>{row.authority}</TableCell>
-                                    <TableCell align="right" sx={{paddingTop: '2px', paddingBottom: '2px'}}>{row.group}</TableCell>
                                     <TableCell align="right" sx={{paddingTop: '2px', paddingBottom: '2px'}}>
                                         <IconButton
                                             aria-label="more"
@@ -143,7 +138,12 @@ export function UserList(): React.JSX.Element {
                                             onClick={handleClick}
                                             size="small"
                                         >
-                                            <DotsThreeVerticalIcon/>
+                                            <Box
+                                                component="img"
+                                                alt="더보기"
+                                                src="/images/ico_more.svg"
+                                                sx={{display: 'inline-block', height: '16px', width: '16px'}}
+                                            />
                                         </IconButton>
                                     </TableCell>
                                 </TableRow>

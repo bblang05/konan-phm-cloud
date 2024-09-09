@@ -39,7 +39,7 @@ declare module '@mui/material/styles/createPalette' {
 export function createTheme(): Theme {
     const theme = extendTheme({
         // breakpoints: { values: { xs: 0, sm: 900, md: 1200, lg: 1440, xl: 1920 } },
-        breakpoints: {values: {xs: 900, sm: 900, md: 1200, lg: 1440, xl: 1920}},
+        breakpoints: {values: {xs: 900, sm: 1200, md: 1440, lg: 1660, xl: 1920}},
         components,
         colorSchemes,
         shadows,

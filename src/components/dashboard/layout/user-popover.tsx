@@ -43,7 +43,7 @@ export function UserPopover({anchorEl, onClose, open}: UserPopoverProps): React.
             slotProps={{paper: {sx: {width: '120px', borderRadius: '5px'}}}}
         >
             <MenuList disablePadding sx={{p: '4px 0'}}>
-                <MenuItem component={RouterLink} href={paths.dashboard.settings} onClick={onClose}>
+                <MenuItem>
                     비밀번호 변경
                 </MenuItem>
                 <MenuItem onClick={handleSignOut}>로그아웃</MenuItem>

@@ -45,26 +45,28 @@ export function EditTableForm(): React.JSX.Element {
                     >
                         <TableContainer>
                             <Table size="small" sx={{minWidth: 650}} aria-label="simple table" className="form-table">
+                                <colgroup>
+                                    <col width="160px"/>
+                                    <col width=""/>
+                                </colgroup>
                                 <TableBody>
                                     <TableRow>
                                         <TableCell component="th" scope="row">
                                             이름
                                         </TableCell>
                                         <TableCell>
-                                            <form>
-                                                <Box display="flex" alignItems="center" gap={1}>
-                                                    <Box width={640}>
-                                                        <FormControl fullWidth>
-                                                            <OutlinedInput
-                                                                defaultValue="김코난2"
-                                                                required
-                                                                type="id"
-                                                                size="small"
-                                                            />
-                                                        </FormControl>
-                                                    </Box>
+                                            <Box display="flex" alignItems="center" gap={1}>
+                                                <Box width={640}>
+                                                    <FormControl fullWidth>
+                                                        <OutlinedInput
+                                                            defaultValue="김코난2"
+                                                            required
+                                                            type="id"
+                                                            size="small"
+                                                        />
+                                                    </FormControl>
                                                 </Box>
-                                            </form>
+                                            </Box>
                                         </TableCell>
                                     </TableRow>
 
@@ -82,24 +84,22 @@ export function EditTableForm(): React.JSX.Element {
                                             권한<span className="required"/>
                                         </TableCell>
                                         <TableCell>
-                                            <form>
-                                                <Box display="flex" alignItems="center" gap={1}>
-                                                    <Box width={320}>
-                                                        <FormControl fullWidth>
-                                                            <Select
-                                                                value={pageNum}
-                                                                onChange={handleChange}
-                                                                displayEmpty
-                                                                placeholder="권한 선택"
-                                                            >
-                                                                <MenuItem value="">관리자</MenuItem>
-                                                                <MenuItem value="">운영자</MenuItem>
-                                                                <MenuItem value="">사용자</MenuItem>
-                                                            </Select>
-                                                        </FormControl>
-                                                    </Box>
+                                            <Box display="flex" alignItems="center" gap={1}>
+                                                <Box width={320}>
+                                                    <FormControl fullWidth>
+                                                        <Select
+                                                            value={pageNum}
+                                                            onChange={handleChange}
+                                                            displayEmpty
+                                                            placeholder="권한 선택"
+                                                        >
+                                                            <MenuItem value="">관리자</MenuItem>
+                                                            <MenuItem value="">운영자</MenuItem>
+                                                            <MenuItem value="">사용자</MenuItem>
+                                                        </Select>
+                                                    </FormControl>
                                                 </Box>
-                                            </form>
+                                            </Box>
                                         </TableCell>
                                     </TableRow>
 
@@ -119,23 +119,21 @@ export function EditTableForm(): React.JSX.Element {
                                             설명
                                         </TableCell>
                                         <TableCell>
-                                            <form>
-                                                <Box display="flex" alignItems="center" gap={1}>
-                                                    <Box width={640}>
-                                                        <FormControl fullWidth>
-                                                            <OutlinedInput
-                                                                multiline
-                                                                rows={5}
-                                                                type="id"
-                                                                sx={{
-                                                                    height: '100px',
-                                                                }}
-                                                                size="small"
-                                                            />
-                                                        </FormControl>
-                                                    </Box>
+                                            <Box display="flex" alignItems="center" gap={1}>
+                                                <Box width={640}>
+                                                    <FormControl fullWidth>
+                                                        <OutlinedInput
+                                                            multiline
+                                                            rows={5}
+                                                            type="id"
+                                                            sx={{
+                                                                height: '100px',
+                                                            }}
+                                                            size="small"
+                                                        />
+                                                    </FormControl>
                                                 </Box>
-                                            </form>
+                                            </Box>
                                         </TableCell>
                                     </TableRow>
 

@@ -45,11 +45,25 @@ body {
 
 .form-table th {
     background: #F0F2F5;
-    width: 160px;
-    min-width: 160px;
     vertical-align: top;
-    padding: 14px 16px;
+    padding: 13px 16px;
     font-weight: 500;
+    min-height: 48px;
+}
+
+.form-table:not(.tiny) tr td {
+    padding: 10px 16px;
+}
+
+.form-table.tiny th {
+    vertical-align: top;
+    padding: 6px 12px !important;
+    font-weight: 500;
+    min-height: 48px;
+}
+
+.form-table.tiny.bordered td {
+    border-left: 1px solid #ddd;
 }
 
 .center {
@@ -60,6 +74,10 @@ table.even-table tr:nth-child(even) {
     background: #F5F6F7;
 }
 
+table.even-table tr td {
+    min-height: 40px;
+}
+
 .required {
     display: inline-block;
 }
@@ -68,7 +86,6 @@ table.even-table tr:nth-child(even) {
     content: '*';
     color: #f00;
     padding-left: 4px;
-
 }
 
 .date-custom button {

@@ -20,7 +20,7 @@ import {useSelection} from "@/hooks/use-selection";
 import {UserFilters} from "@/components/dashboard/group/user-filters";
 
 function createData(
-    checkbox: string,
+    checkbox: React.ReactNode,
     name: string,
     email: string,
     authority: string,
@@ -233,10 +233,9 @@ export function AddUser(): React.JSX.Element {
                                                   key={row.name}
                                                   selected={isSelected}
                                         >
-                                            <TableCell sx={{paddingTop: '5px', paddingBottom: '5px'}}>{row.checkbox}</TableCell>
+                                            <TableCell align={"center"} sx={{paddingTop: '5px', paddingBottom: '5px'}}>{row.checkbox}</TableCell>
                                             <TableCell sx={{paddingTop: '5px', paddingBottom: '5px'}} component="th" scope="row">
-                                                <Link href="#" underline="always"
-                                                      color="inherit"> {row.name}</Link>
+                                                {row.name}
                                             </TableCell>
                                             <TableCell sx={{paddingTop: '5px', paddingBottom: '5px'}}>{row.email}</TableCell>
                                             <TableCell sx={{paddingTop: '5px', paddingBottom: '5px'}}>{row.authority}</TableCell>

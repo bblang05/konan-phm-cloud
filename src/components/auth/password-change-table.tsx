@@ -70,27 +70,25 @@ export default function PasswordChangeTable() {
                                     기존 비밀번호
                                 </TableCell>
                                 <TableCell>
-                                    <form onSubmit={handleSubmit(onSubmit)}>
-                                        <Box display="flex" alignItems="center" gap={1}>
-                                            <Box width={320}>
-                                                <Controller
-                                                    control={control}
-                                                    name="password"
-                                                    render={({field}) => (
-                                                        <FormControl fullWidth error={Boolean(errors.password)}>
-                                                            <OutlinedInput
-                                                                type="password"
-                                                                size="small"
-                                                                placeholder="비밀번호"
-                                                                {...field}
-                                                            />
-                                                            <FormHelperText>{errors.password?.message}</FormHelperText>
-                                                        </FormControl>
-                                                    )}
-                                                />
-                                            </Box>
+                                    <Box display="flex" alignItems="center" gap={1}>
+                                        <Box width={320}>
+                                            <Controller
+                                                control={control}
+                                                name="password"
+                                                render={({field}) => (
+                                                    <FormControl fullWidth error={Boolean(errors.password)}>
+                                                        <OutlinedInput
+                                                            type="password"
+                                                            size="small"
+                                                            placeholder="비밀번호"
+                                                            {...field}
+                                                        />
+                                                        <FormHelperText>{errors.password?.message}</FormHelperText>
+                                                    </FormControl>
+                                                )}
+                                            />
                                         </Box>
-                                    </form>
+                                    </Box>
                                 </TableCell>
                             </TableRow>
 
@@ -99,27 +97,25 @@ export default function PasswordChangeTable() {
                                     변경 비밀번호
                                 </TableCell>
                                 <TableCell>
-                                    <form onSubmit={handleSubmit(onSubmit)}>
-                                        <Box display="flex" alignItems="center" gap={2}>
-                                            <Box width={320}>
-                                                <Controller
-                                                    control={control}
-                                                    name="password"
-                                                    render={({field}) => (
-                                                        <FormControl fullWidth error={Boolean(errors.password)}>
-                                                            <OutlinedInput
-                                                                type="password"
-                                                                size="small"
-                                                                placeholder="비밀번호"
-                                                                {...field}
-                                                            />
-                                                            <FormHelperText>{errors.password?.message}</FormHelperText>
-                                                        </FormControl>
-                                                    )}
-                                                />
-                                            </Box>
+                                    <Box display="flex" alignItems="center" gap={2}>
+                                        <Box width={320}>
+                                            <Controller
+                                                control={control}
+                                                name="password"
+                                                render={({field}) => (
+                                                    <FormControl fullWidth error={Boolean(errors.password)}>
+                                                        <OutlinedInput
+                                                            type="password"
+                                                            size="small"
+                                                            placeholder="비밀번호"
+                                                            {...field}
+                                                        />
+                                                        <FormHelperText>{errors.password?.message}</FormHelperText>
+                                                    </FormControl>
+                                                )}
+                                            />
                                         </Box>
-                                    </form>
+                                    </Box>
                                 </TableCell>
                             </TableRow>
 
@@ -128,30 +124,28 @@ export default function PasswordChangeTable() {
                                     변경 비밀번호 확인
                                 </TableCell>
                                 <TableCell>
-                                    <form onSubmit={handleSubmit(onSubmit)}>
-                                        <Box display="flex" alignItems="center" gap={2}>
-                                            <Box width={320}>
-                                                <Controller
-                                                    control={control}
-                                                    name="password"
-                                                    render={({field}) => (
-                                                        <FormControl fullWidth error={Boolean(errors.password)}>
-                                                            <OutlinedInput
-                                                                type="password"
-                                                                error
-                                                                size="small"
-                                                                placeholder="비밀번호"
-                                                                {...field}
-                                                            />
-                                                        </FormControl>
-                                                    )}
-                                                />
-                                            </Box>
-                                            <Box>
-                                                <FormHelperText error={true}>비밀번호가 일치하지 않습니다.</FormHelperText>
-                                            </Box>
+                                    <Box display="flex" alignItems="center" gap={2}>
+                                        <Box width={320}>
+                                            <Controller
+                                                control={control}
+                                                name="password"
+                                                render={({field}) => (
+                                                    <FormControl fullWidth error={Boolean(errors.password)}>
+                                                        <OutlinedInput
+                                                            type="password"
+                                                            error
+                                                            size="small"
+                                                            placeholder="비밀번호"
+                                                            {...field}
+                                                        />
+                                                    </FormControl>
+                                                )}
+                                            />
                                         </Box>
-                                    </form>
+                                        <Box>
+                                            <FormHelperText error={true}>비밀번호가 일치하지 않습니다.</FormHelperText>
+                                        </Box>
+                                    </Box>
                                 </TableCell>
                             </TableRow>
                         </TableBody>

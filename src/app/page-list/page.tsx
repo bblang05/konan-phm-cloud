@@ -26,7 +26,7 @@ export default function Page() {
                     <TableHead>
                         <TableRow>
                             <TableCell>화면명(링크)</TableCell>
-                            <TableCell>화면설명</TableCell>
+                            <TableCell>설명</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -121,6 +121,24 @@ export default function Page() {
                             </TableCell>
                             <TableCell></TableCell>
                         </TableRow>
+
+                        {/* 2차*/}
+                        <TableRow>
+                            <TableCell component="th" scope="row">
+                                <Link href="/auth/sign-up">회원가입</Link>
+                            </TableCell>
+                            <TableCell>2차 추가</TableCell>
+                        </TableRow>
+
+                        <TableRow>
+                            <TableCell component="th" scope="row">
+                                <Link href="/dashboard/usage-setting">사용량 관리</Link>
+                            </TableCell>
+                            <TableCell>2차 추가</TableCell>
+                        </TableRow>
+
+
+
                     </TableBody>
                 </Table>
             </TableContainer>
