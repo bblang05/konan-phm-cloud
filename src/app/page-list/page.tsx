@@ -119,7 +119,7 @@ export default function Page() {
                             <TableCell component="th" scope="row">
                                 <Link href="/dashboard/tenant-create">테넌트관리-테넌트 생성</Link>
                             </TableCell>
-                            <TableCell></TableCell>
+                            <TableCell>수정</TableCell>
                         </TableRow>
 
                         {/* 2차*/}

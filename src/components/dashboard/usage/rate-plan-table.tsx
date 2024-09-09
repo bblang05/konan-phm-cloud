@@ -97,7 +97,7 @@ export function RatePlanTable(): React.JSX.Element {
                                         <Box display="flex" alignItems="center" justifyContent="space-between">
                                             <Box></Box>
                                             <Box>
-                                                `<Typography color="primary.main">총 3,266,667원</Typography>`
+                                                <Typography color="primary.main">총 3,266,667원</Typography>
                                             </Box>
                                         </Box>
                                     </TableCell>

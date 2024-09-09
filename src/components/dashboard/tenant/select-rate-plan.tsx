@@ -3,6 +3,7 @@
 import * as React from 'react';
 import {styled} from '@mui/material/styles';
 import {CheckboxProps} from '@mui/material/Checkbox';
+import {RadioProps} from '@mui/material/Radio';
 
 import {
     Box,
@@ -64,7 +65,7 @@ const BpCheckedIcon = styled(BpIcon)({
 function BpCheckbox(props: CheckboxProps) {
     return (
         <Checkbox
-            sx={{'&:hover': {bgcolor: 'transparent'}}}
+            sx={{'&:hover': {backgroundColor: 'transparent'}}}
             disableRipple
             color="default"
             checkedIcon={<BpCheckedIcon/>}
@@ -123,7 +124,7 @@ export function SelectRatePlan(): React.JSX.Element {
     const [alignment, setAlignment] = React.useState('week');
 
     const handleChange = (
-        event: React.MouseEvent<HTMLElement>,
+        // event: React.MouseEvent<HTMLElement>,
         newAlignment: string,
     ) => {
         setAlignment(newAlignment);
@@ -138,6 +139,13 @@ export function SelectRatePlan(): React.JSX.Element {
     const handleClose = () => {
         setOpen(false);
     };
+
+    const [selectValue, setSelectValue] = React.useState<string>('0');
+
+    const handleSelectChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+        setSelectValue(event.target.value as string);
+    };
+
 
     return (
         <Box>
@@ -179,8 +187,8 @@ export function SelectRatePlan(): React.JSX.Element {
                         </ToggleButtonGroup>
                     </Box>
 
-                    <Box marginBottom="16px">
-                        <form>
+                    <form>
+                        <Box marginBottom="16px">
                             <RadioGroup
                                 defaultValue="female"
                                 aria-labelledby="demo-customized-radios"
@@ -334,12 +342,12 @@ export function SelectRatePlan(): React.JSX.Element {
                                                     <Box width={53} display="inline-block">
                                                         <FormControl fullWidth size="small">
                                                             <Select
-                                                                onChange={handleChange}
+                                                                onChange={handleSelectChange}
                                                                 displayEmpty
                                                                 size="small"
                                                                 placeholder="사용상태 선택"
                                                                 id="select"
-                                                                value="0"
+                                                                value={selectValue}
                                                             >
                                                                 <MenuItem value={0}>2</MenuItem>
                                                                 <MenuItem value={1}>4</MenuItem>
@@ -387,8 +395,8 @@ export function SelectRatePlan(): React.JSX.Element {
                                     </Table>
                                 </TableContainer>
                             </RadioGroup>
-                        </form>
-                    </Box>
+                        </Box>
+                    </form>
 
                     <Box>
                         <Box marginBottom="10px">

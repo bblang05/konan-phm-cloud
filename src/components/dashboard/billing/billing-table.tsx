@@ -119,7 +119,7 @@ export function BillingTable(): React.JSX.Element {
                         {rows.map((row) => {
                             const isSelected = selected?.has(row.startDay);
                             return (
-                                <TableRow hover key={row.startDay}
+                                <TableRow hover key={row.startDay.getTime()}
                                           selected={isSelected}
                                 >
                                     <TableCell component="th" scope="row">
