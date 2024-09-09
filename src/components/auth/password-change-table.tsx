@@ -22,12 +22,14 @@ import {authClient} from '@/lib/auth/client';
 import {useUser} from '@/hooks/use-user';
 
 const schema = zod.object({
+    email: zod.string().min(1, {message: '존재하지 않는 아이디입니다.'}).email(),
     password: zod.string().min(1, {message: '비밀번호가 일치하지 않습니다. (1/5회)'}),
 });
 
+
 type Values = zod.infer<typeof schema>;
 
-const defaultValues: Values = {password: '1234'};
+const defaultValues = {email: 'admin@konantech.com', password: '1234'} satisfies Values;
 
 export default function PasswordChangeTable() {
     const router = useRouter();
@@ -80,7 +82,7 @@ export default function PasswordChangeTable() {
                                                         <OutlinedInput
                                                             type="password"
                                                             size="small"
-                                                            placeholder="비밀번호"
+                                                            placeholder="기존 비밀번호"
                                                             {...field}
                                                         />
                                                         <FormHelperText>{errors.password?.message}</FormHelperText>
@@ -107,7 +109,7 @@ export default function PasswordChangeTable() {
                                                         <OutlinedInput
                                                             type="password"
                                                             size="small"
-                                                            placeholder="비밀번호"
+                                                            placeholder="변경 비밀번호"
                                                             {...field}
                                                         />
                                                         <FormHelperText>{errors.password?.message}</FormHelperText>
