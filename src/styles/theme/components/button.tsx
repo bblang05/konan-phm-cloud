@@ -25,7 +25,7 @@ export const MuiButton = {
         },
         textPrimary: {
           fontWeight: 'normal',
-            color: '#555759',
+            color: 'var(--mui-palette-text-secondary)',
         },
         startIcon: {
             marginRight: '4px',

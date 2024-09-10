@@ -88,7 +88,7 @@ const RadioIcon = styled('span')(() => ({
     },
     'input:disabled ~ &': {
         boxShadow: 'none',
-        background: 'rgba(206,217,224,.5)',
+        background: '#D3D7DE',
     },
 }));
 
@@ -142,13 +142,11 @@ export function SelectRatePlan(): React.JSX.Element {
         setOpen(false);
     };
 
-
     const [selectValue, setSelectValue] = React.useState<string>('0');
 
     const handleSelectChange = (event: SelectChangeEvent) => {
         setSelectValue(event.target.value as string);
     };
-
 
     return (
         <Box>
@@ -324,10 +322,10 @@ export function SelectRatePlan(): React.JSX.Element {
                                                     <BpCheckbox/>
                                                 </TableCell>
                                                 <TableCell align="center">
-                                                    <BpCheckbox/>
+                                                    <BpCheckbox disabled/>
                                                 </TableCell>
                                                 <TableCell align="center">
-                                                    <BpCheckbox/>
+                                                    <BpCheckbox disabled/>
                                                 </TableCell>
                                             </TableRow>
 

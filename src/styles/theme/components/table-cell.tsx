@@ -6,7 +6,7 @@ export const MuiTableCell = {
     styleOverrides: {
         root: {
             fontSize: '13px',
-            color: '#555759',
+            color: 'var(--mui-palette-neutral-600)',
             borderBottom: 'var(--TableCell-borderWidth, 1px) solid var(--mui-palette-TableCell-border)',
             padding: '8px 16px',
             minHeight:'40px',

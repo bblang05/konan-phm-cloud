@@ -10,7 +10,7 @@ export const MuiOutlinedInput = {
             backgroundColor: '#F7F8FA',
             height: '36px',
             paddingLeft: '10px',
-            paddingRight: '4px',
+            paddingRight: '10px',
             [`& img`]: {
                 marginRight: '8px',
             },

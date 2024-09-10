@@ -22,6 +22,8 @@ export const paths = {
         tenantCreate: '/dashboard/create-tenant',
         groupSetting: '/dashboard/group-setting',
         usageSetting: '/dashboard/usage-setting',
+        ratePlanDetail: '/dashboard/rate-plan-detail',
+        ratePlanEdit: '/dashboard/rate-plan-edit',
     },
     errors: {notFound: '/errors/not-found'},
 } as const;

@@ -20,10 +20,10 @@ import Select, {SelectChangeEvent} from "@mui/material/Select";
 
 export function CreateTableForm(): React.JSX.Element {
 
-    const [authority, setAuthority] = React.useState('');
+    const [selectValue, setSelectValue] = React.useState<string>('0');
 
-    const handleChange = (event: SelectChangeEvent) => {
-        setAuthority(event.target.value);
+    const handleSelectChange = (event: SelectChangeEvent) => {
+        setSelectValue(event.target.value as string);
     };
 
     return (
@@ -90,15 +90,24 @@ export function CreateTableForm(): React.JSX.Element {
                                                 <Box width={320}>
                                                     <FormControl fullWidth>
                                                         <Select
-                                                            onChange={handleChange}
+                                                            sx={{
+                                                                height: '30px',
+                                                                backgroundColor: 'var(--mui-palette-background-paper)',
+                                                                // color: '#777D87'
+                                                            }}
+                                                            value={selectValue}
+                                                            size="small"
+                                                            onChange={handleSelectChange}
                                                             displayEmpty
-                                                            placeholder="권한 선택"
                                                             id="select"
-                                                            value="0"
+                                                            variant="outlined"
                                                         >
-                                                            <MenuItem value={0}>관리자</MenuItem>
-                                                            <MenuItem value={1}>운영자</MenuItem>
-                                                            <MenuItem value={2}>사용자</MenuItem>
+                                                            <MenuItem value={0}>
+                                                                권한 선택
+                                                            </MenuItem>
+                                                            <MenuItem value={1}>관리자</MenuItem>
+                                                            <MenuItem value={2}>운영자</MenuItem>
+                                                            <MenuItem value={3}>사용자</MenuItem>
                                                         </Select>
                                                     </FormControl>
                                                 </Box>

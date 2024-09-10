@@ -137,7 +137,26 @@ export default function Page() {
                             <TableCell>2차 추가</TableCell>
                         </TableRow>
 
+                        <TableRow>
+                            <TableCell component="th" scope="row">
+                                <Link href="/dashboard/rate-plan-detail">요금제 상세</Link>
+                            </TableCell>
+                            <TableCell>2차 추가</TableCell>
+                        </TableRow>
 
+                        <TableRow>
+                            <TableCell component="th" scope="row">
+                                <Link href="/dashboard/default-rate-plan-edit">요금제 수정-기본 서비스</Link>
+                            </TableCell>
+                            <TableCell>2차 추가</TableCell>
+                        </TableRow>
+
+                        <TableRow>
+                            <TableCell component="th" scope="row">
+                                <Link href="/dashboard/additional-rate-plan-edit">요금제 수정-추가 서비스</Link>
+                            </TableCell>
+                            <TableCell>2차 추가</TableCell>
+                        </TableRow>
 
                     </TableBody>
                 </Table>
