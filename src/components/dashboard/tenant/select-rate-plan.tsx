@@ -12,6 +12,7 @@ import {
     DialogActions,
     DialogContent,
     DialogTitle,
+    TableContainer,
     Table,
     TableBody,
     TableCell,
@@ -24,13 +25,13 @@ import {
     Typography,
     Radio,
     RadioGroup,
-    FormControlLabel
+    FormControlLabel,
+    Select,
+    SelectChangeEvent
 } from '@mui/material';
 
-import Select from "@mui/material/Select";
-import TableContainer from "@mui/material/TableContainer";
 
-const BpIcon = styled('span')(({theme}) => ({
+const BpIcon = styled('span')(() => ({
     borderRadius: 3,
     width: 16,
     height: 16,
@@ -50,7 +51,6 @@ const BpCheckedIcon = styled(BpIcon)({
         display: 'block',
         width: 16,
         height: 16,
-
         backgroundImage:
             "url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath" +
             " fill-rule='evenodd' clip-rule='evenodd' d='M12 5c-.28 0-.53.11-.71.29L7 9.59l-2.29-2.3a1.003 " +
@@ -77,7 +77,7 @@ function BpCheckbox(props: CheckboxProps) {
 }
 
 
-const RadioIcon = styled('span')(({theme}) => ({
+const RadioIcon = styled('span')(() => ({
     borderRadius: '50%',
     width: 16,
     height: 16,
@@ -124,10 +124,12 @@ export function SelectRatePlan(): React.JSX.Element {
     const [alignment, setAlignment] = React.useState('week');
 
     const handleChange = (
-        // event: React.MouseEvent<HTMLElement>,
-        newAlignment: string,
+        _: React.MouseEvent<HTMLElement>,
+        newAlignment: string | null,
     ) => {
-        setAlignment(newAlignment);
+        if (newAlignment !== null) {
+            setAlignment(newAlignment);
+        }
     };
 
     const [open, setOpen] = React.useState(false);
@@ -140,9 +142,10 @@ export function SelectRatePlan(): React.JSX.Element {
         setOpen(false);
     };
 
+
     const [selectValue, setSelectValue] = React.useState<string>('0');
 
-    const handleSelectChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    const handleSelectChange = (event: SelectChangeEvent) => {
         setSelectValue(event.target.value as string);
     };
 
@@ -175,6 +178,7 @@ export function SelectRatePlan(): React.JSX.Element {
                 <DialogContent sx={{height: '531px', overflowX: 'auto'}}>
                     <Box padding="16px 0">
                         <Box marginBottom="10px">기본 서비스</Box>
+
                         <ToggleButtonGroup
                             size="small"
                             value={alignment}
@@ -190,9 +194,8 @@ export function SelectRatePlan(): React.JSX.Element {
                     <form>
                         <Box marginBottom="16px">
                             <RadioGroup
-                                defaultValue="female"
-                                aria-labelledby="demo-customized-radios"
-                                name="customized-radios"
+                                defaultValue="free"
+                                name="basic-service-radio-group"
                             >
                                 <TableContainer>
                                     <Table size="small" sx={{minWidth: 650}} aria-label="simple table"
@@ -209,30 +212,30 @@ export function SelectRatePlan(): React.JSX.Element {
                                             <TableRow>
                                                 <TableCell component="th" scope="row"/>
                                                 <TableCell component="th" align="center" scope="row">
-                                                    <FormControlLabel value="free" control={<BpRadio/>}
+
+                                                    <FormControlLabel value="free" control={<BpRadio/>} label="Free"
+                                                                      labelPlacement="bottom"
                                                                       sx={{margin: 0}}/>
-                                                    <Typography fontWeight="bold" variant="body2">Free</Typography>
                                                 </TableCell>
                                                 <TableCell component="th" align="center" scope="row">
-                                                    <FormControlLabel value="basic" control={<BpRadio/>}
+                                                    <FormControlLabel value="basic" control={<BpRadio/>} label="Basic"
+                                                                      labelPlacement="bottom"
                                                                       sx={{margin: 0}}/>
-                                                    <Typography fontWeight="bold" variant="body2">Basic</Typography>
                                                 </TableCell>
                                                 <TableCell component="th" align="center" scope="row">
-                                                    <FormControlLabel value="pro" control={<BpRadio/>}
+                                                    <FormControlLabel value="pro" control={<BpRadio/>} label="Pro"
+                                                                      labelPlacement="bottom"
                                                                       sx={{margin: 0}}/>
-                                                    <Typography fontWeight="bold" variant="body2">Pro</Typography>
                                                 </TableCell>
                                                 <TableCell component="th" align="center" scope="row">
                                                     <FormControlLabel value="premium" control={<BpRadio/>}
+                                                                      label="Premium" labelPlacement="bottom"
                                                                       sx={{margin: 0}}/>
-                                                    <Typography fontWeight="bold" variant="body2">Premium</Typography>
                                                 </TableCell>
                                                 <TableCell component="th" align="center" scope="row">
                                                     <FormControlLabel value="enterprise" control={<BpRadio/>}
+                                                                      label="Enterprise" labelPlacement="bottom"
                                                                       sx={{margin: 0}}/>
-                                                    <Typography fontWeight="bold"
-                                                                variant="body2">Enterprise</Typography>
                                                 </TableCell>
                                             </TableRow>
 
@@ -340,14 +343,19 @@ export function SelectRatePlan(): React.JSX.Element {
                                                 </TableCell>
                                                 <TableCell align="center">
                                                     <Box width={53} display="inline-block">
-                                                        <FormControl fullWidth size="small">
+                                                        <FormControl>
                                                             <Select
+                                                                sx={{
+                                                                    height: '24px',
+                                                                    backgroundColor: 'var(--mui-palette-background-paper)',
+                                                                    color: '#777D87'
+                                                                }}
+                                                                value={selectValue}
+                                                                size="small"
                                                                 onChange={handleSelectChange}
                                                                 displayEmpty
-                                                                size="small"
-                                                                placeholder="사용상태 선택"
                                                                 id="select"
-                                                                value={selectValue}
+                                                                variant="outlined"
                                                             >
                                                                 <MenuItem value={0}>2</MenuItem>
                                                                 <MenuItem value={1}>4</MenuItem>
@@ -357,14 +365,19 @@ export function SelectRatePlan(): React.JSX.Element {
                                                 </TableCell>
                                                 <TableCell align="center">
                                                     <Box width={53} display="inline-block">
-                                                        <FormControl fullWidth>
+                                                        <FormControl>
                                                             <Select
-                                                                onChange={handleChange}
-                                                                displayEmpty
+                                                                sx={{
+                                                                    height: '24px',
+                                                                    backgroundColor: 'var(--mui-palette-background-paper)',
+                                                                    color: '#777D87'
+                                                                }}
+                                                                value={selectValue}
                                                                 size="small"
-                                                                placeholder="사용상태 선택"
+                                                                onChange={handleSelectChange}
+                                                                displayEmpty
                                                                 id="select"
-                                                                value="1"
+                                                                variant="outlined"
                                                             >
                                                                 <MenuItem value={0}>2</MenuItem>
                                                                 <MenuItem value={1}>4</MenuItem>
@@ -404,9 +417,8 @@ export function SelectRatePlan(): React.JSX.Element {
                         </Box>
                         <form>
                             <RadioGroup
-                                defaultValue="female"
-                                aria-labelledby="demo-customized-radios"
-                                name="customized-radios"
+                                defaultValue="aiBasic"
+                                name="additional-service-radio-button-group"
                             >
                                 <TableContainer>
                                     <Table size="small" sx={{minWidth: 650}} aria-label="simple table"
@@ -423,20 +435,19 @@ export function SelectRatePlan(): React.JSX.Element {
                                             <TableRow>
                                                 <TableCell component="th" scope="row"/>
                                                 <TableCell component="th" align="center" scope="row">
-                                                    <FormControlLabel value="free" control={<BpRadio/>}
+                                                    <FormControlLabel value="aiBasic" control={<BpRadio/>}
+                                                                      label="AI Basic" labelPlacement="bottom"
                                                                       sx={{margin: 0}}/>
-                                                    <Typography fontWeight="bold" variant="body2">AI Basic</Typography>
                                                 </TableCell>
                                                 <TableCell component="th" align="center" scope="row">
-                                                    <FormControlLabel value="basic" control={<BpRadio/>}
+                                                    <FormControlLabel value="aiPro" control={<BpRadio/>} label="AI Pro"
+                                                                      labelPlacement="bottom"
                                                                       sx={{margin: 0}}/>
-                                                    <Typography fontWeight="bold" variant="body2">AI Pro</Typography>
                                                 </TableCell>
                                                 <TableCell component="th" align="center" scope="row">
-                                                    <FormControlLabel value="pro" control={<BpRadio/>}
+                                                    <FormControlLabel value="aiPremium" control={<BpRadio/>}
+                                                                      label="AI Premium" labelPlacement="bottom"
                                                                       sx={{margin: 0}}/>
-                                                    <Typography fontWeight="bold" variant="body2">AI
-                                                        Premium</Typography>
                                                 </TableCell>
                                             </TableRow>
 
@@ -449,14 +460,19 @@ export function SelectRatePlan(): React.JSX.Element {
                                                 </TableCell>
                                                 <TableCell align="center">
                                                     <Box width={53} display="inline-block">
-                                                        <FormControl fullWidth size="small">
+                                                        <FormControl>
                                                             <Select
-                                                                onChange={handleChange}
-                                                                displayEmpty
+                                                                sx={{
+                                                                    height: '24px',
+                                                                    backgroundColor: 'var(--mui-palette-background-paper)',
+                                                                    color: '#777D87'
+                                                                }}
+                                                                value={selectValue}
                                                                 size="small"
-                                                                placeholder="사용상태 선택"
+                                                                onChange={handleSelectChange}
+                                                                displayEmpty
                                                                 id="select"
-                                                                value="0"
+                                                                variant="outlined"
                                                             >
                                                                 <MenuItem value={0}>2</MenuItem>
                                                                 <MenuItem value={1}>4</MenuItem>
@@ -466,14 +482,19 @@ export function SelectRatePlan(): React.JSX.Element {
                                                 </TableCell>
                                                 <TableCell align="center">
                                                     <Box width={53} display="inline-block">
-                                                        <FormControl fullWidth size="small">
+                                                        <FormControl>
                                                             <Select
-                                                                onChange={handleChange}
-                                                                displayEmpty
+                                                                sx={{
+                                                                    height: '24px',
+                                                                    backgroundColor: 'var(--mui-palette-background-paper)',
+                                                                    color: '#777D87'
+                                                                }}
+                                                                value={selectValue}
                                                                 size="small"
-                                                                placeholder="사용상태 선택"
+                                                                onChange={handleSelectChange}
+                                                                displayEmpty
                                                                 id="select"
-                                                                value="0"
+                                                                variant="outlined"
                                                             >
                                                                 <MenuItem value={0}>2</MenuItem>
                                                                 <MenuItem value={1}>4</MenuItem>
