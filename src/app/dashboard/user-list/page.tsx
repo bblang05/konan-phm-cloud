@@ -53,6 +53,7 @@ export default function Page(): React.JSX.Element {
                                         <Box
                                             component="img"
                                             alt="logo"
+                                            className="icon"
                                             src="/images/ico_refresh-nor.svg"
                                             sx={{display: 'inline-block', height: '14px', width: '14px'}}
                                         />

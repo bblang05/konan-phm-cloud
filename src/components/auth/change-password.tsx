@@ -113,7 +113,7 @@ export function ChangePassword(): React.JSX.Element {
                                                     onClick={(): void => {
                                                         setShowPassword(false);
                                                     }}
-                                                    src="/images/secret-on__line--555.svg"
+                                                    src="/images/secret-off__line--434.svg"
                                                     sx={{
                                                         display: 'inline-block',
                                                         height: '20px',
@@ -127,7 +127,7 @@ export function ChangePassword(): React.JSX.Element {
                                                     onClick={(): void => {
                                                         setShowPassword(true);
                                                     }}
-                                                    src="/images/secret-off__line--434.svg"
+                                                    src="/images/secret-on__line--555.svg"
                                                     sx={{
                                                         display: 'inline-block',
                                                         height: '20px',

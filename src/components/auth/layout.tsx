@@ -53,7 +53,7 @@ export function Layout({children}: LayoutProps): React.JSX.Element {
                                         component="img"
                                         alt="logo"
                                         src="/images/download__line--266.svg"
-                                        sx={{display: 'inline-block', height: '16px', width: '16px'}}
+                                        sx={{display: 'inline-block', height: '16px', width: '16px', marginRight: '8px',}}
                                     />}>
                                 메뉴얼 다운로드
                             </Button>

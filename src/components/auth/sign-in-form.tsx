@@ -10,6 +10,7 @@ import {
     FormHelperText,
     OutlinedInput,
     Typography,
+    Link
 } from '@mui/material';
 import {Controller, useForm} from 'react-hook-form';
 import {z as zod} from 'zod';
@@ -97,7 +98,7 @@ export function SignInForm(): React.JSX.Element {
                                                     onClick={(): void => {
                                                         setShowPassword(false);
                                                     }}
-                                                    src="/images/secret-on__line--555.svg"
+                                                    src="/images/secret-off__line--434.svg"
                                                     sx={{
                                                         display: 'inline-block',
                                                         height: '20px',
@@ -111,7 +112,7 @@ export function SignInForm(): React.JSX.Element {
                                                     onClick={(): void => {
                                                         setShowPassword(true);
                                                     }}
-                                                    src="/images/secret-off__line--434.svg"
+                                                    src="/images/secret-on__line--555.svg"
                                                     sx={{
                                                         display: 'inline-block',
                                                         height: '20px',
@@ -140,9 +141,15 @@ export function SignInForm(): React.JSX.Element {
                             </FormHelperText>
                         ) : null}
                     </Box>
-                    <Button disabled={isPending} type="submit" variant="contained" size="large" fullWidth>
+                    <Button disabled={isPending} type="submit" variant="contained" color="primary" size="large"
+                            fullWidth>
                         로그인
                     </Button>
+                    <Box marginTop="24px" display="block" marginRight="auto" marginLeft="auto">
+                        <Link href="" color="inherit" underline="hover" sx={{display: 'block'}}>
+                            <Typography variant="subtitle2" fontWeight="400" align="center">회원가입</Typography>
+                        </Link>
+                    </Box>
                 </form>
             </Box>
         </Box>
