@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import RouterLink from 'next/link';
-import {Stack, Divider, Box, IconButton, Typography, Badge} from '@mui/material';
+import {Stack, Divider, Box, IconButton, Badge, Button, Icon} from '@mui/material';
 
 import {paths} from '@/paths';
 import {usePopover} from '@/hooks/use-popover';
@@ -10,6 +10,10 @@ import {TopNav} from '@/components/dashboard/layout/top-nav';
 import {SubNav} from '@/components/dashboard/layout/sub-nav';
 
 import {UserPopover} from './user-popover';
+import Clock from "@/components/svgIcon/Clock";
+import Alram from "@/components/svgIcon/Alram";
+import Setting from "@/components/svgIcon/Setting";
+import ArrowBottom from "@/components/svgIcon/ArrowBottom";
 
 export function MainNav(): React.JSX.Element {
     const userPopover = usePopover<HTMLDivElement>();
@@ -64,75 +68,69 @@ export function MainNav(): React.JSX.Element {
                                        borderColor: 'rgba(158, 166, 184, 0.5)'
                                    }}/>}>
 
-                                <Box display="flex" alignItems="center" mr="12px" gap="6px">
-                                    <Box
-                                        component="img"
-                                        alt="logo"
-                                        src="/images/clock__line--9ea.svg"
-                                        sx={{display: 'inline-block', height: '20px', width: '20px'}}
-                                    />
-                                    <Typography variant="subtitle2" color="var(--mui-palette-neutral-300)">
-                                        9분 50초 전
-                                    </Typography>
-                                </Box>
+                                <Button variant="text" color="inherit" disableElevation sx={{
+                                    padding: '5px 12px'
+                                }}
+                                        startIcon={
+                                            <Icon sx={{marginRight: '4px', width: 20, height: 20}}>
+                                                <Clock/>
+                                            </Icon>
+                                        }>
+                                    9분 50초 전
+                                </Button>
                                 <Box gap="12px" display="flex" justifyContent="center">
-                                    <Badge color="secondary" badgeContent=" " variant="dot" overlap="circular"
+                                    <Badge color="secondary" badgeContent="" variant="dot" overlap="circular"
                                            anchorOrigin={{
                                                vertical: 'top',
                                                horizontal: 'right',
                                            }}
                                     >
-                                        <IconButton style={{
+                                        <IconButton
+                                            sx={{
+                                                backgroundColor: '#515D7880',
+                                                width: '32px',
+                                                height: '32px',
+                                                color: '#E1E4EB',
+                                                border: '1px solid #67718980',
+                                                borderRadius: '100%',
+                                                '&:hover': {
+                                                    backgroundColor: '#515D78CC',
+                                                    border: '1px solid #677189CC',
+                                                }
+                                            }}
+                                        >
+                                            <Icon sx={{height: 20, width: 20, fill: '#E1E4EB', display: 'flex'}}>
+                                                <Alram/>
+                                            </Icon>
+                                        </IconButton>
+                                    </Badge>
+                                    <IconButton
+                                        sx={{
                                             backgroundColor: '#515D7880',
                                             width: '32px',
                                             height: '32px',
                                             color: '#E1E4EB',
                                             border: '1px solid #67718980',
-                                            borderRadius: '100%'
-                                        }}>
-                                            <Box
-                                                component="img"
-                                                alt="logo"
-                                                src="/images/alram__line--e1e.svg"
-                                                sx={{display: 'inline-block', height: '20px', width: '20px'}}
-                                            />
-                                        </IconButton>
-                                    </Badge>
-
-                                    <IconButton style={{
-                                        backgroundColor: '#515D7880',
-                                        width: '32px',
-                                        height: '32px',
-                                        color: '#E1E4EB',
-                                        border: '1px solid #67718980',
-                                        borderRadius: '100%'
-                                    }}>
-                                        <Box
-                                            component="img"
-                                            alt="logo"
-                                            src="/images/setting__line--e1e.svg"
-                                            sx={{display: 'inline-block', height: '20px', width: '20px'}}
-                                        />
+                                            borderRadius: '100%',
+                                            '&:hover': {backgroundColor: '#515D78CC', border: '1px solid #677189CC',}
+                                        }}
+                                    >
+                                        <Icon sx={{height: 20, width: 20, fill: '#E1E4EB', display: 'flex'}}>
+                                            <Setting/>
+                                        </Icon>
                                     </IconButton>
-                                    <Box onClick={userPopover.handleOpen}
-                                         ref={userPopover.anchorRef} gap={0.5} sx={{
-                                        cursor: 'pointer',
-                                        border: '1px solid #677189',
-                                        backgroundColor: '#515D78',
-                                        padding: '6px 12px',
-                                        height: '30px',
-                                        borderRadius: '3px',
-                                        color: '#E1E4EB',
-                                        display: 'flex',
-                                        alignItems: 'center'
-                                    }}>
-                                        <Typography variant="caption">김코난</Typography>
-                                        <Box
-                                            component="img"
-                                            alt="logo"
-                                            src="/images/arrow-b__line--e1e.svg"
-                                            sx={{display: 'inline-block', height: '12px', width: '12px'}}
-                                        />
+
+                                    <Box onClick={userPopover.handleOpen} ref={userPopover.anchorRef}>
+                                        <Button variant="outlined" color="inherit" disableElevation sx={{
+                                            padding: '6px 12px', fontSize: '12px'
+                                        }}
+                                                endIcon={
+                                                    <Icon sx={{width: 12, height: 12}}>
+                                                        <ArrowBottom/>
+                                                    </Icon>
+                                                }>
+                                            김코난
+                                        </Button>
                                     </Box>
                                     <UserPopover
                                         anchorEl={userPopover.anchorRef.current}

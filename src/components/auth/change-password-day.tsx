@@ -12,7 +12,7 @@ import {
     DialogContentText,
     DialogTitle,
     FormControl,
-    FormHelperText,
+    FormHelperText, Icon,
     IconButton,
     OutlinedInput,
     Typography,
@@ -24,6 +24,9 @@ import {authClient} from '@/lib/auth/client';
 import {useUser} from '@/hooks/use-user';
 
 import PasswordChangeTable from './password-change-table';
+import SecretOff from "@/components/svgIcon/SecretOff";
+import SecretOn from "@/components/svgIcon/SecretOn";
+import Close from "@/components/svgIcon/Close";
 
 const schema = zod.object({
     email: zod.string().min(1, {message: '존재하지 않는 아이디입니다.'}).email(),
@@ -41,7 +44,7 @@ export function ChangePasswordDay(): React.JSX.Element {
 
     const [showPassword, setShowPassword] = React.useState<boolean>();
 
-    const [isPending, setIsPending] = React.useState<boolean>(false);
+    const [_isPending, setIsPending] = React.useState<boolean>(false);
 
     const {
         control,
@@ -110,33 +113,19 @@ export function ChangePasswordDay(): React.JSX.Element {
                                         {...field}
                                         endAdornment={
                                             showPassword ? (
-                                                <Box
-                                                    component="img"
-                                                    onClick={(): void => {
-                                                        setShowPassword(false);
-                                                    }}
-                                                    src="/images/secret-off__line--434.svg"
-                                                    sx={{
-                                                        display: 'inline-block',
-                                                        height: '20px',
-                                                        width: '20px',
-                                                        cursor: 'pointer'
-                                                    }}
-                                                />
+                                                <Box sx={{display: 'flex', alignItems: 'center', cursor: 'pointer'}}
+                                                     onClick={(): void => {
+                                                         setShowPassword(false);
+                                                     }}>
+                                                    <SecretOff/>
+                                                </Box>
                                             ) : (
-                                                <Box
-                                                    component="img"
-                                                    onClick={(): void => {
-                                                        setShowPassword(true);
-                                                    }}
-                                                    src="/images/secret-on__line--555.svg"
-                                                    sx={{
-                                                        display: 'inline-block',
-                                                        height: '20px',
-                                                        width: '20px',
-                                                        cursor: 'pointer'
-                                                    }}
-                                                />
+                                                <Box sx={{display: 'flex', alignItems: 'center', cursor: 'pointer'}}
+                                                     onClick={(): void => {
+                                                         setShowPassword(true);
+                                                     }}>
+                                                    <SecretOn/>
+                                                </Box>
                                             )
                                         }
                                         label="Password"
@@ -177,17 +166,15 @@ export function ChangePasswordDay(): React.JSX.Element {
                             onClick={handleClose}
                             sx={{
                                 position: 'absolute',
-                                right: 8,
+                                right: 14,
                                 top: 8,
-                                color: (theme) => theme.palette.grey[500],
+                                opacity: 0.4,
+                                '&:hover': {opacity: 1}
                             }}
                         >
-                            <Box
-                                component="img"
-                                alt="logo"
-                                src="/images/close__line--222.svg"
-                                sx={{display: 'inline-block', height: '20px', width: '20px'}}
-                            />
+                            <Icon sx={{height: 20, width: 20, fill: 'var(--mui-palette-text-primary)',}}>
+                                <Close/>
+                            </Icon>
                         </IconButton>
                         <DialogContent>
                             <Box pb="20px">

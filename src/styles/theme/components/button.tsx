@@ -9,10 +9,14 @@ export const MuiButton = {
             textTransform: 'none',
             boxShadow: 'none',
             lineHeight: 'normal',
+
         },
         containedPrimary: {
             background: 'transparent linear-gradient(to bottom, #FC9025, #F98024)',
             border: '1px solid #E4721B',
+            color: '#fff',
+            fill: '#fff',
+
             '&:hover': {
                 background: 'transparent linear-gradient(to bottom, #FE8812, #F56505)',
                 border: '1px solid #E0600B',
@@ -20,12 +24,14 @@ export const MuiButton = {
             '&:active': {
                 background: 'transparent linear-gradient(to bottom, #FE8812, #F56505)',
                 border: '1px solid #DC4807',
+            color: '#fff',
             },
         },
         containedSecondary: {
             background: 'linear-gradient(to bottom, #FAFBFC, #F2F4F7)',
             border: '1px solid #D3D7DE',
             color: '#2668C9',
+            fill: '#2668C9',
             '&:hover': {
                 background: 'transparent linear-gradient(to bottom, #DEEDFC, #CCDEF6)',
                 border: '1px solid #93B9EA',
@@ -39,19 +45,50 @@ export const MuiButton = {
             background: 'linear-gradient(to bottom, #FAFBFC, #F2F4F7)',
             border: '1px solid #D3D7DE',
             color: '#777D87',
+            fill: '#777D87',
             '&:hover': {
                 background: 'transparent linear-gradient(to bottom, #DEEDFC, #CCDEF6)',
                 border: '1px solid #93B9EA',
                 color: '#2668C9',
-                // '& .icon': {
-                //     color: '#f00',
-                // }
+                fill: '#2668C9',
             },
             '&:active': {
                 background: 'transparent linear-gradient(to bottom, #DEEDFC, #CCDEF6)',
                 border: '1px solid #2668C9',
                 color: '#2668C9',
             },
+        },
+        textInherit: {
+            border: '1px solid transparent',
+            color: '#9EA6B8',
+            fill: '#9EA6B8',
+            '&:hover': {
+                backgroundColor: '#515D78CC', borderColor: '#67718966',
+            },
+            '&:active': {
+                color: '#9EA6B8',
+                backgroundColor: '#515D78CC',
+                borderColor: '#677189CC',
+                fill: '#9EA6B8',
+            }
+        },
+        outlinedInherit: {
+            backgroundColor: '#515D7866',
+            border: '1px solid #67718966',
+            color: '#E1E4EB',
+            fill: '#E1E4EB',
+            '&:hover': {
+                backgroundColor: '#515D78CC', borderColor: '#67718966',
+            },
+            '&:active': {
+                color: '#9EA6B8',
+                backgroundColor: '#515D78CC',
+                borderColor: '#677189CC',
+                'svg': {
+                    fill: '#9EA6B8'
+                }
+            }
+
         },
         textPrimary: {
             fontWeight: 'normal',

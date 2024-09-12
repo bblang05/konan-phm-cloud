@@ -10,6 +10,9 @@ export const MuiIconButton = {
             '&.outlined': {
                 border: '1px solid #ddd',
             },
+            '&:hover': {
+                background: 'none',
+            },
         },
     },
 } satisfies Components<Theme>['MuiIconButton'];

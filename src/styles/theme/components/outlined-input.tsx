@@ -26,14 +26,21 @@ export const MuiOutlinedInput = {
             ['& fieldset']: {
                 top: 0
             },
+            '&:hover fieldset': {
+                borderColor: 'var(--mui-palette-primary-main) !important',
+            },
+            '&:focus fieldset': {
+                borderColor: 'var(--mui-palette-primary-main) !important',
+                // borderWidth: '1px !important'
+            },
         },
         input: {
             borderRadius: '0',
             padding: '6px 0'
-
         },
         notchedOutline: {
-            borderColor: '#D3D7DE'
+            borderColor: '#D3D7DE',
+            borderWidth: '1px !important',
         },
         sizeSmall: {
             height: '30px',

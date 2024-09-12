@@ -8,6 +8,7 @@ export const MuiLink = {
         underlineHover: {
             '&:active': {
                 color: 'var(--mui-palette-primary-main)',
+                textDecoration: 'none',
             },
         },
     },

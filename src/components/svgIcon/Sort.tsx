@@ -1,0 +1,25 @@
+import React from 'react';
+
+export default function Sort() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+      <g id="ico_sort" transform="translate(-214 -290)">
+        <rect
+          id="Rectangle_199"
+          data-name="Rectangle 199"
+          width="16"
+          height="16"
+          transform="translate(214 290)"
+          fill="none"
+          opacity="0.1"
+        />
+        <path
+          id="Path_69"
+          data-name="Path 69"
+          d="M-2015.717-12728.694l-2.2-2.933a.4.4,0,0,1,.32-.64h1.4v-7h1.6v7h1.4a.4.4,0,0,1,.32.64l-2.2,2.933a.4.4,0,0,1-.32.163A.393.393,0,0,1-2015.717-12728.694Zm-6.481-.572v-7h-1.4a.4.4,0,0,1-.32-.64l2.2-2.936a.4.4,0,0,1,.639,0l2.2,2.936a.4.4,0,0,1-.32.64h-1.4v7Z"
+          transform="translate(2240.398 13032.266)"
+        />
+      </g>
+    </svg>
+  );
+}

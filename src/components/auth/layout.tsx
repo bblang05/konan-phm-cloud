@@ -2,9 +2,10 @@
 
 import * as React from 'react';
 import RouterLink from 'next/link';
-import {Box, Button, Card, Link, Stack, Typography} from '@mui/material';
+import {Box, Button, Card, Link, Stack, Typography, Icon} from '@mui/material';
 
 import {paths} from '@/paths';
+import Download from "@/components/svgIcon/Download";
 
 export interface LayoutProps {
     children: React.ReactNode;
@@ -49,12 +50,11 @@ export function Layout({children}: LayoutProps): React.JSX.Element {
                         </Stack>
                         <Stack sx={{alignItems: 'center'}} direction="row" spacing={2}>
                             <Button variant="contained" color="secondary" component={Link} href="" disableElevation
-                                    startIcon={<Box
-                                        component="img"
-                                        alt="logo"
-                                        src="/images/download__line--266.svg"
-                                        sx={{display: 'inline-block', height: '16px', width: '16px', marginRight: '8px',}}
-                                    />}>
+                                    startIcon={
+                                        <Icon sx={{marginRight: '4px', width: 20, height: 20}}>
+                                            <Download/>
+                                        </Icon>
+                                    }>
                                 메뉴얼 다운로드
                             </Button>
                         </Stack>

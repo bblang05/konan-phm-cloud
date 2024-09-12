@@ -12,11 +12,15 @@ import {
     Typography,
     Link
 } from '@mui/material';
+
 import {Controller, useForm} from 'react-hook-form';
 import {z as zod} from 'zod';
 
 import {authClient} from '@/lib/auth/client';
 import {useUser} from '@/hooks/use-user';
+
+import SecretOn from "@/components/svgIcon/SecretOn";
+import SecretOff from "@/components/svgIcon/SecretOff";
 
 const schema = zod.object({
     email: zod.string().min(1, {message: '존재하지 않는 아이디입니다.'}).email(),
@@ -93,33 +97,19 @@ export function SignInForm(): React.JSX.Element {
                                         {...field}
                                         endAdornment={
                                             showPassword ? (
-                                                <Box
-                                                    component="img"
-                                                    onClick={(): void => {
-                                                        setShowPassword(false);
-                                                    }}
-                                                    src="/images/secret-off__line--434.svg"
-                                                    sx={{
-                                                        display: 'inline-block',
-                                                        height: '20px',
-                                                        width: '20px',
-                                                        cursor: 'pointer'
-                                                    }}
-                                                />
+                                                <Box sx={{display: 'flex', alignItems: 'center', cursor: 'pointer'}}
+                                                     onClick={(): void => {
+                                                         setShowPassword(false);
+                                                     }}>
+                                                    <SecretOff/>
+                                                </Box>
                                             ) : (
-                                                <Box
-                                                    component="img"
-                                                    onClick={(): void => {
-                                                        setShowPassword(true);
-                                                    }}
-                                                    src="/images/secret-on__line--555.svg"
-                                                    sx={{
-                                                        display: 'inline-block',
-                                                        height: '20px',
-                                                        width: '20px',
-                                                        cursor: 'pointer'
-                                                    }}
-                                                />
+                                                <Box sx={{display: 'flex', alignItems: 'center', cursor: 'pointer'}}
+                                                     onClick={(): void => {
+                                                         setShowPassword(true);
+                                                     }}>
+                                                    <SecretOn/>
+                                                </Box>
                                             )
                                         }
                                         label="Password"

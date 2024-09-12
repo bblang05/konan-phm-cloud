@@ -1,9 +1,11 @@
 import * as React from 'react';
 import type {Metadata} from 'next';
-import {Typography, Box, Card, CardContent, Link, Stack, Button} from '@mui/material';
+import {Typography, Box, Card, CardContent, Link, Stack, Button, Icon} from '@mui/material';
 
 import {config} from '@/config';
 import {UserTable} from '@/components/dashboard/user/user-table';
+import Add from "@/components/svgIcon/Add";
+import Refresh from "@/components/svgIcon/Refresh";
 
 export const metadata = {title: `사용자 목록 | ${config.site.name}`} satisfies Metadata;
 
@@ -25,43 +27,22 @@ export default function Page(): React.JSX.Element {
                             </Stack>
 
                             <Stack sx={{alignItems: 'center'}} direction="row" gap={1}>
-                                <Button
-                                    variant="contained"
-                                    component={Link}
-                                    href=""
-                                    disableElevation
-                                    startIcon={
-                                        <Box
-                                            component="img"
-                                            alt="logo"
-                                            src="/images/ico_add-14.svg"
-                                            sx={{display: 'inline-block', height: '14px', width: '14px'}}
-                                        />
-                                    }
-                                    color="primary"
-                                    size="small"
-                                    sx={{width: '86px'}}
-                                >
+                                <Button variant="contained" color="primary" component={Link} href=""
+                                        disableElevation sx={{width: '86px', fontSize:'13px'}}
+                                        startIcon={
+                                            <Icon sx={{width: 14, height: 14}}>
+                                                <Add/>
+                                            </Icon>
+                                        }>
                                     생성
                                 </Button>
-                                <Button
-                                    variant="contained"
-                                    component={Link}
-                                    href=""
-                                    disableElevation
-                                    startIcon={
-                                        <Box
-                                            component="img"
-                                            alt="logo"
-                                            className="icon"
-                                            src="/images/ico_refresh-nor.svg"
-                                            sx={{display: 'inline-block', height: '14px', width: '14px'}}
-                                        />
-                                    }
-                                    color="inherit"
-                                    size="small"
-                                    sx={{width: '86px'}}
-                                >
+                                <Button variant="contained" color="inherit" component={Link} href=""
+                                        disableElevation sx={{width: '86px', fontSize:'13px'}}
+                                        startIcon={
+                                            <Icon sx={{width: 14, height: 14}}>
+                                                <Refresh/>
+                                            </Icon>
+                                        }>
                                     새로고침
                                 </Button>
                             </Stack>
