@@ -14,15 +14,6 @@ export const MuiTable = {
             [`& ${tableRowClasses.root}:nth-of-type(even)`]: {
                 backgroundColor: '#F5F6F7',
             },
-
-
-        // sizeSmall:{
-        //     [`& .${tableCellClasses.root}`]: {
-        //         height:'10px',
-        //         // '--TableCell-height': 0
-        //     },
-        //
-        // }
         },
     },
 } satisfies Components<Theme>['MuiTable'];
