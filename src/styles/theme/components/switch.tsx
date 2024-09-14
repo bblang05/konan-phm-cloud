@@ -8,20 +8,21 @@ export const MuiSwitch = {
             width: 40,
             height: 22,
             padding: 0,
-            marginLeft: '11px',
+            marginLeft: '10px',
             marginRight: '8px',
             '+ .MuiFormControlLabel-label': {
                 fontSize: '13px',
+                lineHeight: 'normal',
             },
             '& .MuiSwitch-switchBase': {
                 padding: 0,
                 margin: 3,
                 transitionDuration: '300ms',
                 '&.Mui-checked': {
-                    transform: 'translateX(16px)',
+                    transform: 'translateX(18px)',
                     color: '#fff',
                     '& + .MuiSwitch-track': {
-                        backgroundColor: '#65C466',
+                        backgroundColor: '#2668C9',
                         opacity: 1,
                         border: 0,
                     },
@@ -30,7 +31,7 @@ export const MuiSwitch = {
                     },
                 },
                 '&.Mui-focusVisible .MuiSwitch-thumb': {
-                    color: '#33cf4d',
+                    color: '#2668C9',
                     border: '6px solid #fff',
                 },
                 '&.Mui-disabled + .MuiSwitch-track': {

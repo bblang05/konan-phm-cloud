@@ -2,13 +2,11 @@ import React from 'react';
 
 export default function Edit() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+    <svg xmlns="http://www.w3.org/2000/svg">
       <g id="ico_edit-nor" transform="translate(-1668 -153)">
         <rect
           id="Rectangle_183"
           data-name="Rectangle 183"
-          width="14"
-          height="14"
           transform="translate(1668 153)"
           fill="none"
           opacity="0.1"

@@ -11,11 +11,14 @@ import {
     TableCell,
     TableHead,
     TableRow,
-    Typography, Chip
+    Typography, Chip, Icon
 } from '@mui/material';
 import dayjs from 'dayjs';
 
 import {useSelection} from '@/hooks/use-selection';
+import PageArrowRight from "@/components/svgIcon/PageArrowRight";
+import PageArrowLeft from "@/components/svgIcon/PageArrowLeft";
+import Sort from "@/components/svgIcon/Sort";
 
 function createData(
     startDay: Date,
@@ -43,75 +46,71 @@ export function BillingTable(): React.JSX.Element {
         <Box p="17px 20px">
             <Box display="flex" alignItems="center" justifyContent="flex-end" pb="17px">
                 <Stack direction="row" gap={2} alignItems="center">
-                    <IconButton edge="end" size="small" className="outlined">
-                        <Box
-                            component="img"
-                            alt="logo"
-                            src="/images/ico_page-arrow-left-dis.svg"
-                            sx={{display: 'inline-block', height: '16px', width: '16px'}}
-                        />
+                    <IconButton className="outlined" color="inherit" disabled>
+                        <Icon sx={{height: 16, width: 16}}>
+                            <PageArrowLeft/>
+                        </Icon>
                     </IconButton>
                     <Typography variant="body2">
                         1 / 1
                     </Typography>
-                    <IconButton edge="end" size="small" className="outlined">
-                        <Box
-                            component="img"
-                            alt="logo"
-                            src="/images/ico_page-arrow-right-nor.svg"
-                            sx={{display: 'inline-block', height: '16px', width: '16px'}}
-                        />
+                    <IconButton className="outlined" color="inherit">
+                        <Icon sx={{height: 16, width: 16}}>
+                            <PageArrowRight/>
+                        </Icon>
                     </IconButton>
                 </Stack>
             </Box>
             <Box sx={{overflowX: 'auto'}}>
                 <Table sx={{minWidth: '800px'}} className="even-table">
+                    <colgroup>
+                        <col width=""/>
+                        <col width=""/>
+                        <col width="12%"/>
+                    </colgroup>
                     <TableHead>
                         <TableRow>
                             <TableCell>
                                 구독 시작일
-                                <Box
-                                    component="img"
-                                    alt="sort"
-                                    src="/images/ico_sort.svg"
+                                <Icon
                                     sx={{
-                                        display: 'inline-block',
-                                        height: '16px',
-                                        width: '16px',
+                                        width: 16,
+                                        height: 16,
+                                        fill: '#9EA6B8',
                                         cursor: 'pointer',
-                                        verticalAlign: 'middle'
+                                        marginLeft: '4px',
                                     }}
-                                />
+                                >
+                                    <Sort />
+                                </Icon>
                             </TableCell>
                             <TableCell>
                                 구독 만료일
-                                <Box
-                                    component="img"
-                                    alt="sort"
-                                    src="/images/ico_sort.svg"
+                                <Icon
                                     sx={{
-                                        display: 'inline-block',
-                                        height: '16px',
-                                        width: '16px',
+                                        width: 16,
+                                        height: 16,
+                                        fill: '#9EA6B8',
                                         cursor: 'pointer',
-                                        verticalAlign: 'middle'
+                                        marginLeft: '4px',
                                     }}
-                                />
+                                >
+                                    <Sort />
+                                </Icon>
                             </TableCell>
                             <TableCell>
                                 구독 상태
-                                <Box
-                                    component="img"
-                                    alt="sort"
-                                    src="/images/ico_sort.svg"
+                                <Icon
                                     sx={{
-                                        display: 'inline-block',
-                                        height: '16px',
-                                        width: '16px',
+                                        width: 16,
+                                        height: 16,
+                                        fill: '#9EA6B8',
                                         cursor: 'pointer',
-                                        verticalAlign: 'middle'
+                                        marginLeft: '4px',
                                     }}
-                                />
+                                >
+                                    <Sort />
+                                </Icon>
                             </TableCell>
                         </TableRow>
                     </TableHead>

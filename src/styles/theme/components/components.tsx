@@ -26,6 +26,7 @@ import {MuiContainer} from "./container";
 import {MuiListItem} from "./listItem";
 import {MuiList} from "./list";
 import {MuiCheckbox} from "./checkbox";
+import {MuiTable} from "./table";
 import {MuiToggleButton} from "@/styles/theme/components/toggle-button";
 import {MuiRadio} from "@/styles/theme/components/radio";
 import {MuiFormControlLabel} from "@/styles/theme/components/form-control-label";
@@ -57,5 +58,6 @@ export const components = {
     MuiList,
     MuiCheckbox,
     MuiToggleButton,
-    MuiRadio, MuiFormControlLabel
+    MuiRadio, MuiFormControlLabel,
+    MuiTable
 } satisfies Components<Theme>;

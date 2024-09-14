@@ -1,9 +1,8 @@
 'use client';
 
 import * as React from 'react';
-import {styled} from '@mui/material/styles';
-import {CheckboxProps} from '@mui/material/Checkbox';
-
+import { styled } from '@mui/material/styles';
+import { CheckboxProps } from '@mui/material/Checkbox';
 import {
     Box,
     Button,
@@ -11,37 +10,39 @@ import {
     DialogActions,
     DialogContent,
     DialogTitle,
-    IconButton, Link,
+    IconButton,
     Table, TableBody, TableCell,
-    TableHead, TableRow, Checkbox
+    TableHead, TableRow, Checkbox, Icon
 } from '@mui/material';
 
-import {useSelection} from "@/hooks/use-selection";
+import Add from "@/components/svgIcon/Add";
+import Close from "@/components/svgIcon/Close";
+import Sort from "@/components/svgIcon/Sort";
 import {UserFilters} from "@/components/dashboard/group/user-filters";
 
+
 function createData(
-    checkbox: React.ReactNode,
     name: string,
     email: string,
     authority: string,
 ) {
-    return {checkbox, name, email, authority};
+    return { name, email, authority };
 }
 
 const rows = [
-    createData(<BpCheckbox/>, '이름', 'example1@konantech.com', '관리자'),
-    createData(<BpCheckbox/>, '이름', 'example1@konantech.com', '관리자'),
-    createData(<BpCheckbox/>, '이름', 'example1@konantech.com', '관리자'),
-    createData(<BpCheckbox/>, '이름', 'example1@konantech.com', '관리자'),
-    createData(<BpCheckbox/>, '이름', 'example1@konantech.com', '관리자'),
-    createData(<BpCheckbox/>, '이름', 'example1@konantech.com', '관리자'),
-    createData(<BpCheckbox/>, '이름', 'example1@konantech.com', '관리자'),
-    createData(<BpCheckbox/>, '이름', 'example1@konantech.com', '관리자'),
-    createData(<BpCheckbox/>, '이름', 'example1@konantech.com', '관리자'),
-    createData(<BpCheckbox/>, '이름', 'example1@konantech.com', '관리자'),
+    createData('이름1', 'example1@konantech.com', '관리자'),
+    createData('이름2', 'example2@konantech.com', '관리자'),
+    createData('이름3', 'example3@konantech.com', '관리자'),
+    createData('이름4', 'example4@konantech.com', '관리자'),
+    createData('이름5', 'example5@konantech.com', '관리자'),
+    createData('이름6', 'example5@konantech.com', '관리자'),
+    createData('이름7', 'example5@konantech.com', '관리자'),
+    createData('이름8', 'example5@konantech.com', '관리자'),
+    createData('이름9', 'example5@konantech.com', '관리자'),
+    createData('이름10', 'example5@konantech.com', '관리자'),
 ];
 
-const BpIcon = styled('span')(({theme}) => ({
+const BpIcon = styled('span')({
     borderRadius: 3,
     width: 16,
     height: 16,
@@ -53,7 +54,7 @@ const BpIcon = styled('span')(({theme}) => ({
         boxShadow: 'none',
         background: 'rgba(206,217,224,.5)',
     },
-}));
+});
 
 const BpCheckedIcon = styled(BpIcon)({
     backgroundColor: 'var(--mui-palette-primary-main)',
@@ -61,7 +62,6 @@ const BpCheckedIcon = styled(BpIcon)({
         display: 'block',
         width: 16,
         height: 16,
-
         backgroundImage:
             "url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath" +
             " fill-rule='evenodd' clip-rule='evenodd' d='M12 5c-.28 0-.53.11-.71.29L7 9.59l-2.29-2.3a1.003 " +
@@ -76,29 +76,21 @@ const BpCheckedIcon = styled(BpIcon)({
 function BpCheckbox(props: CheckboxProps) {
     return (
         <Checkbox
-            sx={{'&:hover': {bgcolor: 'transparent'}}}
+            sx={{ '&:hover': { backgroundColor: 'transparent' } }}
             disableRipple
             color="default"
-            checkedIcon={<BpCheckedIcon/>}
-            icon={<BpIcon/>}
-            inputProps={{'aria-label': 'Checkbox demo'}}
+            checkedIcon={<BpCheckedIcon />}
+            icon={<BpIcon />}
+            inputProps={{ 'aria-label': 'Checkbox demo' }}
             {...props}
         />
     );
 }
 
-
 export function AddUser(): React.JSX.Element {
-
-
-    const rowIds = React.useMemo(() => {
-        return rows.map((customer) => customer.name);
-    }, [rows]);
-
-
-    const {selected} = useSelection(rowIds);
-
     const [open, setOpen] = React.useState(false);
+    const [selectedRows, setSelectedRows] = React.useState<string[]>([]);
+    const [_selectAll, setSelectAll] = React.useState(false);
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -108,22 +100,38 @@ export function AddUser(): React.JSX.Element {
         setOpen(false);
     };
 
+    const handleRowSelection = (name: string) => {
+        setSelectedRows((prevSelectedRows) =>
+            prevSelectedRows.includes(name)
+                ? prevSelectedRows.filter((row) => row !== name)
+                : [...prevSelectedRows, name]
+        );
+    };
+
+    const handleSelectAll = (checked: boolean) => {
+        setSelectAll(checked);
+        setSelectedRows(checked ? rows.map((row) => row.name) : []);
+    };
+
+    const isAllSelected = selectedRows.length === rows.length && rows.length > 0;
+
+    React.useEffect(() => {
+        setSelectAll(isAllSelected);
+    }, [isAllSelected]);
+
     return (
         <Box>
             <Button
                 variant="contained"
-                onClick={handleClickOpen}
-                disableElevation
-                startIcon={
-                    <Box
-                        component="img"
-                        alt="logo"
-                        src="/images/ico_add-g12-nor.svg"
-                        sx={{display: 'inline-block', height: '14px', width: '14px'}}
-                    />
-                }
                 color="inherit"
                 size="small"
+                disableElevation
+                onClick={handleClickOpen}
+                startIcon={
+                    <Icon sx={{ width: 14, height: 14 }}>
+                        <Add />
+                    </Icon>
+                }
             >
                 추가
             </Button>
@@ -135,7 +143,7 @@ export function AddUser(): React.JSX.Element {
                     "& .MuiDialog-container": {
                         "& .MuiPaper-root": {
                             width: "100%",
-                            maxWidth: "760px",  // Set your width here
+                            maxWidth: "760px",
                         },
                     },
                 }}
@@ -148,99 +156,107 @@ export function AddUser(): React.JSX.Element {
                     onClick={handleClose}
                     sx={{
                         position: 'absolute',
-                        right: 8,
+                        right: 14,
                         top: 8,
-                        color: (theme) => theme.palette.grey[500],
+                        opacity: 0.4,
+                        '&:hover': { opacity: 1 }
                     }}
                 >
-                    <Box
-                        component="img"
-                        alt="logo"
-                        src="/images/close__line--222.svg"
-                        sx={{display: 'inline-block', height: '20px', width: '20px'}}
-                    />
+                    <Icon sx={{ height: 20, width: 20, fill: 'var(--mui-palette-text-primary)' }}>
+                        <Close />
+                    </Icon>
                 </IconButton>
+
                 <DialogContent>
                     <Box display="flex" justifyContent="space-between" alignItems="center" pb={'10px'}>
                         <UserFilters/>
                     </Box>
 
-                    <Box sx={{height: '360px', overflowX: 'auto'}}>
-                        <Table size="small" className="even-table">
+                    <Box sx={{ height: '360px', overflowX: 'auto' }}>
+                        <Table size="small" className="even-table dense">
                             <colgroup>
-                                <col width="2%"/>
-                                <col/>
-                                <col/>
-                                <col/>
+                                <col width="5%" />
+                                <col />
+                                <col />
+                                <col />
                             </colgroup>
                             <TableHead>
                                 <TableRow>
                                     <TableCell>
-                                        <BpCheckbox/>
+                                        {/* "Select All" Checkbox */}
+                                        <BpCheckbox
+                                            checked={isAllSelected}
+                                            onChange={(e) => handleSelectAll(e.target.checked)}
+                                        />
                                     </TableCell>
                                     <TableCell>
                                         이름
-                                        <Box
-                                            component="img"
-                                            alt="logo"
-                                            src="/images/ico_sort.svg"
+                                        <Icon
                                             sx={{
-                                                display: 'inline-block',
-                                                height: '16px',
-                                                width: '16px',
+                                                width: 16,
+                                                height: 16,
+                                                fill: '#9EA6B8',
                                                 cursor: 'pointer',
-                                                verticalAlign: 'middle'
+                                                marginLeft: '4px',
                                             }}
-                                        />
+                                        >
+                                            <Sort />
+                                        </Icon>
                                     </TableCell>
                                     <TableCell>
                                         아이디
-                                        <Box
-                                            component="img"
-                                            alt="logo"
-                                            src="/images/ico_sort.svg"
+                                        <Icon
                                             sx={{
-                                                display: 'inline-block',
-                                                height: '16px',
-                                                width: '16px',
+                                                width: 16,
+                                                height: 16,
+                                                fill: '#9EA6B8',
                                                 cursor: 'pointer',
-                                                verticalAlign: 'middle'
+                                                marginLeft: '4px',
                                             }}
-                                        />
+                                        >
+                                            <Sort />
+                                        </Icon>
                                     </TableCell>
                                     <TableCell>
                                         권한
-                                        <Box
-                                            component="img"
-                                            alt="logo"
-                                            src="/images/ico_sort.svg"
+                                        <Icon
                                             sx={{
-                                                display: 'inline-block',
-                                                height: '16px',
-                                                width: '16px',
+                                                width: 16,
+                                                height: 16,
+                                                fill: '#9EA6B8',
                                                 cursor: 'pointer',
-                                                verticalAlign: 'middle'
+                                                marginLeft: '4px',
                                             }}
-                                        />
+                                        >
+                                            <Sort />
+                                        </Icon>
                                     </TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
                                 {rows.map((row) => {
-                                    const isSelected = selected?.has(row.name);
+                                    const isSelected = selectedRows.includes(row.name);
                                     return (
-                                        <TableRow hover
-                                                  key={row.name}
-                                                  selected={isSelected}
+                                        <TableRow
+                                            hover
+                                            key={row.name}
+                                            sx={{
+                                                backgroundColor: isSelected ? '#F0F6FC' : 'inherit',
+                                            }}
                                         >
-                                            <TableCell align={"center"} sx={{paddingTop: '5px', paddingBottom: '5px'}}>{row.checkbox}</TableCell>
-                                            <TableCell sx={{paddingTop: '5px', paddingBottom: '5px'}} component="th" scope="row">
+                                            <TableCell align="center" sx={{ paddingTop: '5px', paddingBottom: '5px' }}>
+                                                <BpCheckbox
+                                                    checked={isSelected}
+                                                    onChange={() => handleRowSelection(row.name)}
+                                                />
+                                            </TableCell>
+                                            <TableCell sx={{ paddingTop: '5px', paddingBottom: '5px' }} component="th" scope="row">
                                                 {row.name}
                                             </TableCell>
-                                            <TableCell sx={{paddingTop: '5px', paddingBottom: '5px'}}>{row.email}</TableCell>
-                                            <TableCell sx={{paddingTop: '5px', paddingBottom: '5px'}}>{row.authority}</TableCell>
+                                            <TableCell sx={{ paddingTop: '5px', paddingBottom: '5px' }}>{row.email}</TableCell>
+                                            <TableCell sx={{ paddingTop: '5px', paddingBottom: '5px' }}>{row.authority}</TableCell>
                                         </TableRow>
-                                    )
+                                    );
                                 })}
                             </TableBody>
                         </Table>

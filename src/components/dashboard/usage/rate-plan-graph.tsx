@@ -12,7 +12,7 @@ export function RatePlanGraph(): React.JSX.Element {
     return (
         <Box>
             <Card variant="outlined">
-                <Box p="17px 20px">
+                <Box p="10px 20px 14px 20px">
                     <Box display="flex" gap="20px">
                         <Box sx={{flexGrow: 1}}>
                             그래프
@@ -22,7 +22,7 @@ export function RatePlanGraph(): React.JSX.Element {
                                 <Typography variant="subtitle2">총 사용량</Typography>
                                 <Box sx={{
                                     backgroundColor: '#F5F6F7',
-                                    padding: '40px 38px',
+                                    padding: '38px 40px',
                                     borderRadius: '4px',
                                     marginTop: '14px'
                                 }}>
@@ -33,7 +33,7 @@ export function RatePlanGraph(): React.JSX.Element {
                                 <Typography variant="subtitle2">초과 사용량</Typography>
                                 <Box sx={{
                                     backgroundColor: '#F5F6F7',
-                                    padding: '40px 38px',
+                                    padding: '38px 40px',
                                     borderRadius: '4px',
                                     marginTop: '14px'
                                 }}>

@@ -17,8 +17,11 @@ export function RatePlanTable(): React.JSX.Element {
     return (
         <Box>
             <Card variant="outlined">
-                <Box p="17px 20px">
-                    <Box mb={1}>
+                <Box p="14px 20px">
+                    <Box display="flex" justifyContent="space-between" alignItems="center" pb={'11px'}>
+                        <Typography variant="subtitle2">요금제</Typography>
+                    </Box>
+                    <Box marginBottom="6px">
                         <TableContainer>
                             <Table size="small" sx={{minWidth: 650}} aria-label="simple table"
                                    className="form-table">
@@ -33,7 +36,7 @@ export function RatePlanTable(): React.JSX.Element {
                                             기본 서비스
                                         </TableCell>
                                         <TableCell>
-                                            <Box display="flex" alignItems="center" justifyContent="space-between">
+                                            <Box display="flex" alignItems="center" justifyContent="space-between" padding="0 10px">
                                                 <Box>Basic</Box>
                                                 <Box>500,000원</Box>
                                             </Box>
@@ -45,7 +48,7 @@ export function RatePlanTable(): React.JSX.Element {
                                             + 리소스 추가 사용
                                         </TableCell>
                                         <TableCell>
-                                            <Box display="flex" alignItems="center" justifyContent="space-between">
+                                            <Box display="flex" alignItems="center" justifyContent="space-between" padding="0 10px">
                                                 <Box>10GB</Box>
                                                 <Box>100,000원</Box>
                                             </Box>
@@ -57,7 +60,7 @@ export function RatePlanTable(): React.JSX.Element {
                                             데이터 분석 및 정제 서비스
                                         </TableCell>
                                         <TableCell>
-                                            <Box display="flex" alignItems="center" justifyContent="space-between">
+                                            <Box display="flex" alignItems="center" justifyContent="space-between" padding="0 10px">
                                                 <Box>사용</Box>
                                                 <Box>1,000,000원</Box>
                                             </Box>
@@ -69,7 +72,7 @@ export function RatePlanTable(): React.JSX.Element {
                                             AI 학습 서비스
                                         </TableCell>
                                         <TableCell>
-                                            <Box display="flex" alignItems="center" justifyContent="space-between">
+                                            <Box display="flex" alignItems="center" justifyContent="space-between" padding="0 10px">
                                                 <Box>AI Basic</Box>
                                                 <Box>1,666,667원</Box>
                                             </Box>
@@ -94,8 +97,7 @@ export function RatePlanTable(): React.JSX.Element {
                                         총 요금
                                     </TableCell>
                                     <TableCell>
-                                        <Box display="flex" alignItems="center" justifyContent="space-between">
-                                            <Box></Box>
+                                        <Box display="flex" alignItems="center" justifyContent="end" padding="0 10px">
                                             <Box>
                                                 <Typography color="primary.main">총 3,266,667원</Typography>
                                             </Box>

@@ -14,9 +14,11 @@ export const MuiMenuItem = {
 
             [`& .${menuItemClasses.root}`]: {
                 icon: {
-
                     minWidth: '0',
                 },
+            },
+            '&:hover': {
+                backgroundColor: '#F0F2F5',
             },
         },
     },

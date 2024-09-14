@@ -2,9 +2,9 @@ import React from 'react';
 
 export default function ArrowRight() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+    <svg xmlns="http://www.w3.org/2000/svg">
       <g id="ico_open-arrow_nor" transform="translate(246 84) rotate(180)">
-        <rect id="icon" width="12" height="12" transform="translate(234 72)" fill="none" opacity="0.1" />
+        <rect id="icon" transform="translate(234 72)" fill="none" opacity="0.1" />
         <path
           id="Path_20"
           data-name="Path 20"

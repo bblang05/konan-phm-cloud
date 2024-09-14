@@ -14,17 +14,13 @@ import {
     Table,
     TableBody,
     Grid,
-    MenuItem
+    MenuItem,
+    Typography, Icon, Select
 } from "@mui/material";
-import Select, {SelectChangeEvent} from "@mui/material/Select";
+import ArrowBottom from "@/components/svgIcon/ArrowBottom";
 
 export function CreateTableForm(): React.JSX.Element {
-
-    const [selectValue, setSelectValue] = React.useState<string>('0');
-
-    const handleSelectChange = (event: SelectChangeEvent) => {
-        setSelectValue(event.target.value as string);
-    };
+    const [open, setOpen] = React.useState(false);
 
     return (
         <Box>
@@ -90,24 +86,40 @@ export function CreateTableForm(): React.JSX.Element {
                                                 <Box width={320}>
                                                     <FormControl fullWidth>
                                                         <Select
+                                                            IconComponent={() => (
+                                                                <Icon sx={{
+                                                                    width: 12,
+                                                                    height: 12,
+                                                                    fill: '#777D87',
+                                                                    transition: 'transform 0.3s ease',
+                                                                    transform: open ? 'rotate(180deg)' : 'rotate(0deg)'
+                                                                }}>
+                                                                    <ArrowBottom/>
+                                                                </Icon>
+                                                            )}
+                                                            displayEmpty
+                                                            size="small"
+                                                            variant="outlined"
+                                                            style={open ? { backgroundColor: '#EBF1FA' } : {}}
+                                                            open={open}
+                                                            onOpen={() => setOpen(true)}
+                                                            onClose={() => setOpen(false)}
                                                             sx={{
                                                                 height: '30px',
                                                                 backgroundColor: 'var(--mui-palette-background-paper)',
-                                                                // color: '#777D87'
                                                             }}
-                                                            value={selectValue}
-                                                            size="small"
-                                                            onChange={handleSelectChange}
-                                                            displayEmpty
-                                                            id="select"
-                                                            variant="outlined"
+                                                            renderValue={(value: any) => {
+                                                                if (!value) {
+                                                                    return <Typography color="text.disabled"
+                                                                                       variant="body2">권한
+                                                                        선택</Typography>;
+                                                                }
+                                                                return value;
+                                                            }}
                                                         >
-                                                            <MenuItem value={0}>
-                                                                권한 선택
-                                                            </MenuItem>
-                                                            <MenuItem value={1}>관리자</MenuItem>
-                                                            <MenuItem value={2}>운영자</MenuItem>
-                                                            <MenuItem value={3}>사용자</MenuItem>
+                                                            <MenuItem value={'관리자'}>관리자</MenuItem>
+                                                            <MenuItem value={'운영자'}>운영자</MenuItem>
+                                                            <MenuItem value={'사용자'}>사용자</MenuItem>
                                                         </Select>
                                                     </FormControl>
                                                 </Box>
@@ -191,10 +203,10 @@ export function CreateTableForm(): React.JSX.Element {
                 gap={1}
                 pt="20px"
             >
-                <Button variant="contained" color="inherit" sx={{width: '74px'}}>
+                <Button variant="contained" color="inherit" disableElevation sx={{width: '74px'}}>
                     취소
                 </Button>
-                <Button variant="contained" sx={{width: '74px'}}>
+                <Button variant="contained" color="primary" disableElevation sx={{width: '74px'}}>
                     저장
                 </Button>
             </Grid>

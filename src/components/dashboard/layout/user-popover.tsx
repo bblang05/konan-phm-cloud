@@ -1,9 +1,7 @@
 import * as React from 'react';
-import RouterLink from 'next/link';
 import {useRouter} from 'next/navigation';
 import {Divider, MenuItem, MenuList, Popover} from '@mui/material';
 
-import {paths} from '@/paths';
 import {authClient} from '@/lib/auth/client';
 import {logger} from '@/lib/default-logger';
 import {useUser} from '@/hooks/use-user';

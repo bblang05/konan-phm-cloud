@@ -20,15 +20,14 @@ import {
     Checkbox,
     ToggleButton,
     ToggleButtonGroup,
-    FormControl,
-    MenuItem,
     Typography,
     Radio,
     RadioGroup,
     FormControlLabel,
-    Select,
-    SelectChangeEvent
+    Icon, IconButton
 } from '@mui/material';
+import {SelectOption} from "@/components/dashboard/tenant/select-option";
+import Close from "@/components/svgIcon/Close";
 
 
 const BpIcon = styled('span')(() => ({
@@ -75,7 +74,6 @@ function BpCheckbox(props: CheckboxProps) {
         />
     );
 }
-
 
 const RadioIcon = styled('span')(() => ({
     borderRadius: '50%',
@@ -142,12 +140,6 @@ export function SelectRatePlan(): React.JSX.Element {
         setOpen(false);
     };
 
-    const [selectValue, setSelectValue] = React.useState<string>('0');
-
-    const handleSelectChange = (event: SelectChangeEvent) => {
-        setSelectValue(event.target.value as string);
-    };
-
     return (
         <Box>
             <Button
@@ -173,8 +165,23 @@ export function SelectRatePlan(): React.JSX.Element {
                 aria-describedby="alert-dialog-description"
             >
                 <DialogTitle id="alert-dialog-title">{'요금제 선택'}</DialogTitle>
+                <IconButton
+                    aria-label="close"
+                    onClick={handleClose}
+                    sx={{
+                        position: 'absolute',
+                        right: 14,
+                        top: 8,
+                        opacity: 0.4,
+                        '&:hover': {opacity: 1}
+                    }}
+                >
+                    <Icon sx={{height: 20, width: 20, fill: 'var(--mui-palette-text-primary)',}}>
+                        <Close/>
+                    </Icon>
+                </IconButton>
                 <DialogContent sx={{height: '531px', overflowX: 'auto'}}>
-                    <Box padding="16px 0">
+                    <Box paddingBottom="10px">
                         <Box marginBottom="10px">기본 서비스</Box>
 
                         <ToggleButtonGroup
@@ -210,30 +217,64 @@ export function SelectRatePlan(): React.JSX.Element {
                                             <TableRow>
                                                 <TableCell component="th" scope="row"/>
                                                 <TableCell component="th" align="center" scope="row">
-
                                                     <FormControlLabel value="free" control={<BpRadio/>} label="Free"
                                                                       labelPlacement="bottom"
-                                                                      sx={{margin: 0}}/>
+                                                                      sx={{
+                                                                          margin: 0,
+                                                                          paddingTop: '2px',
+                                                                          '.MuiFormControlLabel-label': {
+                                                                              fontWeight: '500',
+                                                                              fontSize: '13px',
+                                                                          },
+                                                                      }}/>
                                                 </TableCell>
                                                 <TableCell component="th" align="center" scope="row">
                                                     <FormControlLabel value="basic" control={<BpRadio/>} label="Basic"
                                                                       labelPlacement="bottom"
-                                                                      sx={{margin: 0}}/>
+                                                                      sx={{
+                                                                          margin: 0,
+                                                                          paddingTop: '2px',
+                                                                          '.MuiFormControlLabel-label': {
+                                                                              fontWeight: '500',
+                                                                              fontSize: '13px',
+                                                                          },
+                                                                      }}/>
                                                 </TableCell>
                                                 <TableCell component="th" align="center" scope="row">
                                                     <FormControlLabel value="pro" control={<BpRadio/>} label="Pro"
                                                                       labelPlacement="bottom"
-                                                                      sx={{margin: 0}}/>
+                                                                      sx={{
+                                                                          margin: 0,
+                                                                          paddingTop: '2px',
+                                                                          '.MuiFormControlLabel-label': {
+                                                                              fontWeight: '500',
+                                                                              fontSize: '13px',
+                                                                          },
+                                                                      }}/>
                                                 </TableCell>
                                                 <TableCell component="th" align="center" scope="row">
                                                     <FormControlLabel value="premium" control={<BpRadio/>}
                                                                       label="Premium" labelPlacement="bottom"
-                                                                      sx={{margin: 0}}/>
+                                                                      sx={{
+                                                                          margin: 0,
+                                                                          paddingTop: '2px',
+                                                                          '.MuiFormControlLabel-label': {
+                                                                              fontWeight: '500',
+                                                                              fontSize: '13px',
+                                                                          },
+                                                                      }}/>
                                                 </TableCell>
                                                 <TableCell component="th" align="center" scope="row">
                                                     <FormControlLabel value="enterprise" control={<BpRadio/>}
                                                                       label="Enterprise" labelPlacement="bottom"
-                                                                      sx={{margin: 0}}/>
+                                                                      sx={{
+                                                                          margin: 0,
+                                                                          paddingTop: '2px',
+                                                                          '.MuiFormControlLabel-label': {
+                                                                              fontWeight: '500',
+                                                                              fontSize: '13px',
+                                                                          },
+                                                                      }}/>
                                                 </TableCell>
                                             </TableRow>
 
@@ -278,34 +319,45 @@ export function SelectRatePlan(): React.JSX.Element {
 
                                             <TableRow>
                                                 <TableCell component="th" scope="row">
-                                                    리소스 기본 제공량
-                                                    <Typography color="text.secondary" variant="body2">
-                                                        * 기본 제공량 초과 시, 추가 비용 발생
+                                                    <Typography variant="body2" lineHeight="1.3" fontWeight="500">
+                                                        리소스 기본 제공량
+                                                        <Typography color="var(--mui-palette-neutral-500)"
+                                                                    variant="body2">
+                                                            * 기본 제공량 초과 시, 추가 비용 발생
+                                                        </Typography>
                                                     </Typography>
                                                 </TableCell>
                                                 <TableCell align="center">
-                                                    30MB 이하 / 일
-                                                    <Box color="var(--mui-palette-neutral-500)">
-                                                        (10,000원 / GB)
-                                                    </Box>
+                                                    <Typography variant="body2" lineHeight="1.3">
+                                                        30MB 이하 / 일
+                                                        <Box color="var(--mui-palette-neutral-500)">
+                                                            (10,000원 / GB)
+                                                        </Box>
+                                                    </Typography>
                                                 </TableCell>
                                                 <TableCell align="center">
-                                                    10GB 이하 / 월
-                                                    <Box color="var(--mui-palette-neutral-500)">
-                                                        (10,000원 / GB)
-                                                    </Box>
+                                                    <Typography variant="body2" lineHeight="1.3">
+                                                        10GB 이하 / 월
+                                                        <Box color="var(--mui-palette-neutral-500)">
+                                                            (10,000원 / GB)
+                                                        </Box>
+                                                    </Typography>
                                                 </TableCell>
                                                 <TableCell align="center">
-                                                    25GB 이하 / 월
-                                                    <Box color="var(--mui-palette-neutral-500)">
-                                                        (10,000원 / GB)
-                                                    </Box>
+                                                    <Typography variant="body2" lineHeight="1.3">
+                                                        25GB 이하 / 월
+                                                        <Box color="var(--mui-palette-neutral-500)">
+                                                            (10,000원 / GB)
+                                                        </Box>
+                                                    </Typography>
                                                 </TableCell>
                                                 <TableCell align="center">
-                                                    50GB 이하 / 월
-                                                    <Box color="var(--mui-palette-neutral-500)">
-                                                        (10,000원 / GB)
-                                                    </Box>
+                                                    <Typography variant="body2" lineHeight="1.3">
+                                                        50GB 이하 / 월
+                                                        <Box color="var(--mui-palette-neutral-500)">
+                                                            (10,000원 / GB)
+                                                        </Box>
+                                                    </Typography>
                                                 </TableCell>
                                             </TableRow>
 
@@ -322,10 +374,10 @@ export function SelectRatePlan(): React.JSX.Element {
                                                     <BpCheckbox/>
                                                 </TableCell>
                                                 <TableCell align="center">
-                                                    <BpCheckbox disabled/>
+                                                    <BpCheckbox/>
                                                 </TableCell>
                                                 <TableCell align="center">
-                                                    <BpCheckbox disabled/>
+                                                    <BpCheckbox/>
                                                 </TableCell>
                                             </TableRow>
 
@@ -340,48 +392,10 @@ export function SelectRatePlan(): React.JSX.Element {
                                                     1
                                                 </TableCell>
                                                 <TableCell align="center">
-                                                    <Box width={53} display="inline-block">
-                                                        <FormControl>
-                                                            <Select
-                                                                sx={{
-                                                                    height: '24px',
-                                                                    backgroundColor: 'var(--mui-palette-background-paper)',
-                                                                    color: '#777D87'
-                                                                }}
-                                                                value={selectValue}
-                                                                size="small"
-                                                                onChange={handleSelectChange}
-                                                                displayEmpty
-                                                                id="select"
-                                                                variant="outlined"
-                                                            >
-                                                                <MenuItem value={0}>2</MenuItem>
-                                                                <MenuItem value={1}>4</MenuItem>
-                                                            </Select>
-                                                        </FormControl>
-                                                    </Box>
+                                                    <SelectOption/>
                                                 </TableCell>
                                                 <TableCell align="center">
-                                                    <Box width={53} display="inline-block">
-                                                        <FormControl>
-                                                            <Select
-                                                                sx={{
-                                                                    height: '24px',
-                                                                    backgroundColor: 'var(--mui-palette-background-paper)',
-                                                                    color: '#777D87'
-                                                                }}
-                                                                value={selectValue}
-                                                                size="small"
-                                                                onChange={handleSelectChange}
-                                                                displayEmpty
-                                                                id="select"
-                                                                variant="outlined"
-                                                            >
-                                                                <MenuItem value={0}>2</MenuItem>
-                                                                <MenuItem value={1}>4</MenuItem>
-                                                            </Select>
-                                                        </FormControl>
-                                                    </Box>
+                                                    <SelectOption/>
                                                 </TableCell>
                                             </TableRow>
 
@@ -411,7 +425,7 @@ export function SelectRatePlan(): React.JSX.Element {
 
                     <Box>
                         <Box marginBottom="10px">
-                            추가 서비스<Typography color="primary.main" display="inline-block">(선택)</Typography>
+                            추가 서비스 <Typography color="primary.main" display="inline-block">(선택)</Typography>
                         </Box>
                         <form>
                             <RadioGroup
@@ -434,18 +448,42 @@ export function SelectRatePlan(): React.JSX.Element {
                                                 <TableCell component="th" scope="row"/>
                                                 <TableCell component="th" align="center" scope="row">
                                                     <FormControlLabel value="aiBasic" control={<BpRadio/>}
-                                                                      label="AI Basic" labelPlacement="bottom"
-                                                                      sx={{margin: 0}}/>
+                                                                      label="AI Basic"
+                                                                      labelPlacement="bottom"
+                                                                      sx={{
+                                                                          margin: 0,
+                                                                          paddingTop: '2px',
+                                                                          '.MuiFormControlLabel-label': {
+                                                                              fontWeight: '500',
+                                                                              fontSize: '13px',
+                                                                          },
+                                                                      }}/>
                                                 </TableCell>
                                                 <TableCell component="th" align="center" scope="row">
-                                                    <FormControlLabel value="aiPro" control={<BpRadio/>} label="AI Pro"
+                                                    <FormControlLabel value="aiPro" control={<BpRadio/>}
+                                                                      label="AI Pro"
                                                                       labelPlacement="bottom"
-                                                                      sx={{margin: 0}}/>
+                                                                      sx={{
+                                                                          margin: 0,
+                                                                          paddingTop: '2px',
+                                                                          '.MuiFormControlLabel-label': {
+                                                                              fontWeight: '500',
+                                                                              fontSize: '13px',
+                                                                          },
+                                                                      }}/>
                                                 </TableCell>
                                                 <TableCell component="th" align="center" scope="row">
                                                     <FormControlLabel value="aiPremium" control={<BpRadio/>}
-                                                                      label="AI Premium" labelPlacement="bottom"
-                                                                      sx={{margin: 0}}/>
+                                                                      label="AI Premium"
+                                                                      labelPlacement="bottom"
+                                                                      sx={{
+                                                                          margin: 0,
+                                                                          paddingTop: '2px',
+                                                                          '.MuiFormControlLabel-label': {
+                                                                              fontWeight: '500',
+                                                                              fontSize: '13px',
+                                                                          },
+                                                                      }}/>
                                                 </TableCell>
                                             </TableRow>
 
@@ -457,48 +495,10 @@ export function SelectRatePlan(): React.JSX.Element {
                                                     1
                                                 </TableCell>
                                                 <TableCell align="center">
-                                                    <Box width={53} display="inline-block">
-                                                        <FormControl>
-                                                            <Select
-                                                                sx={{
-                                                                    height: '24px',
-                                                                    backgroundColor: 'var(--mui-palette-background-paper)',
-                                                                    color: '#777D87'
-                                                                }}
-                                                                value={selectValue}
-                                                                size="small"
-                                                                onChange={handleSelectChange}
-                                                                displayEmpty
-                                                                id="select"
-                                                                variant="outlined"
-                                                            >
-                                                                <MenuItem value={0}>2</MenuItem>
-                                                                <MenuItem value={1}>4</MenuItem>
-                                                            </Select>
-                                                        </FormControl>
-                                                    </Box>
+                                                    <SelectOption/>
                                                 </TableCell>
                                                 <TableCell align="center">
-                                                    <Box width={53} display="inline-block">
-                                                        <FormControl>
-                                                            <Select
-                                                                sx={{
-                                                                    height: '24px',
-                                                                    backgroundColor: 'var(--mui-palette-background-paper)',
-                                                                    color: '#777D87'
-                                                                }}
-                                                                value={selectValue}
-                                                                size="small"
-                                                                onChange={handleSelectChange}
-                                                                displayEmpty
-                                                                id="select"
-                                                                variant="outlined"
-                                                            >
-                                                                <MenuItem value={0}>2</MenuItem>
-                                                                <MenuItem value={1}>4</MenuItem>
-                                                            </Select>
-                                                        </FormControl>
-                                                    </Box>
+                                                    <SelectOption/>
                                                 </TableCell>
                                             </TableRow>
 
@@ -540,10 +540,10 @@ export function SelectRatePlan(): React.JSX.Element {
                 </DialogContent>
 
                 <DialogActions>
-                    <Button onClick={handleClose} variant="contained" color="inherit">
+                    <Button onClick={handleClose} variant="contained" color="inherit" disableElevation>
                         취소
                     </Button>
-                    <Button onClick={handleClose} variant="contained">
+                    <Button onClick={handleClose} variant="contained" color="primary" disableElevation>
                         선택
                     </Button>
                 </DialogActions>

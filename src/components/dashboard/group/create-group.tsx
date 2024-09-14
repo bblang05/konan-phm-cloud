@@ -8,7 +8,7 @@ import {
     DialogActions,
     DialogContent,
     DialogTitle,
-    FormControl,
+    FormControl, Icon,
     IconButton,
     OutlinedInput,
     Table,
@@ -17,6 +17,8 @@ import {
     TableContainer,
     TableRow,
 } from '@mui/material';
+import Add from "@/components/svgIcon/Add";
+import Close from "@/components/svgIcon/Close";
 
 export function CreateGroup(): React.JSX.Element {
 
@@ -32,21 +34,15 @@ export function CreateGroup(): React.JSX.Element {
 
     return (
         <Box>
-            <Button
-                variant="contained"
-                disableElevation
-                onClick={handleClickOpen}
-                startIcon={
-                    <Box
-                        component="img"
-                        alt="logo"
-                        src="/images/ico_add-14.svg"
-                        sx={{display: 'inline-block', height: '14px', width: '14px'}}
-                    />
-                }
-                color="primary"
-                size="small"
-            >
+            <Button variant="contained" color="primary"
+                    size="small"
+                    disableElevation
+                    onClick={handleClickOpen}
+                    startIcon={
+                        <Icon sx={{width: 14, height: 14}}>
+                            <Add/>
+                        </Icon>
+                    }>
                 생성
             </Button>
 
@@ -57,7 +53,7 @@ export function CreateGroup(): React.JSX.Element {
                     "& .MuiDialog-container": {
                         "& .MuiPaper-root": {
                             width: "100%",
-                            maxWidth: "760px",  // Set your width here
+                            maxWidth: "760px",
                         },
                     },
                 }}
@@ -70,17 +66,15 @@ export function CreateGroup(): React.JSX.Element {
                     onClick={handleClose}
                     sx={{
                         position: 'absolute',
-                        right: 8,
+                        right: 14,
                         top: 8,
-                        color: (theme) => theme.palette.grey[500],
+                        opacity: 0.4,
+                        '&:hover': {opacity: 1}
                     }}
                 >
-                    <Box
-                        component="img"
-                        alt="logo"
-                        src="/images/close__line--222.svg"
-                        sx={{display: 'inline-block', height: '20px', width: '20px'}}
-                    />
+                    <Icon sx={{height: 20, width: 20, fill: 'var(--mui-palette-text-primary)',}}>
+                        <Close/>
+                    </Icon>
                 </IconButton>
                 <DialogContent>
                     <Box>
@@ -115,10 +109,10 @@ export function CreateGroup(): React.JSX.Element {
                     </Box>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose} variant="contained" color="inherit">
+                    <Button onClick={handleClose} variant="contained" disableElevation color="inherit">
                         취소
                     </Button>
-                    <Button onClick={handleClose} variant="contained">
+                    <Button onClick={handleClose} variant="contained" disableElevation color="primary">
                         생성
                     </Button>
                 </DialogActions>

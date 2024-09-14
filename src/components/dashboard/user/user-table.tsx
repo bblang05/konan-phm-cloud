@@ -13,13 +13,16 @@ import {
     TableHead,
     TableRow,
     Typography,
-    Card
+    Card, Icon
 } from '@mui/material';
 import dayjs from 'dayjs';
 
 import {useSelection} from '@/hooks/use-selection';
 import {CustomersFilters} from '@/components/dashboard/customer/customers-filters';
 import {SelectPage} from "@/components/dashboard/customer/select-page";
+import Sort from "@/components/svgIcon/Sort";
+import PageArrowRight from "@/components/svgIcon/PageArrowRight";
+import PageArrowLeft from "@/components/svgIcon/PageArrowLeft";
 
 function createData(
     name: string,
@@ -51,41 +54,97 @@ export function UserTable(): React.JSX.Element {
                 <Box p="17px 20px">
                     <Box display="flex" alignItems="center" justifyContent="space-between" pb="17px">
                         <CustomersFilters/>
-                        <Box display="flex" alignItems="center" gap={2}>
+                        <Box display="flex" alignItems="center" gap="20px">
                             <SelectPage/>
 
                             <Stack direction="row" gap="10px" alignItems="center">
-                                <IconButton edge="end" size="small" className="outlined">
-                                    <Box
-                                        component="img"
-                                        alt="left-arrow"
-                                        src="/images/ico_page-arrow-left-dis.svg"
-                                        sx={{display: 'inline-block', height: '16px', width: '16px'}}
-                                    />
+                                <IconButton className="outlined" color="inherit" disabled>
+                                    <Icon sx={{height: 16, width: 16}}>
+                                        <PageArrowLeft/>
+                                    </Icon>
                                 </IconButton>
                                 <Typography variant="body2">
                                     1 / 5
                                 </Typography>
-                                <IconButton edge="end" size="small" className="outlined">
-                                    <Box
-                                        component="img"
-                                        alt="right-arrow"
-                                        src="/images/ico_page-arrow-right-nor.svg"
-                                        sx={{display: 'inline-block', height: '16px', width: '16px'}}
-                                    />
+                                <IconButton className="outlined" color="inherit">
+                                    <Icon sx={{height: 16, width: 16}}>
+                                        <PageArrowRight/>
+                                    </Icon>
                                 </IconButton>
                             </Stack>
                         </Box>
                     </Box>
                     <Box sx={{overflowX: 'auto'}}>
-                        <Table sx={{minWidth: '800px'}} className="even-table">
+                        <Table sx={{minWidth: '800px'}} className="even-table" size="small">
+                            <colgroup>
+                                <col width="15%"/>
+                                <col width="30%"/>
+                                <col width="20%"/>
+                                <col width="20%"/>
+                                <col width="15%"/>
+                            </colgroup>
                             <TableHead>
                                 <TableRow>
-                                    <TableCell>이름</TableCell>
-                                    <TableCell>아이디</TableCell>
-                                    <TableCell>권한</TableCell>
-                                    <TableCell>그룹</TableCell>
-                                    <TableCell>마지막 접속일</TableCell>
+                                    <TableCell>
+                                        이름
+                                        <Icon sx={{
+                                            width: 16,
+                                            height: 16,
+                                            fill: '#9EA6B8',
+                                            cursor: 'pointer',
+                                            marginLeft: '4px'
+                                        }}>
+                                            <Sort/>
+                                        </Icon>
+                                    </TableCell>
+                                    <TableCell>
+                                        아이디
+                                        <Icon sx={{
+                                            width: 16,
+                                            height: 16,
+                                            fill: '#9EA6B8',
+                                            cursor: 'pointer',
+                                            marginLeft: '4px'
+                                        }}>
+                                            <Sort/>
+                                        </Icon>
+                                    </TableCell>
+                                    <TableCell>
+                                        권한
+                                        <Icon sx={{
+                                            width: 16,
+                                            height: 16,
+                                            fill: '#9EA6B8',
+                                            cursor: 'pointer',
+                                            marginLeft: '4px'
+                                        }}>
+                                            <Sort/>
+                                        </Icon>
+                                    </TableCell>
+                                    <TableCell>
+                                        그룹
+                                        <Icon sx={{
+                                            width: 16,
+                                            height: 16,
+                                            fill: '#9EA6B8',
+                                            cursor: 'pointer',
+                                            marginLeft: '4px'
+                                        }}>
+                                            <Sort/>
+                                        </Icon>
+                                    </TableCell>
+                                    <TableCell>
+                                        마지막 접속일
+                                        <Icon sx={{
+                                            width: 16,
+                                            height: 16,
+                                            fill: '#9EA6B8',
+                                            cursor: 'pointer',
+                                            marginLeft: '4px'
+                                        }}>
+                                            <Sort/>
+                                        </Icon>
+                                    </TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>

@@ -7,7 +7,7 @@ import {green, orange} from "@mui/material/colors";
 export const colorSchemes = {
   light: {
     palette: {
-      action: { disabledBackground: 'rgba(0, 0, 0, 0.06)' },
+      action: { disabledBackground: 'rgba(0, 0, 0, 0.06)', hover: '#F0F6FC' },
       background: {
         default: 'var(--mui-palette-common-white)',
         defaultChannel: '255 255 255',

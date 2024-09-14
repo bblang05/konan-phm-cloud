@@ -2,8 +2,8 @@ import React from 'react';
 
 export default function Sort() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-      <g id="ico_sort" transform="translate(-214 -290)">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="3 3 19 19">
+      <g id="ico_sort" transform="translate(-210 -289)">
         <rect
           id="Rectangle_199"
           data-name="Rectangle 199"

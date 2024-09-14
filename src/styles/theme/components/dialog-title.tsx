@@ -6,7 +6,8 @@ export const MuiDialogTitle = {
     styleOverrides: {
         root: {
             position: 'relative',
-            padding: '18px 20px 14px 20px',
+            padding: '17px 20px 14px 20px',
+            fontSize:'14px',
             '&:after': {
                 content: '""',
                 display: 'block',
@@ -14,7 +15,7 @@ export const MuiDialogTitle = {
                 background: '#777D87',
                 height: '1px',
                 position: 'relative',
-                top: '16px',
+                top: '14px',
             },
             '&.alert-dialog-title&:after': {
                 'height': 0,

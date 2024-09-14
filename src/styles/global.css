@@ -1,19 +1,19 @@
 @font-face {
-    font-family: "NotoSansKR-Bold";
+    font-family: "Noto Sans KR";
     font-weight: 600;
-    src: url("../../public/font/NotoSansKR-SemiBold.ttf") format("truetype");
+    src: url("/font/NotoSansKR-SemiBold.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: "NotoSansKR-Medium";
+    font-family: "Noto Sans KR";
     font-weight: 500;
-    src: url("../../public/font/NotoSansKR-Medium.ttf") format("truetype");
+    src: url("/font/NotoSansKR-Medium.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: "NotoSansKR-Regular";
+    font-family: "Noto Sans KR";
     font-weight: 400;
-    src: url("../../public/font/NotoSansKR-Regular.ttf") format("truetype");
+    src: url("/font/NotoSansKR-Regular.ttf") format("truetype");
 }
 
 /*@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');*/
@@ -34,8 +34,8 @@ html {
 }
 
 body {
-    font-family: "sans-serif";
     height: 100%;
+    font-family: "NotoSansKR-Regular", "NotoSansKR-Medium", "NotoSansKR-Bold", sans-serif;
 }
 
 .form-table {
@@ -52,7 +52,7 @@ body {
 }
 
 .form-table:not(.tiny) tr td {
-    padding: 10px 16px;
+    padding: 8.5px 16px;
 }
 
 .form-table.tiny th {
@@ -75,9 +75,13 @@ table.even-table tr:nth-child(even) {
 }
 
 table.even-table tr td {
-    min-height: 40px;
+    height: 40px;
 }
-
+table.even-table.dense tr td {
+    height: 32px;
+    min-height: 32px;
+    padding:  2px 12px;
+}
 .required {
     display: inline-block;
 }

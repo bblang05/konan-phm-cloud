@@ -8,7 +8,6 @@ export const MuiButton = {
             borderRadius: '3px',
             textTransform: 'none',
             boxShadow: 'none',
-            lineHeight: 'normal',
 
         },
         containedPrimary: {
@@ -98,7 +97,7 @@ export const MuiButton = {
             marginRight: '4px',
         },
         sizeSmall: {padding: '4px 10px', height: '28px', fontSize: '13px',},
-        sizeMedium: {padding: '4px 12px', height: '30px'},
+        sizeMedium: {padding: '4px 12px', height: '32px', fontSize: '13px',},
         sizeLarge: {padding: '8px 24px', fontSize: '16px', fontWeight: 'bold', height: '40px'},
         textSizeSmall: {padding: '7px 12px'},
         textSizeMedium: {padding: '9px 16px'},

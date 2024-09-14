@@ -11,11 +11,13 @@ export const MuiOutlinedInput = {
             height: '36px',
             paddingLeft: '10px',
             paddingRight: '10px',
+            fontWeight:'400 !important',
             [`& img`]: {
-                marginRight: '8px',
+                // marginRight: '4px',
             },
             [`& textarea`]: {
                 paddingTop: '8px',
+                // backgroundColor: '#F7F8FA',
             },
             [`& select`]: {
                 paddingLeft: '8px',
@@ -30,10 +32,29 @@ export const MuiOutlinedInput = {
                 borderColor: 'var(--mui-palette-primary-main) !important',
             },
             '&:focus fieldset': {
-                borderColor: 'var(--mui-palette-primary-main) !important',
+                borderColor: 'var(--mui-palette-primary-main)',
                 // borderWidth: '1px !important'
             },
+            // '&:has([readonly])': {
+            //     backgroundColor: '#fff',
+            //     "& .MuiOutlinedInput-notchedOutline": {
+            //         borderColor: "#cecece !important",
+            //     },
+            // },
+
+
+
+
+
+            disabled: {
+                borderColor: '#D3D7DE',
+                // borderWidth: '1px !important',
+                '&:hover fieldset': {
+                    borderColor: '#f00 !important',
+                },
+            }
         },
+
         input: {
             borderRadius: '0',
             padding: '6px 0'
@@ -50,5 +71,6 @@ export const MuiOutlinedInput = {
                 width: '16px',
             },
         },
+
     },
 } satisfies Components<Theme>['MuiOutlinedInput'];

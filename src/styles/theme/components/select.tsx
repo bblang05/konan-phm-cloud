@@ -11,7 +11,7 @@ export const MuiSelect = {
             paddingLeft: 0,
             '&.selected': {
                 fontSize: '13px',
-                // backgroundColor: '#f00 !important',
+                alignSelf: 'end',
             },
             '&:hover': {
                 backgroundColor: '#F2F5FA',
@@ -26,12 +26,17 @@ export const MuiSelect = {
                 backgroundColor: '#EBF1FA !important',
                 'fieldset': {
                     borderColor: '#6D8FC2 !important',
-                }
+                },
+                svg: {
+                    transform: 'rotate(180deg)',
+                },
+
             },
         },
         outlined: {
             fontSize: '13px',
-            paddingLeft: '8px',
+            paddingLeft: '10px',
+            paddingRight: '4px !important',
         },
 
     },

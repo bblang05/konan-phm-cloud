@@ -5,16 +5,19 @@ import Button from '@mui/material/Button';
 import {
     Box,
     Typography,
-    Link
+    Icon, Grid
 } from "@mui/material";
 
 import {styled} from "@mui/material/styles";
 import {TreeItem, treeItemClasses} from "@mui/x-tree-view/TreeItem";
 import SvgIcon, {SvgIconProps} from "@mui/material/SvgIcon";
 import {SimpleTreeView} from "@mui/x-tree-view/SimpleTreeView";
-
+import Edit from "@/components/svgIcon/Edit";
 
 const CustomTreeItem = styled(TreeItem)({
+    [`& .${treeItemClasses.label}`]: {
+        fontWeight: '400 !important',
+    },
     [`& .${treeItemClasses.iconContainer}`]: {
         '& .close': {
             opacity: 0.3,
@@ -78,7 +81,7 @@ function Expand(props: SvgIconProps) {
 
 export default function CustomIcons() {
     return (
-        <Box sx={{minHeight: 352, minWidth: 250}}>
+        <Box sx={{height: 'calc(100vh - 332px)', minWidth: '100%'}}>
             <SimpleTreeView
                 defaultExpandedItems={['grid']}
                 slots={{
@@ -110,27 +113,33 @@ export function MenuList(): React.JSX.Element {
         <Box p={'11px 20px'}>
             <Box display="flex" justifyContent="space-between" alignItems="center" pb={'11px'}>
                 <Typography variant="subtitle2">메뉴 목록</Typography>
-                <Button
-                    variant="contained"
-                    component={Link}
-                    href=""
-                    disableElevation
-                    startIcon={
-                        <Box
-                            component="img"
-                            alt=""
-                            src="/images/ico_edit-nor.svg"
-                            sx={{display: 'inline-block', height: '14px', width: '14px'}}
-                        />
-                    }
-                    color="inherit"
-                    size="small"
-                >
+                <Button variant="contained" color="inherit"
+                        size="small"
+                        disableElevation
+                        startIcon={
+                            <Icon sx={{width: 14, height: 14}}>
+                                <Edit/>
+                            </Icon>
+                        }>
                     권한 수정
                 </Button>
             </Box>
-
             <CustomIcons/>
+            <Grid
+                container
+                direction="row"
+                justifyContent="flex-end"
+                alignItems="center"
+                gap={1}
+                pt="20px"
+            >
+                <Button variant="contained" color="inherit" disableElevation sx={{width: '74px', height: '32px'}}>
+                    취소
+                </Button>
+                <Button variant="contained" color="primary" disableElevation sx={{width: '74px', height: '32px'}}>
+                    저장
+                </Button>
+            </Grid>
         </Box>
     );
 }

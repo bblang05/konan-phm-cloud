@@ -6,11 +6,11 @@ export const MuiRadio = {
     styleOverrides: {
         root: {
             padding: 0,
-
             borderRadius: '50%',
             width: 16,
             height: 16,
             backgroundColor: '#D3D7DE',
+
             'input:hover ~ &': {
                 backgroundColor: '#bac0cd',
             },

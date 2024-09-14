@@ -2,9 +2,9 @@ import React from 'react';
 
 export default function More() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+    <svg xmlns="http://www.w3.org/2000/svg">
       <g id="ico_more" transform="translate(-1878 -24)">
-        <rect id="icon" width="16" height="16" transform="translate(1878 24)" fill="none" opacity="0.1" />
+        <rect id="icon" transform="translate(1878 24)" fill="none" opacity="0.1" />
         <path
           id="Path_84"
           data-name="Path 84"

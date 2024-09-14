@@ -67,21 +67,21 @@ export default function Page() {
 
                         <TableRow>
                             <TableCell component="th" scope="row">
-                                <Link href="/dashboard/user-list">사용자 관리-사용자 목록</Link>
+                                <Link href="/src/app/dashboard-a/user-list">사용자 관리-사용자 목록</Link>
                             </TableCell>
                             <TableCell></TableCell>
                         </TableRow>
 
                         <TableRow>
                             <TableCell component="th" scope="row">
-                                <Link href="/dashboard/user-create">사용자 관리-사용자 생성</Link>
+                                <Link href="/src/app/dashboard-a/user-create">사용자 관리-사용자 생성</Link>
                             </TableCell>
                             <TableCell></TableCell>
                         </TableRow>
 
                         <TableRow>
                             <TableCell component="th" scope="row">
-                                <Link href="/dashboard/user-detail">사용자 관리-사용자 상세</Link>
+                                <Link href="/src/app/dashboard-a/user-detail">사용자 관리-사용자 상세</Link>
                             </TableCell>
                             <TableCell></TableCell>
                         </TableRow>
@@ -89,38 +89,32 @@ export default function Page() {
                         {/**/}
                         <TableRow>
                             <TableCell component="th" scope="row">
-                                <Link href="/dashboard/user-edit">사용자 관리-사용자 수정</Link>
+                                <Link href="/src/app/dashboard-a/user-edit">사용자 관리-사용자 수정</Link>
                             </TableCell>
                             <TableCell></TableCell>
                         </TableRow>
 
                         <TableRow>
                             <TableCell component="th" scope="row">
-                                <Link href="/dashboard/group-setting">그룹관리</Link>
+                                <Link href="/src/app/dashboard-a/group-setting">그룹관리</Link>
                             </TableCell>
                             <TableCell></TableCell>
                         </TableRow>
 
                         <TableRow>
                             <TableCell component="th" scope="row">
-                                <Link href="/dashboard/billing-setting">빌링관리-빌링목록</Link>
+                                <Link href="/src/app/dashboard-a/billing-setting">빌링관리-빌링목록</Link>
                             </TableCell>
                             <TableCell></TableCell>
                         </TableRow>
 
                         <TableRow>
                             <TableCell component="th" scope="row">
-                                <Link href="/dashboard/group-setting">테넌트관리-그룹 관리</Link>
+                                <Link href="/src/app/dashboard-a/group-setting">테넌트관리-그룹 관리</Link>
                             </TableCell>
                             <TableCell></TableCell>
                         </TableRow>
 
-                        <TableRow>
-                            <TableCell component="th" scope="row">
-                                <Link href="/dashboard/tenant-create">테넌트관리-테넌트 생성</Link>
-                            </TableCell>
-                            <TableCell>수정</TableCell>
-                        </TableRow>
 
                         {/* 2차*/}
                         <TableRow>
@@ -132,28 +126,35 @@ export default function Page() {
 
                         <TableRow>
                             <TableCell component="th" scope="row">
-                                <Link href="/dashboard/usage-setting">사용량 관리</Link>
+                                <Link href="/src/app/dashboard-a/usage-setting">사용량 관리</Link>
                             </TableCell>
                             <TableCell>2차 추가</TableCell>
                         </TableRow>
 
                         <TableRow>
                             <TableCell component="th" scope="row">
-                                <Link href="/dashboard/rate-plan-detail">요금제 상세</Link>
+                                <Link href="/src/app/dashboard-b/tenant-create">테넌트관리-테넌트 생성</Link>
+                            </TableCell>
+                            <TableCell>수정</TableCell>
+                        </TableRow>
+
+                        <TableRow>
+                            <TableCell component="th" scope="row">
+                                <Link href="/src/app/dashboard-b/rate-plan-detail">요금제 상세</Link>
                             </TableCell>
                             <TableCell>2차 추가</TableCell>
                         </TableRow>
 
                         <TableRow>
                             <TableCell component="th" scope="row">
-                                <Link href="/dashboard/default-rate-plan-edit">요금제 수정-기본 서비스</Link>
+                                <Link href="/src/app/dashboard-b/default-rate-plan-edit">요금제 수정-기본 서비스</Link>
                             </TableCell>
                             <TableCell>2차 추가</TableCell>
                         </TableRow>
 
                         <TableRow>
                             <TableCell component="th" scope="row">
-                                <Link href="/dashboard/additional-rate-plan-edit">요금제 수정-추가 서비스</Link>
+                                <Link href="/src/app/dashboard-b/additional-rate-plan-edit">요금제 수정-추가 서비스</Link>
                             </TableCell>
                             <TableCell>2차 추가</TableCell>
                         </TableRow>

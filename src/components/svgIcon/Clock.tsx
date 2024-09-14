@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Clock() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+    <svg xmlns="http://www.w3.org/2000/svg">
       <g id="ico_update" transform="translate(-1613 -70)">
         <rect id="icon" width="20" height="20" transform="translate(1613 70)" fill="none" opacity="0.1" />
         <path

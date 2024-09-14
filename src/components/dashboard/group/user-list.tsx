@@ -12,11 +12,13 @@ import {
     TableHead,
     IconButton,
     Menu,
-    MenuItem
+    MenuItem, Icon
 } from "@mui/material";
 import {useSelection} from "@/hooks/use-selection";
 
 import {AddUser} from "@/components/dashboard/group/add-user";
+import Sort from "@/components/svgIcon/Sort";
+import More from "@/components/svgIcon/More";
 
 function createData(
     name: string,
@@ -37,6 +39,8 @@ const rows = [
     createData('이름', 'example1@konantech.com', '관리자'),
     createData('이름', 'example1@konantech.com', '관리자'),
     createData('이름', 'example1@konantech.com', '관리자'),
+    createData('이름', 'example1@konantech.com', '관리자'),
+    createData('이름', 'example1@konantech.com', '관리자'),
 ];
 
 export function UserList(): React.JSX.Element {
@@ -44,7 +48,7 @@ export function UserList(): React.JSX.Element {
     const rowIds = React.useMemo(() => {
         return rows.map((customer) => customer.name);
     }, [rows]);
-    
+
     const {selected} = useSelection(rowIds);
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -64,53 +68,44 @@ export function UserList(): React.JSX.Element {
             </Box>
 
             <Box sx={{overflowX: 'auto'}}>
-                <Table className="even-table">
+                <Table className="even-table dense" >
                     <TableHead>
                         <TableRow>
                             <TableCell>
                                 이름
-                                <Box
-                                    component="img"
-                                    alt="sort"
-                                    src="/images/ico_sort.svg"
-                                    sx={{
-                                        display: 'inline-block',
-                                        height: '16px',
-                                        width: '16px',
-                                        cursor: 'pointer',
-                                        verticalAlign: 'middle'
-                                    }}
-                                />
+                                <Icon sx={{
+                                    width: 16,
+                                    height: 16,
+                                    fill: '#9EA6B8',
+                                    cursor: 'pointer',
+                                    marginLeft: '4px'
+                                }}>
+                                    <Sort/>
+                                </Icon>
                             </TableCell>
                             <TableCell>
                                 아이디
-                                <Box
-                                    component="img"
-                                    alt="sort"
-                                    src="/images/ico_sort.svg"
-                                    sx={{
-                                        display: 'inline-block',
-                                        height: '16px',
-                                        width: '16px',
-                                        cursor: 'pointer',
-                                        verticalAlign: 'middle'
-                                    }}
-                                />
+                                <Icon sx={{
+                                    width: 16,
+                                    height: 16,
+                                    fill: '#9EA6B8',
+                                    cursor: 'pointer',
+                                    marginLeft: '4px'
+                                }}>
+                                    <Sort/>
+                                </Icon>
                             </TableCell>
                             <TableCell>
                                 권한
-                                <Box
-                                    component="img"
-                                    alt="sort"
-                                    src="/images/ico_sort.svg"
-                                    sx={{
-                                        display: 'inline-block',
-                                        height: '16px',
-                                        width: '16px',
-                                        cursor: 'pointer',
-                                        verticalAlign: 'middle'
-                                    }}
-                                />
+                                <Icon sx={{
+                                    width: 16,
+                                    height: 16,
+                                    fill: '#9EA6B8',
+                                    cursor: 'pointer',
+                                    marginLeft: '4px'
+                                }}>
+                                    <Sort/>
+                                </Icon>
                             </TableCell>
                             <TableCell/>
                         </TableRow>
@@ -123,12 +118,12 @@ export function UserList(): React.JSX.Element {
                                           key={row.name}
                                           selected={isSelected}
                                 >
-                                    <TableCell component="th" scope="row" sx={{paddingTop: '2px', paddingBottom: '2px'}}>
+                                    <TableCell component="td" scope="row">
                                         <Link href="#" underline="always" color="inherit"> {row.name}</Link>
                                     </TableCell>
-                                    <TableCell sx={{paddingTop: '2px', paddingBottom: '2px'}}>{row.email}</TableCell>
-                                    <TableCell sx={{paddingTop: '2px', paddingBottom: '2px'}}>{row.authority}</TableCell>
-                                    <TableCell align="right" sx={{paddingTop: '2px', paddingBottom: '2px'}}>
+                                    <TableCell>{row.email}</TableCell>
+                                    <TableCell>{row.authority}</TableCell>
+                                    <TableCell align="right">
                                         <IconButton
                                             aria-label="more"
                                             id="long-button"
@@ -137,13 +132,19 @@ export function UserList(): React.JSX.Element {
                                             aria-haspopup="true"
                                             onClick={handleClick}
                                             size="small"
+                                            sx={{
+                                                height:'26px',
+                                                width:'26px',
+                                            }}
                                         >
-                                            <Box
-                                                component="img"
-                                                alt="더보기"
-                                                src="/images/ico_more.svg"
-                                                sx={{display: 'inline-block', height: '16px', width: '16px'}}
-                                            />
+                                            <Icon sx={{
+                                                width: 16,
+                                                height: 16,
+                                                fill: '#9EA6B8',
+                                                cursor: 'pointer',
+                                            }}>
+                                                <More/>
+                                            </Icon>
                                         </IconButton>
                                     </TableCell>
                                 </TableRow>

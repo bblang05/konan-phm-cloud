@@ -1,31 +1,37 @@
 import * as React from 'react';
-import { FormControl, MenuItem } from '@mui/material';
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+import {FormControl, Icon, MenuItem, Select} from '@mui/material';
+import ArrowBottom from "@/components/svgIcon/ArrowBottom";
 
 export function SelectPage(): React.JSX.Element {
-    const handleChange = (event: SelectChangeEvent) => {
-        setSelectedValue(event.target.value as string);
-    };
-
-    const [selected, setSelected] = React.useState(false);
-    const [selectedValue, setSelectedValue] = React.useState('1');
+    const [open, setOpen] = React.useState(false);
 
     return (
-        <FormControl sx={{ minWidth: 80 }}>
+        <FormControl sx={{width: 110,}}>
             <Select
+                fullWidth
+                IconComponent={() => (
+                    <Icon sx={{
+                        width: 12,
+                        height: 12,
+                        fill: '#777D87',
+                        transition: 'transform 0.3s ease',
+                        transform: open ? 'rotate(180deg)' : 'rotate(0deg)'
+                    }}>
+                        <ArrowBottom/>
+                    </Icon>
+                )}
+                displayEmpty
+                size="small"
+                variant="outlined"
+                style={open ? {backgroundColor: '#EBF1FA'} : {}}
+                open={open}
+                onOpen={() => setOpen(true)}
+                onClose={() => setOpen(false)}
                 sx={{
                     height: '30px',
-                    color: '#777D87'
+                    backgroundColor: 'var(--mui-palette-background-paper)',
                 }}
-                value={selectedValue}
-                size="small"
-                onChange={handleChange}
-                displayEmpty
-                variant="outlined"
-                id="select"
-                style={selected ? { backgroundColor: '#EBF1FA' } : {}}
-                onOpen={() => setSelected(true)}
-                onClose={() => setSelected(false)}
+                defaultValue={1}
             >
                 <MenuItem value="1">10개씩 보기</MenuItem>
                 <MenuItem value="2">20개씩 보기</MenuItem>

@@ -2,9 +2,6 @@
 
 import * as React from 'react';
 import {styled} from '@mui/material/styles';
-import {AdapterDayjs} from '@mui/x-date-pickers/AdapterDayjs';
-import {LocalizationProvider} from '@mui/x-date-pickers/LocalizationProvider';
-import {DatePicker} from '@mui/x-date-pickers/DatePicker';
 
 import TableContainer from '@mui/material/TableContainer';
 import {
@@ -17,12 +14,10 @@ import {
     Table,
     TableBody,
     Grid,
-    MenuItem,
     Typography,
     Button,
     Card,
 } from "@mui/material";
-import Select, {SelectChangeEvent} from "@mui/material/Select";
 import {SelectRatePlan} from "@/components/dashboard/tenant/select-rate-plan";
 
 const VisuallyHiddenInput = styled('input')({
@@ -39,17 +34,11 @@ const VisuallyHiddenInput = styled('input')({
 
 export function CreateTableForm(): React.JSX.Element {
 
-    const [authority, setAuthority] = React.useState('');
-
-    const handleChange = (event: SelectChangeEvent) => {
-        setAuthority(event.target.value);
-    };
-
     return (
         <Box>
             <Box mb={1}>
                 <Card variant="outlined">
-                    <Box p="17px 20px">
+                    <Box p="15px 20px">
                         <Box display="flex" justifyContent="space-between" alignItems="center" pb={'11px'}>
                             <Typography variant="subtitle2">기본 정보</Typography>
                         </Box>
@@ -119,14 +108,22 @@ export function CreateTableForm(): React.JSX.Element {
                                                         <Box width={540}>
                                                             <FormControl fullWidth>
                                                                 <OutlinedInput
+                                                                    readOnly
                                                                     required
                                                                     type="id"
                                                                     size="small"
+                                                                    sx={{
+                                                                        '&:has([readonly])': {
+                                                                            backgroundColor: '#fff',
+                                                                            "& .MuiOutlinedInput-notchedOutline": {
+                                                                                borderColor: "#cecece !important",
+                                                                            },
+                                                                        },
+                                                                    }}
                                                                 />
                                                             </FormControl>
                                                         </Box>
                                                     </Box>
-                                                    <FormHelperText>최대 파일 크기: 1MB</FormHelperText>
                                                 </Box>
                                             </TableCell>
                                         </TableRow>
@@ -156,9 +153,18 @@ export function CreateTableForm(): React.JSX.Element {
                                                         <Box width={553}>
                                                             <FormControl fullWidth>
                                                                 <OutlinedInput
+                                                                    readOnly
                                                                     required
                                                                     type="id"
                                                                     size="small"
+                                                                    sx={{
+                                                                        '&:has([readonly])': {
+                                                                            backgroundColor: '#fff',
+                                                                            "& .MuiOutlinedInput-notchedOutline": {
+                                                                                borderColor: "#cecece !important",
+                                                                            },
+                                                                        },
+                                                                    }}
                                                                 />
                                                             </FormControl>
                                                         </Box>
@@ -200,7 +206,7 @@ export function CreateTableForm(): React.JSX.Element {
             </Box>
 
             <Card variant="outlined">
-                <Box p="17px 20px">
+                <Box p="15px 20px">
                     <Box display="flex" justifyContent="space-between" alignItems="center" pb={'11px'}>
                         <Typography variant="subtitle2">관리자 정보</Typography>
                     </Box>
@@ -334,10 +340,10 @@ export function CreateTableForm(): React.JSX.Element {
                 gap={1}
                 pt="20px"
             >
-                <Button variant="contained" color="inherit" sx={{width: '74px'}}>
+                <Button variant="contained" color="inherit" disableElevation sx={{width: '74px'}}>
                     취소
                 </Button>
-                <Button variant="contained" sx={{width: '74px'}}>
+                <Button variant="contained" color="primary" disableElevation sx={{width: '74px'}}>
                     저장
                 </Button>
             </Grid>

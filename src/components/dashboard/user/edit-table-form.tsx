@@ -15,23 +15,16 @@ import {
     Switch,
     Grid,
     FormGroup,
-    FormControlLabel
+    FormControlLabel, Icon, Typography, Select, MenuItem
 } from "@mui/material";
-import Select, {SelectChangeEvent} from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
+import ArrowBottom from "@/components/svgIcon/ArrowBottom";
 
 export function EditTableForm(): React.JSX.Element {
-
+    const [open, setOpen] = React.useState(false);
     const [checked, setChecked] = React.useState(false);
 
     const toggleChecked = () => {
         setChecked((prev) => !prev);
-    };
-
-    const [pageNum, setPageNum] = React.useState('');
-
-    const handleChange = (event: SelectChangeEvent) => {
-        setPageNum(event.target.value);
     };
 
     return (
@@ -75,7 +68,9 @@ export function EditTableForm(): React.JSX.Element {
                                             아이디
                                         </TableCell>
                                         <TableCell>
-                                            konan.kim@konantech.com
+                                            <Box padding="0 10px">
+                                                konan.kim@konantech.com
+                                            </Box>
                                         </TableCell>
                                     </TableRow>
 
@@ -88,14 +83,41 @@ export function EditTableForm(): React.JSX.Element {
                                                 <Box width={320}>
                                                     <FormControl fullWidth>
                                                         <Select
-                                                            value={pageNum}
-                                                            onChange={handleChange}
+                                                            IconComponent={() => (
+                                                                <Icon sx={{
+                                                                    width: 12,
+                                                                    height: 12,
+                                                                    fill: '#777D87',
+                                                                    transition: 'transform 0.3s ease',
+                                                                    transform: open ? 'rotate(180deg)' : 'rotate(0deg)'
+                                                                }}>
+                                                                    <ArrowBottom/>
+                                                                </Icon>
+                                                            )}
                                                             displayEmpty
-                                                            placeholder="권한 선택"
+                                                            size="small"
+                                                            variant="outlined"
+                                                            style={open ? {backgroundColor: '#EBF1FA'} : {}}
+                                                            open={open}
+                                                            onOpen={() => setOpen(true)}
+                                                            onClose={() => setOpen(false)}
+                                                            sx={{
+                                                                height: '30px',
+                                                                backgroundColor: 'var(--mui-palette-background-paper)',
+                                                            }}
+                                                            renderValue={(value: any) => {
+                                                                if (!value) {
+                                                                    return <Typography color="text.disabled"
+                                                                                       variant="body2">권한
+                                                                        선택</Typography>;
+                                                                }
+                                                                return value;
+                                                            }}
+                                                            defaultValue={'관리자'}
                                                         >
-                                                            <MenuItem value="">관리자</MenuItem>
-                                                            <MenuItem value="">운영자</MenuItem>
-                                                            <MenuItem value="">사용자</MenuItem>
+                                                            <MenuItem value={'관리자'}>관리자</MenuItem>
+                                                            <MenuItem value={'운영자'}>운영자</MenuItem>
+                                                            <MenuItem value={'사용자'}>사용자</MenuItem>
                                                         </Select>
                                                     </FormControl>
                                                 </Box>
@@ -108,7 +130,7 @@ export function EditTableForm(): React.JSX.Element {
                                             그룹
                                         </TableCell>
                                         <TableCell>
-                                            <Box display="flex" alignItems="center" gap={1}>
+                                            <Box padding="0 10px">
                                                 DevOps
                                             </Box>
                                         </TableCell>
@@ -130,6 +152,7 @@ export function EditTableForm(): React.JSX.Element {
                                                                 height: '100px',
                                                             }}
                                                             size="small"
+                                                            defaultValue="설명 300자"
                                                         />
                                                     </FormControl>
                                                 </Box>
@@ -142,12 +165,12 @@ export function EditTableForm(): React.JSX.Element {
                                             사용여부
                                         </TableCell>
                                         <TableCell>
-
                                             <FormGroup>
                                                 <FormControlLabel
                                                     control={<Switch size="small" checked={checked}
                                                                      onChange={toggleChecked}/>}
-                                                    label={`${checked ? '활성' : '비활성'}`}
+                                                    label={checked ?
+                                                        <Typography color="primary">활성</Typography> : '비활성'}
                                                 />
                                             </FormGroup>
                                         </TableCell>
@@ -166,10 +189,10 @@ export function EditTableForm(): React.JSX.Element {
                 gap={1}
                 pt="20px"
             >
-                <Button variant="contained" color="inherit" sx={{width: '74px'}}>
+                <Button variant="contained" color="inherit" disableElevation sx={{width: '74px'}}>
                     취소
                 </Button>
-                <Button variant="contained" sx={{width: '74px'}}>
+                <Button variant="contained" color="primary" disableElevation sx={{width: '74px'}}>
                     저장
                 </Button>
             </Grid>
