@@ -40,11 +40,17 @@ export function GroupList(): React.JSX.Element {
             <MenuList>
                 {['개발 1팀', '개발 2팀'].map((item, index) => (
                     <MenuItem
+                        disableRipple
                         key={index}
                         sx={{
                             paddingTop: '2px',
                             paddingBottom: '2px',
                             backgroundColor: selectedItem === item ? 'var(--mui-palette-primary-light)' : 'inherit',
+                            transition: 'none',
+                            borderRadius: '3px',
+                            '&:hover': {
+                                transition: 'none',
+                            },
                         }}
                         onClick={() => setSelectedItem(item)}
                         selected={selectedItem === item}
@@ -67,10 +73,15 @@ export function GroupList(): React.JSX.Element {
                             aria-expanded={open ? 'true' : undefined}
                             aria-haspopup="true"
                             onClick={(event) => handleClick(event, item)}
+                            disableRipple
                             size="small"
                             sx={{
                                 height:'26px',
                                 width:'26px',
+                                '&:hover': {
+                                    backgroundColor: '#777D871A',
+                                    borderRadius: '3px',
+                                },
                             }}
                         >
                             <Icon

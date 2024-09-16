@@ -6,7 +6,6 @@ import {
     Card,
     TableContainer,
     FormControl,
-    Typography,
     OutlinedInput,
     TableCell,
     TableRow,
@@ -109,8 +108,8 @@ export function DetailTableForm(): React.JSX.Element {
                                             사용여부
                                         </TableCell>
                                         <TableCell>
-                                            <Box padding="0 10px">
-                                                <Typography color="primary">활성</Typography>
+                                            <Box padding="0 10px" sx={{fontSize:'13px', color:'#2668C9'}}>
+                                                활성
                                             </Box>
                                         </TableCell>
                                     </TableRow>

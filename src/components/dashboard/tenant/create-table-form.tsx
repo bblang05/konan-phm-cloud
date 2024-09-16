@@ -140,6 +140,9 @@ export function CreateTableForm(): React.JSX.Element {
                                                         variant="contained"
                                                         tabIndex={-1}
                                                         color="inherit"
+                                                        sx={{
+                                                            height: '30px',
+                                                        }}
                                                     >
                                                         파일 선택
                                                         <VisuallyHiddenInput

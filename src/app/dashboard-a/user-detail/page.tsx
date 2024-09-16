@@ -42,7 +42,7 @@ export default function Page(): React.JSX.Element {
 
                         <Box sx={{alignItems: 'center'}} gap="8px" display="flex">
                             <Button variant="contained" color="inherit"
-                                    disableElevation sx={{width: '62px', height: '32px'}}
+                                    disableElevation
                                     startIcon={
                                         <Icon sx={{width: 14, height: 14}}>
                                             <Edit/>
@@ -51,7 +51,7 @@ export default function Page(): React.JSX.Element {
                                 수정
                             </Button>
                             <Button variant="contained" color="inherit"
-                                    disableElevation sx={{width: '62px', height: '32px'}}
+                                    disableElevation
                                     onClick={handleClickOpen}
                                     startIcon={
                                         <Icon sx={{width: 14, height: 14}}>

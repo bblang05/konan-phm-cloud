@@ -2,8 +2,8 @@ import React from 'react';
 
 export default function Download() {
   return (
-    <svg id="ico_download" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-      <rect id="icon" width="16" height="16" fill="none" opacity="0.1" />
+    <svg id="ico_download" xmlns="http://www.w3.org/2000/svg">
+      <rect id="icon" fill="none" opacity="0.1" />
       <path
         id="Union_1"
         data-name="Union 1"

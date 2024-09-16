@@ -98,7 +98,11 @@ export function FirstLogin(): React.JSX.Element {
                             name="email"
                             render={({field}) => (
                                 <FormControl fullWidth error={Boolean(errors.email)}>
-                                    <OutlinedInput {...field} placeholder="아이디" type="id"/>
+                                    <OutlinedInput {...field} placeholder="아이디" type="id" sx={{
+                                        '& .MuiOutlinedInput-notchedOutline': {
+                                            borderWidth: errors.email ? '2px !important' : '1px',
+                                        },
+                                    }}/>
                                 </FormControl>
                             )}
                         />
@@ -131,6 +135,11 @@ export function FirstLogin(): React.JSX.Element {
                                         }
                                         label="Password"
                                         type={showPassword ? 'text' : 'password'}
+                                        sx={{
+                                            '& .MuiOutlinedInput-notchedOutline': {
+                                                borderWidth: errors.password ? '2px !important' : '1px',
+                                            },
+                                        }}
                                     />
                                 </FormControl>
                             )}
@@ -149,15 +158,21 @@ export function FirstLogin(): React.JSX.Element {
                         ) : null}
                     </Box>
 
-                    <Button color="primary" variant="contained" size="large" onClick={handleClickOpen} fullWidth>
+                    <Button color="primary" variant="contained" disableElevation size="large" onClick={handleClickOpen} fullWidth>
                         로그인
                     </Button>
 
                     <Dialog
                         open={open}
                         onClose={handleClose}
-                        maxWidth={"sm"}
-                        fullWidth
+                        sx={{
+                            "& .MuiDialog-container": {
+                                "& .MuiPaper-root": {
+                                    width: "100%",
+                                    maxWidth: "760px",
+                                },
+                            },
+                        }}
                         aria-labelledby="alert-dialog-title"
                         aria-describedby="alert-dialog-description"
                     >
@@ -170,11 +185,11 @@ export function FirstLogin(): React.JSX.Element {
                                 right: 14,
                                 top: 8,
                                 opacity: 0.4,
-                                '&:hover': {opacity: 1}
+                                '&:hover': { opacity: 1 }
                             }}
                         >
-                            <Icon sx={{height: 20, width: 20, fill: 'var(--mui-palette-text-primary)',}}>
-                                <Close/>
+                            <Icon sx={{ height: 20, width: 20, fill: 'var(--mui-palette-text-primary)' }}>
+                                <Close />
                             </Icon>
                         </IconButton>
                         <DialogContent>
@@ -186,7 +201,7 @@ export function FirstLogin(): React.JSX.Element {
                             <PasswordChangeTable/>
                         </DialogContent>
                         <DialogActions>
-                            <Button onClick={handleClose} variant="contained">
+                            <Button onClick={handleClose} variant="contained" color="primary">
                                 변경
                             </Button>
                         </DialogActions>

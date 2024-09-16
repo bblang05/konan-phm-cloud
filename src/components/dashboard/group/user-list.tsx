@@ -131,10 +131,16 @@ export function UserList(): React.JSX.Element {
                                             aria-expanded={open ? 'true' : undefined}
                                             aria-haspopup="true"
                                             onClick={handleClick}
+                                            disableRipple
                                             size="small"
                                             sx={{
                                                 height:'26px',
                                                 width:'26px',
+                                                '&:hover, &:focus': {
+                                                    backgroundColor: '#777D871A',
+                                                    borderRadius: '3px',
+                                                },
+
                                             }}
                                         >
                                             <Icon sx={{

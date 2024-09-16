@@ -8,7 +8,8 @@ export const MuiList = {
             padding: '4px 0',
             fontSize: '13px',
             lineHeight: '16px',
-            color: '#777D87'
+            color: '#777D87',
+            minWidth: '10px',
         }
     },
 } satisfies Components<Theme>['MuiList'];

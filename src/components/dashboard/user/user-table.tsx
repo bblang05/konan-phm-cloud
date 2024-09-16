@@ -163,7 +163,7 @@ export function UserTable(): React.JSX.Element {
                                             <TableCell>{row.authority}</TableCell>
                                             <TableCell>{row.group}</TableCell>
                                             <TableCell>
-                                                <Box color="var(--mui-palette-neutral-500)">
+                                                <Box color="#777D87">
                                                     {dayjs(row.lastAccessDate).format('YYYY-MM-D hh:mm:ss')}
                                                 </Box>
                                             </TableCell>

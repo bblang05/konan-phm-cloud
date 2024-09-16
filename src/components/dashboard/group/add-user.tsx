@@ -15,10 +15,10 @@ import {
     TableHead, TableRow, Checkbox, Icon
 } from '@mui/material';
 
-import Add from "@/components/svgIcon/Add";
 import Close from "@/components/svgIcon/Close";
 import Sort from "@/components/svgIcon/Sort";
 import {UserFilters} from "@/components/dashboard/group/user-filters";
+import SmallAdd from "@/components/svgIcon/SmallAdd";
 
 
 function createData(
@@ -121,18 +121,16 @@ export function AddUser(): React.JSX.Element {
 
     return (
         <Box>
-            <Button
-                variant="contained"
-                color="inherit"
-                size="small"
-                disableElevation
-                onClick={handleClickOpen}
-                startIcon={
-                    <Icon sx={{ width: 14, height: 14 }}>
-                        <Add />
-                    </Icon>
-                }
-            >
+            <Button variant="contained" color="inherit"
+                    size="small"
+                    disableElevation
+                    onClick={handleClickOpen}
+                    sx={{fontSize: '12px', height: '26px', lineHeight: 'inherit'}}
+                    startIcon={
+                        <Icon sx={{width: 12, height: 12}}>
+                            <SmallAdd/>
+                        </Icon>
+                    }>
                 추가
             </Button>
 

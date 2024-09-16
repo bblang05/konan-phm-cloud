@@ -3,7 +3,7 @@
 import * as React from 'react';
 import RouterLink from 'next/link';
 import {usePathname} from 'next/navigation';
-import {Box, Container, Stack, Typography} from '@mui/material';
+import {Box, Container, Stack} from '@mui/material';
 
 import type {SubNavItemConfig} from '@/types/sub-nav';
 import {isNavItemActive} from '@/lib/is-nav-item-active';
@@ -22,7 +22,7 @@ export function SubNav(): React.JSX.Element {
                 '--NavItem-hover-background': 'rgba(255, 255, 255, 0.04)',
                 '--NavItem-active-color': 'var(--mui-palette-text-primary)',
                 '--NavItem-disabled-color': 'var(--mui-palette-neutral-500)',
-                bgcolor: 'var(--SideNav-background)',
+                backgroundColor: 'var(--SideNav-background)',
                 color: 'var(--mui-palette-neutral-300)',
                 display: 'flex',
                 flexDirection: 'column',
@@ -76,7 +76,6 @@ function NavItem({disabled, external, href, matcher, pathname, title}: NavItemPr
                     : {role: 'button'})}
                 sx={{
                     alignItems: 'center',
-                    color: 'var(--mui-palette-text-primary)',
                     cursor: 'pointer',
                     display: 'flex',
                     flex: '0 0 auto',
@@ -86,21 +85,25 @@ function NavItem({disabled, external, href, matcher, pathname, title}: NavItemPr
                     height: '48px',
                     whiteSpace: 'nowrap',
                     ...(disabled && {
-                        bgcolor: 'var(--NavItem-disabled-background)',
+                        backgroundColor: 'var(--NavItem-disabled-background)',
                         color: 'var(--NavItem-disabled-color)',
                         cursor: 'not-allowed',
                     }),
-                    ...(active && {
-                        borderBottom: '2px solid #22262B',
-                        bgcolor: 'var(--NavItem-active-background)',
-                        color: 'var(--NavItem-active-color)',
-                    }),
+                    ...(active
+                        ? {
+                            fontWeight: '500',
+                            borderBottom: '2px solid #22262B',
+                            backgroundColor: 'var(--NavItem-active-background)',
+                            color: 'var(--NavItem-active-color)',
+                        }
+                        : {
+                            fontWeight: '400',
+                            color: '#22262B',
+                        }),
+
                 }}
             >
-                <Typography component="span"
-                            sx={{color: 'inherit', fontSize: '14px', fontWeight: 500, lineHeight: '20px'}}>
-                    {title}
-                </Typography>
+                {title}
             </Box>
         </li>
     );

@@ -37,6 +37,7 @@ export const MuiSelect = {
             fontSize: '13px',
             paddingLeft: '10px',
             paddingRight: '4px !important',
+            color: '#555759',
         },
 
     },

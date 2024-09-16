@@ -24,6 +24,9 @@ export const MuiToggleButton = {
 
                 },
             },
+            '&.MuiToggleButtonGroup-lastButton': {
+                marginLeft: 0,
+            }
         },
     },
 } satisfies Components<Theme>['MuiToggleButton'];

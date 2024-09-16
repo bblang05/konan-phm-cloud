@@ -95,7 +95,11 @@ export function ChangePassword(): React.JSX.Element {
                             name="email"
                             render={({field}) => (
                                 <FormControl fullWidth error={Boolean(errors.email)}>
-                                    <OutlinedInput {...field} placeholder="아이디" type="id"/>
+                                    <OutlinedInput {...field} placeholder="아이디" type="id" sx={{
+                                        '& .MuiOutlinedInput-notchedOutline': {
+                                            borderWidth: errors.email ? '2px !important' : '1px',
+                                        },
+                                    }}/>
                                 </FormControl>
                             )}
                         />
@@ -126,6 +130,11 @@ export function ChangePassword(): React.JSX.Element {
                                         }
                                         label="Password"
                                         type={showPassword ? 'text' : 'password'}
+                                        sx={{
+                                            '& .MuiOutlinedInput-notchedOutline': {
+                                                borderWidth: errors.password ? '2px !important' : '1px',
+                                            },
+                                        }}
                                     />
                                 </FormControl>
                             )}
@@ -144,15 +153,21 @@ export function ChangePassword(): React.JSX.Element {
                         ) : null}
                     </Box>
 
-                    <Button color="primary" variant="contained" size="large" onClick={handleClickOpen} fullWidth>
+                    <Button color="primary" variant="contained" disableElevation size="large" onClick={handleClickOpen} fullWidth>
                         로그인
                     </Button>
 
                     <Dialog
                         open={open}
                         onClose={handleClose}
-                        maxWidth={"sm"}
-                        fullWidth
+                        sx={{
+                            "& .MuiDialog-container": {
+                                "& .MuiPaper-root": {
+                                    width: "100%",
+                                    maxWidth: "760px",
+                                },
+                            },
+                        }}
                         aria-labelledby="alert-dialog-title"
                         aria-describedby="alert-dialog-description"
                     >
@@ -176,10 +191,10 @@ export function ChangePassword(): React.JSX.Element {
                             <PasswordChangeTable/>
                         </DialogContent>
                         <DialogActions>
-                            <Button onClick={handleClose} variant="contained" color="inherit" sx={{':hover': {color:'#777D87'}}}>
+                            <Button onClick={handleClose} variant="contained" color="inherit" sx={{':hover': {color:'#777D87'}}} disableElevation>
                                 취소
                             </Button>
-                            <Button onClick={handleClose} variant="contained" color="primary">
+                            <Button onClick={handleClose} variant="contained" color="primary" disableElevation>
                                 변경
                             </Button>
                         </DialogActions>

@@ -10,15 +10,14 @@ import {
     TableRow,
     Table,
     TableBody,
-    MenuItem,
     Typography,
     Button,
-    Card, Grid, OutlinedInput, Icon, Select
+    Card, Grid, OutlinedInput,
 } from "@mui/material";
-import ArrowBottom from "@/components/svgIcon/ArrowBottom";
+import {SelectTypeOption} from "@/components/dashboard/rate-plan/select-type-option";
+import {SelectDayOption} from "@/components/dashboard/rate-plan/select-day-option";
 
 export function DefaultEditTableForm(): React.JSX.Element {
-    const [open, setOpen] = React.useState(false);
 
     return (
         <Box>
@@ -153,72 +152,12 @@ export function DefaultEditTableForm(): React.JSX.Element {
                                                         />
                                                     </FormControl>
                                                 </Box>
-                                                <Box width={54}>
-                                                    <FormControl fullWidth>
-                                                        <Select
-                                                            fullWidth
-                                                            IconComponent={() => (
-                                                                <Icon sx={{
-                                                                    width: 12,
-                                                                    height: 12,
-                                                                    fill: '#777D87',
-                                                                    transition: 'transform 0.3s ease',
-                                                                    transform: open ? 'rotate(180deg)' : 'rotate(0deg)'
-                                                                }}>
-                                                                    <ArrowBottom/>
-                                                                </Icon>
-                                                            )}
-                                                            displayEmpty
-                                                            size="small"
-                                                            variant="outlined"
-                                                            style={open ? {backgroundColor: '#EBF1FA'} : {}}
-                                                            open={open}
-                                                            onOpen={() => setOpen(true)}
-                                                            onClose={() => setOpen(false)}
-                                                            sx={{
-                                                                height: '30px',
-                                                                backgroundColor: 'var(--mui-palette-background-paper)',
-                                                            }}
-                                                            defaultValue={1}
-                                                        >
-                                                            <MenuItem value={0}>MB</MenuItem>
-                                                            <MenuItem value={1}>GB</MenuItem>
-                                                        </Select>
-                                                    </FormControl>
+                                                <Box width={56}>
+                                                    <SelectTypeOption/>
                                                 </Box>
                                                 /
                                                 <Box width={54}>
-                                                    <FormControl fullWidth>
-                                                        <Select
-                                                            fullWidth
-                                                            IconComponent={() => (
-                                                                <Icon sx={{
-                                                                    width: 12,
-                                                                    height: 12,
-                                                                    fill: '#777D87',
-                                                                    transition: 'transform 0.3s ease',
-                                                                    transform: open ? 'rotate(180deg)' : 'rotate(0deg)'
-                                                                }}>
-                                                                    <ArrowBottom/>
-                                                                </Icon>
-                                                            )}
-                                                            displayEmpty
-                                                            size="small"
-                                                            variant="outlined"
-                                                            style={open ? {backgroundColor: '#EBF1FA'} : {}}
-                                                            open={open}
-                                                            onOpen={() => setOpen(true)}
-                                                            onClose={() => setOpen(false)}
-                                                            sx={{
-                                                                height: '30px',
-                                                                backgroundColor: 'var(--mui-palette-background-paper)',
-                                                            }}
-                                                            defaultValue={1}
-                                                        >
-                                                            <MenuItem value={0}>월</MenuItem>
-                                                            <MenuItem value={1}>년</MenuItem>
-                                                        </Select>
-                                                    </FormControl>
+                                                    <SelectDayOption/>
                                                 </Box>
                                             </Box>
                                         </TableCell>

@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import RouterLink from 'next/link';
-import {Box, Button, Card, Link, Stack, Typography, Icon} from '@mui/material';
+import {Box, Button, Card, Stack, Typography, Icon} from '@mui/material';
 
 import {paths} from '@/paths';
 import Download from "@/components/svgIcon/Download";
@@ -36,7 +36,7 @@ export function Layout({children}: LayoutProps): React.JSX.Element {
                     <Stack
                         direction="row"
                         spacing={2}
-                        sx={{alignItems: 'center', justifyContent: 'space-between', minHeight: '56px', px: 2}}
+                        sx={{alignItems: 'center', justifyContent: 'space-between', minHeight: '56px', px: 3}}
                     >
                         <Stack sx={{alignItems: 'center'}} direction="row" spacing={2}>
                             <Box component={RouterLink} href={paths.home} sx={{display: 'inline-block', fontSize: 0}}>
@@ -49,13 +49,13 @@ export function Layout({children}: LayoutProps): React.JSX.Element {
                             </Box>
                         </Stack>
                         <Stack sx={{alignItems: 'center'}} direction="row" spacing={2}>
-                            <Button variant="contained" color="secondary" component={Link} href="" disableElevation
+                            <Button variant="contained" color="secondary" disableElevation
                                     startIcon={
-                                        <Icon sx={{marginRight: '4px', width: 20, height: 20}}>
+                                        <Icon sx={{marginRight: '4px', width:'16px', height:'16px'}}>
                                             <Download/>
                                         </Icon>
                                     }>
-                                메뉴얼 다운로드
+                                매뉴얼 다운로드
                             </Button>
                         </Stack>
                     </Stack>

@@ -67,6 +67,7 @@ function MainNavItems({disabled, external, href, matcher, pathname, title}: NavI
                     flex: '0 0 auto',
                     gap: 1,
                     p: '16px',
+                    height: '56px',
                     position: 'relative',
                     textDecoration: 'none',
                     whiteSpace: 'nowrap',
@@ -76,10 +77,22 @@ function MainNavItems({disabled, external, href, matcher, pathname, title}: NavI
                         cursor: 'not-allowed',
                     }),
                     ...(active && {
-                        borderBottom: '3px solid #FF9D24',
                         backgroundColor: 'rgba(107, 121, 153, 0.2)',
-                        color: 'var(--mui-palette-neutral-200)'
+                        color: 'var(--mui-palette-neutral-200)',
+                        '&:after': {
+                            content: '""',
+                            display: 'block',
+                            width: '100%',
+                            height: '10px',
+                            borderBottom: '3px solid #FF9D24',
+                            position: 'absolute',
+                            left: 0,
+                            bottom: 0,
+                        }
                     }),
+                    '&:hover': {
+                        backgroundColor: 'rgba(107, 121, 153, 0.3)',
+                    },
                 }}
             >
                 <Box sx={{flex: '1 1 auto'}}>

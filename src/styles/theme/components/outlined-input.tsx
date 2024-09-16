@@ -13,7 +13,8 @@ export const MuiOutlinedInput = {
             paddingRight: '10px',
             fontWeight:'400 !important',
             [`& textarea`]: {
-                paddingTop: '8px',
+                paddingTop: '16px',
+                color: '#555759',
             },
             [`& select`]: {
                 paddingLeft: '8px',

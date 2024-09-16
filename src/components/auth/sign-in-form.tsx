@@ -81,7 +81,11 @@ export function SignInForm(): React.JSX.Element {
                             name="email"
                             render={({field}) => (
                                 <FormControl fullWidth error={Boolean(errors.email)}>
-                                    <OutlinedInput {...field} placeholder="아이디" type="id"/>
+                                    <OutlinedInput {...field} placeholder="아이디" type="id" sx={{
+                                        '& .MuiOutlinedInput-notchedOutline': {
+                                            borderWidth: errors.email ? '2px !important' : '1px',
+                                        },
+                                    }}/>
                                 </FormControl>
                             )}
                         />
@@ -114,6 +118,11 @@ export function SignInForm(): React.JSX.Element {
                                         }
                                         label="Password"
                                         type={showPassword ? 'text' : 'password'}
+                                        sx={{
+                                            '& .MuiOutlinedInput-notchedOutline': {
+                                                borderWidth: errors.password ? '2px !important' : '1px',
+                                            },
+                                        }}
                                     />
                                 </FormControl>
                             )}
@@ -131,7 +140,7 @@ export function SignInForm(): React.JSX.Element {
                             </FormHelperText>
                         ) : null}
                     </Box>
-                    <Button disabled={isPending} type="submit" variant="contained" color="primary" size="large"
+                    <Button disabled={isPending} type="submit" variant="contained" disableElevation color="primary" size="large"
                             fullWidth>
                         로그인
                     </Button>

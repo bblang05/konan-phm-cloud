@@ -17,7 +17,7 @@ import {
     TableContainer,
     TableRow,
 } from '@mui/material';
-import Add from "@/components/svgIcon/Add";
+import SmallAdd from "@/components/svgIcon/SmallAdd";
 import Close from "@/components/svgIcon/Close";
 
 export function CreateGroup(): React.JSX.Element {
@@ -38,9 +38,10 @@ export function CreateGroup(): React.JSX.Element {
                     size="small"
                     disableElevation
                     onClick={handleClickOpen}
+                    sx={{fontSize: '12px', height: '26px', lineHeight: 'inherit'}}
                     startIcon={
-                        <Icon sx={{width: 14, height: 14}}>
-                            <Add/>
+                        <Icon sx={{width: 12, height: 12}}>
+                            <SmallAdd/>
                         </Icon>
                     }>
                 생성

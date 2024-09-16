@@ -68,10 +68,10 @@ export function MainNavB(): React.JSX.Element {
 
                                     <Box onClick={userPopover.handleOpen} ref={userPopover.anchorRef}>
                                         <Button variant="outlined" color="inherit" disableElevation sx={{
-                                            padding: '6px 12px', fontSize: '12px'
+                                            padding: '6px 12px', fontSize: '12px', lineHeight: '1',
                                         }}
                                                 endIcon={
-                                                    <Icon sx={{width: 12, height: 12}}>
+                                                    <Icon sx={{width: 12, height: 12, marginLeft: '-4px',}}>
                                                         <ArrowBottom/>
                                                     </Icon>
                                                 }>
@@ -88,7 +88,6 @@ export function MainNavB(): React.JSX.Element {
                         </Stack>
                     </Box>
                 </Box>
-                {/*<SubNav/>*/}
             </Box>
         </React.Fragment>
     );

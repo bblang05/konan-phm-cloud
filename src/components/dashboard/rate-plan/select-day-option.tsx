@@ -2,12 +2,13 @@ import * as React from 'react';
 import {FormControl, Icon, MenuItem, Select} from '@mui/material';
 import ArrowBottom from "@/components/svgIcon/ArrowBottom";
 
-export function SelectOption(): React.JSX.Element {
+export function SelectDayOption(): React.JSX.Element {
     const [open, setOpen] = React.useState(false);
 
     return (
-        <FormControl sx={{width: 54}}>
+        <FormControl fullWidth>
             <Select
+                id="day"
                 fullWidth
                 IconComponent={() => (
                     <Icon sx={{
@@ -28,22 +29,20 @@ export function SelectOption(): React.JSX.Element {
                 onOpen={() => setOpen(true)}
                 onClose={() => setOpen(false)}
                 sx={{
-                    height: '26px',
+                    height: '30px',
                     backgroundColor: 'var(--mui-palette-background-paper)',
                 }}
                 defaultValue={1}
                 MenuProps={{
                     PaperProps: {
                         sx: {
-                            width: '53px',
+                            width: '54px',
                         },
                     },
                 }}
             >
-                <MenuItem value="1">1</MenuItem>
-                <MenuItem value="2">2</MenuItem>
-                <MenuItem value="3">3</MenuItem>
-                <MenuItem value="3">4</MenuItem>
+                <MenuItem value={0}>일</MenuItem>
+                <MenuItem value={1}>월</MenuItem>
             </Select>
         </FormControl>
     );

@@ -94,7 +94,11 @@ export function PasswordError(): React.JSX.Element {
                             name="email"
                             render={({field}) => (
                                 <FormControl fullWidth error={Boolean(errors.email)}>
-                                    <OutlinedInput {...field} placeholder="아이디" type="id"/>
+                                    <OutlinedInput {...field} placeholder="아이디" type="id" sx={{
+                                        '& .MuiOutlinedInput-notchedOutline': {
+                                            borderWidth: errors.email ? '2px !important' : '1px',
+                                        },
+                                    }}/>
                                 </FormControl>
                             )}
                         />
@@ -125,6 +129,11 @@ export function PasswordError(): React.JSX.Element {
                                         }
                                         label="Password"
                                         type={showPassword ? 'text' : 'password'}
+                                        sx={{
+                                            '& .MuiOutlinedInput-notchedOutline': {
+                                                borderWidth: errors.password ? '2px !important' : '1px',
+                                            },
+                                        }}
                                     />
                                 </FormControl>
                             )}
@@ -143,7 +152,7 @@ export function PasswordError(): React.JSX.Element {
                         ) : null}
                     </Box>
 
-                    <Button color="primary" variant="contained" size="large" onClick={handleClickOpen} fullWidth>
+                    <Button color="primary" variant="contained" disableElevation size="large" onClick={handleClickOpen} fullWidth>
                         로그인
                     </Button>
 
@@ -154,7 +163,7 @@ export function PasswordError(): React.JSX.Element {
                             "& .MuiDialog-container": {
                                 "& .MuiPaper-root": {
                                     width: "100%",
-                                    maxWidth: "450px",  // Set your width here
+                                    maxWidth: "450px",
                                 },
                             },
                         }}

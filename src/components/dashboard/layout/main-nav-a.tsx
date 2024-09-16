@@ -72,7 +72,7 @@ export function MainNavA(): React.JSX.Element {
                                     padding: '5px 12px'
                                 }}
                                         startIcon={
-                                            <Icon sx={{ width: 20, height: 20}}>
+                                            <Icon sx={{width: 20, height: 20}}>
                                                 <Clock/>
                                             </Icon>
                                         }>
@@ -100,7 +100,7 @@ export function MainNavA(): React.JSX.Element {
                                             }}
                                         >
                                             <Icon sx={{height: 20, width: 20, fill: '#E1E4EB', display: 'flex'}}>
-                                                <Alram />
+                                                <Alram/>
                                             </Icon>
                                         </IconButton>
                                     </Badge>
@@ -122,10 +122,10 @@ export function MainNavA(): React.JSX.Element {
 
                                     <Box onClick={userPopover.handleOpen} ref={userPopover.anchorRef}>
                                         <Button variant="outlined" color="inherit" disableElevation sx={{
-                                            padding: '6px 12px', fontSize: '12px'
+                                            padding: '6px 12px', fontSize: '12px', lineHeight: '1',
                                         }}
                                                 endIcon={
-                                                    <Icon sx={{width: 12, height: 12}}>
+                                                    <Icon sx={{width: 12, height: 12, marginLeft: '-4px',}}>
                                                         <ArrowBottom/>
                                                     </Icon>
                                                 }>

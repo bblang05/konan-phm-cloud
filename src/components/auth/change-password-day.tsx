@@ -97,7 +97,11 @@ export function ChangePasswordDay(): React.JSX.Element {
                             name="email"
                             render={({field}) => (
                                 <FormControl fullWidth error={Boolean(errors.email)}>
-                                    <OutlinedInput {...field} placeholder="아이디" type="id"/>
+                                    <OutlinedInput {...field} placeholder="아이디" type="id" sx={{
+                                        '& .MuiOutlinedInput-notchedOutline': {
+                                            borderWidth: errors.email ? '2px !important' : '1px',
+                                        },
+                                    }}/>
                                 </FormControl>
                             )}
                         />
@@ -130,6 +134,11 @@ export function ChangePasswordDay(): React.JSX.Element {
                                         }
                                         label="Password"
                                         type={showPassword ? 'text' : 'password'}
+                                        sx={{
+                                            '& .MuiOutlinedInput-notchedOutline': {
+                                                borderWidth: errors.password ? '2px !important' : '1px',
+                                            },
+                                        }}
                                     />
                                 </FormControl>
                             )}
@@ -148,19 +157,25 @@ export function ChangePasswordDay(): React.JSX.Element {
                         ) : null}
                     </Box>
 
-                    <Button color="primary" variant="contained" size="large" onClick={handleClickOpen} fullWidth>
+                    <Button color="primary" variant="contained" disableElevation size="large" onClick={handleClickOpen} fullWidth>
                         로그인
                     </Button>
 
                     <Dialog
                         open={open}
                         onClose={handleClose}
-                        maxWidth={"sm"}
-                        fullWidth
+                        sx={{
+                            "& .MuiDialog-container": {
+                                "& .MuiPaper-root": {
+                                    width: "100%",
+                                    maxWidth: "760px",
+                                },
+                            },
+                        }}
                         aria-labelledby="alert-dialog-title"
                         aria-describedby="alert-dialog-description"
                     >
-                        <DialogTitle id="alert-dialog-title">{'최초 로그인 시 비밀번호 변경'}</DialogTitle>
+                        <DialogTitle id="alert-dialog-title">{'비밀번호 변경'}</DialogTitle>
                         <IconButton
                             aria-label="close"
                             onClick={handleClose}
@@ -188,10 +203,10 @@ export function ChangePasswordDay(): React.JSX.Element {
                             <PasswordChangeTable/>
                         </DialogContent>
                         <DialogActions>
-                            <Button onClick={handleClose} variant="contained" color="inherit">
+                            <Button onClick={handleClose} variant="contained" color="inherit" sx={{':hover': {color:'#777D87'}}} disableElevation>
                                 30일 후 변경
                             </Button>
-                            <Button onClick={handleClose} variant="contained">
+                            <Button onClick={handleClose} variant="contained" color="primary" disableElevation>
                                 비밀번호 변경
                             </Button>
                         </DialogActions>

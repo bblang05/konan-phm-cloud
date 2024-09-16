@@ -170,7 +170,10 @@ export function EditTableForm(): React.JSX.Element {
                                                     control={<Switch size="small" checked={checked}
                                                                      onChange={toggleChecked}/>}
                                                     label={checked ?
-                                                        <Typography color="primary">활성</Typography> : '비활성'}
+                                                        <Box sx={{ color:'#2668C9'}}>
+                                                            활성
+                                                        </Box>
+                                                         : '비활성'}
                                                 />
                                             </FormGroup>
                                         </TableCell>

@@ -16,7 +16,7 @@ import {
     Card, Icon, Select
 } from "@mui/material";
 import ArrowBottom from "@/components/svgIcon/ArrowBottom";
-import Edit from "@/components/svgIcon/Edit";
+import SmallEdit from "@/components/svgIcon/SmallEdit";
 
 export function AdditionalTableForm(): React.JSX.Element {
     const [open, setOpen] = React.useState(false);
@@ -27,11 +27,13 @@ export function AdditionalTableForm(): React.JSX.Element {
             <Box p="11px 20px">
                 <Box display="flex" justifyContent="space-between" alignItems="center" pb={'11px'}>
                     <Typography variant="subtitle2">추가 서비스</Typography>
-                    <Button variant="contained" color="inherit" size="small"
-                            disableElevation sx={{width: '58px', height: '26px', fontSize:'12px', lineHeight: 'inherit'}}
+                    <Button variant="contained" color="inherit"
+                            size="small"
+                            disableElevation
+                            sx={{fontSize: '12px', height: '26px', lineHeight: 'inherit'}}
                             startIcon={
-                                <Icon sx={{width: 14, height: 14}}>
-                                    <Edit/>
+                                <Icon sx={{width: 12, height: 12}}>
+                                    <SmallEdit/>
                                 </Icon>
                             }>
                         수정

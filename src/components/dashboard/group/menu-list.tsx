@@ -10,13 +10,16 @@ import {
 
 import {styled} from "@mui/material/styles";
 import {TreeItem, treeItemClasses} from "@mui/x-tree-view/TreeItem";
-import SvgIcon, {SvgIconProps} from "@mui/material/SvgIcon";
 import {SimpleTreeView} from "@mui/x-tree-view/SimpleTreeView";
-import Edit from "@/components/svgIcon/Edit";
+import SmallEdit from "@/components/svgIcon/SmallEdit";
+import Dash from "@/components/svgIcon/Dash";
+import ArrowRightTriangle from "@/components/svgIcon/ArrowRightTriangle";
+import ArrowBottomTriangle from "@/components/svgIcon/ArrowBottomTriangle";
 
 const CustomTreeItem = styled(TreeItem)({
     [`& .${treeItemClasses.label}`]: {
         fontWeight: '400 !important',
+        color: '#43464D',
     },
     [`& .${treeItemClasses.iconContainer}`]: {
         '& .close': {
@@ -25,63 +28,33 @@ const CustomTreeItem = styled(TreeItem)({
     },
 });
 
-function Minus(props: SvgIconProps) {
+function Minus() {
     return (
-        <SvgIcon
-            fontSize="inherit"
-            style={{width: 12, height: 12}}
-            {...props}
-        >
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-                <g id="ico_hierarchy-line" transform="translate(-32 -84)">
-                    <rect id="icon" width="12" height="12" transform="translate(32 84)" fill="none" opacity="0.1"/>
-                    <path id="Path_20" data-name="Path 20" d="M41,89.5H34v-1h7Z" transform="translate(0.5 1)"
-                          fill="#43464D"/>
-                </g>
-            </svg>
-        </SvgIcon>
+        <Icon sx={{width: '12px', height: '12px', fill:'#43464D'}}>
+            <Dash/>
+        </Icon>
     );
 }
 
-function Collapse(props: SvgIconProps) {
+function Collapse() {
     return (
-        <SvgIcon
-            fontSize="inherit"
-            style={{width: 12, height: 12}}
-            {...props}
-        >
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-                <g id="ico_hierarchy-arrow-right" transform="translate(-26 -84)">
-                    <rect id="icon" width="12" height="12" transform="translate(26 84)" fill="none" opacity="0.1"/>
-                    <path id="Path_19" data-name="Path 19" d="M22,87h8.8l-4.4,6.7Z"
-                          transform="translate(-58 116.4) rotate(-90)" fill="#43464D"/>
-                </g>
-            </svg>
-        </SvgIcon>
+        <Icon sx={{width: '12px', height: '12px', fill:'#43464D'}}>
+            <ArrowRightTriangle/>
+        </Icon>
     );
 }
 
-function Expand(props: SvgIconProps) {
+function Expand() {
     return (
-        <SvgIcon
-            fontSize="inherit"
-            style={{width: 12, height: 12, transform: 'rotate(90deg)'}}
-            {...props}
-        >
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-                <g id="ico_hierarchy-arrow-right" transform="translate(-26 -84)">
-                    <rect id="icon" width="12" height="12" transform="translate(26 84)" fill="none" opacity="0.1"/>
-                    <path id="Path_19" data-name="Path 19" d="M22,87h8.8l-4.4,6.7Z"
-                          transform="translate(-58 116.4) rotate(-90)" fill="#43464d"/>
-                </g>
-            </svg>
-        </SvgIcon>
+        <Icon sx={{width: '12px', height: '12px', fill:'#43464D'}}>
+            <ArrowBottomTriangle/>
+        </Icon>
     );
 }
 
 export default function CustomIcons() {
     return (
-        <Box sx={{height: 'calc(100vh - 332px)', minWidth: '100%'}}>
+        <Box sx={{height: 'calc(100vh - 340px)', minWidth: '100%'}}>
             <SimpleTreeView
                 defaultExpandedItems={['grid']}
                 slots={{
@@ -110,15 +83,16 @@ export default function CustomIcons() {
 export function MenuList(): React.JSX.Element {
 
     return (
-        <Box p={'11px 20px'}>
+        <Box p={'11px 20px 18px 20px'}>
             <Box display="flex" justifyContent="space-between" alignItems="center" pb={'11px'}>
                 <Typography variant="subtitle2">메뉴 목록</Typography>
                 <Button variant="contained" color="inherit"
                         size="small"
                         disableElevation
+                        sx={{fontSize: '12px', height: '26px', lineHeight: 'inherit'}}
                         startIcon={
-                            <Icon sx={{width: 14, height: 14}}>
-                                <Edit/>
+                            <Icon sx={{width: 12, height: 12}}>
+                                <SmallEdit/>
                             </Icon>
                         }>
                     권한 수정

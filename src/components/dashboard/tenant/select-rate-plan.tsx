@@ -146,6 +146,9 @@ export function SelectRatePlan(): React.JSX.Element {
                 variant="contained"
                 onClick={handleClickOpen}
                 color="inherit"
+                sx={{
+                    height: '30px',
+                }}
             >
                 요금제 선택
             </Button>
