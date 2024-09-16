@@ -74,7 +74,7 @@ export function UserTable(): React.JSX.Element {
                             </Stack>
                         </Box>
                     </Box>
-                    <Box sx={{overflowX: 'auto'}}>
+                    <Box sx={{overflowY: 'auto'}}>
                         <Table sx={{minWidth: '800px'}} className="even-table" size="small">
                             <colgroup>
                                 <col width="15%"/>

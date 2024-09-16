@@ -183,7 +183,7 @@ export function SelectRatePlan(): React.JSX.Element {
                         <Close/>
                     </Icon>
                 </IconButton>
-                <DialogContent sx={{height: '531px', overflowX: 'auto'}}>
+                <DialogContent sx={{height: '531px', overflowY: 'auto'}}>
                     <Box paddingBottom="10px">
                         <Box marginBottom="10px">기본 서비스</Box>
 

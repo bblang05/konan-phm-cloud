@@ -75,11 +75,9 @@ function CustomCalendar() {
                         alignItems: 'center',
                         cursor: 'pointer',
                         backgroundColor: selectedDate?.date() === day ? '#2668C9' : 'transparent',
+                        fontWeight: selectedDate?.date() === day ? '500' : '400',
                         color: selectedDate?.date() === day ? '#fff' : '#555759',
                         borderRadius: '5px',
-                        '&:hover': {
-                            backgroundColor: selectedDate?.date() === day ? '#F2F5FA' : '#f2f4fa',
-                        },
                     }}
                     onClick={() => handleDateClick(day)}
                 >

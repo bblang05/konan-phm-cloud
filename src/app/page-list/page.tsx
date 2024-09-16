@@ -96,7 +96,21 @@ export default function Page() {
 
                         <TableRow>
                             <TableCell component="th" scope="row">
-                                <Link href="/dashboard-a/group-setting">그룹관리</Link>
+                                <Link href="/dashboard-a/group-setting-default">그룹관리-default</Link>
+                            </TableCell>
+                            <TableCell></TableCell>
+                        </TableRow>
+
+                        <TableRow>
+                            <TableCell component="th" scope="row">
+                                <Link href="/dashboard-a/group-setting">그룹 관리</Link>
+                            </TableCell>
+                            <TableCell></TableCell>
+                        </TableRow>
+
+                        <TableRow>
+                            <TableCell component="th" scope="row">
+                                <Link href="/dashboard-a/group-setting-menu-authority">그룹관리-메뉴권한</Link>
                             </TableCell>
                             <TableCell></TableCell>
                         </TableRow>
@@ -107,14 +121,6 @@ export default function Page() {
                             </TableCell>
                             <TableCell></TableCell>
                         </TableRow>
-
-                        <TableRow>
-                            <TableCell component="th" scope="row">
-                                <Link href="/dashboard-a/group-setting">테넌트관리-그룹 관리</Link>
-                            </TableCell>
-                            <TableCell></TableCell>
-                        </TableRow>
-
 
                         {/* 2차*/}
                         <TableRow>

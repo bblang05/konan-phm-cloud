@@ -1,11 +1,10 @@
 'use client';
 
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import {
     Box,
     Typography,
-    Icon, Grid
+    Icon, Button
 } from "@mui/material";
 
 import {styled} from "@mui/material/styles";
@@ -29,15 +28,12 @@ const CustomTreeItem = styled(TreeItem)({
     },
     [`& .${treeItemClasses.selected}`]: {
         backgroundColor: '#F0F6FC !important',
-    },
-    [`& .${treeItemClasses.content}:focus`]: {
-        backgroundColor: '#F0F6FC !important',
-    },
-    [`& .${treeItemClasses.content}:active`]: {
-        backgroundColor: '#F0F6FC !important',
-    },
-    [`& .${treeItemClasses.content}:hover`]: {
-        backgroundColor: 'transparent',
+        '&:hover': {
+            backgroundColor: '#F0F6FC !important'
+        },
+        '&:focus': {
+            backgroundColor: '#F0F6FC !important'
+        },
     },
 });
 
@@ -93,7 +89,7 @@ export default function CustomIcons() {
     );
 }
 
-export function MenuList(): React.JSX.Element {
+export function MenuListDefault(): React.JSX.Element {
 
     return (
         <Box p={'11px 20px 18px 20px'}>
@@ -111,22 +107,22 @@ export function MenuList(): React.JSX.Element {
                     권한 수정
                 </Button>
             </Box>
-            <CustomIcons/>
-            <Grid
-                container
-                direction="row"
-                justifyContent="flex-end"
-                alignItems="center"
-                gap={1}
-                pt="20px"
-            >
-                <Button variant="contained" color="inherit" disableElevation sx={{width: '74px', height: '32px'}}>
-                    취소
-                </Button>
-                <Button variant="contained" color="primary" disableElevation sx={{width: '74px', height: '32px'}}>
-                    저장
-                </Button>
-            </Grid>
+            {/*<CustomIcons/>*/}
+            {/*<Grid*/}
+            {/*    container*/}
+            {/*    direction="row"*/}
+            {/*    justifyContent="flex-end"*/}
+            {/*    alignItems="center"*/}
+            {/*    gap={1}*/}
+            {/*    pt="20px"*/}
+            {/*>*/}
+            {/*    <Button variant="contained" color="inherit" disableElevation sx={{width: '74px', height: '32px'}}>*/}
+            {/*        취소*/}
+            {/*    </Button>*/}
+            {/*    <Button variant="contained" color="primary" disableElevation sx={{width: '74px', height: '32px'}}>*/}
+            {/*        저장*/}
+            {/*    </Button>*/}
+            {/*</Grid>*/}
         </Box>
     );
 }

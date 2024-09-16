@@ -16,7 +16,24 @@
     src: url("/font/NotoSansKR-Regular.ttf") format("truetype");
 }
 
-/*@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');*/
+*::-webkit-scrollbar {
+    width: 14px;
+    height: 14px;
+}
+
+*::-webkit-scrollbar-thumb {
+    border: 4px solid transparent;
+    background-clip: padding-box;
+    background-color: #43464d66;
+    border-radius: 12px;
+}
+
+*::-webkit-scrollbar-button:vertical:start:decrement,
+*::-webkit-scrollbar-button:vertical:start:increment {
+    display: block;
+    height: 14px;
+}
+
 
 /* Variables */
 :root {
@@ -31,6 +48,7 @@
 
 html {
     height: 100%;
+    overflow: auto;
 }
 
 body {
@@ -77,11 +95,13 @@ table.even-table tr:nth-child(even) {
 table.even-table tr td {
     height: 40px;
 }
+
 table.even-table.dense tr td {
     height: 32px;
     min-height: 32px;
-    padding:  2px 12px;
+    padding: 2px 12px;
 }
+
 .required {
     display: inline-block;
 }

@@ -4,8 +4,8 @@ import {Typography, Box, Card, CardContent, Grid, Stack} from '@mui/material';
 
 import {config} from '@/config';
 import {GroupList} from '@/components/dashboard/group/group-list';
-import {MenuList} from '@/components/dashboard/group/menu-list';
-import {UserList} from '@/components/dashboard/group/user-list';
+import {UserListDefalt} from '@/components/dashboard/group/user-list-default';
+import {MenuListDefault} from '@/components/dashboard/group/menu-list-default';
 
 export const metadata = {title: `그룹 관리 | ${config.site.name}`} satisfies Metadata;
 
@@ -31,12 +31,12 @@ export default function Page(): React.JSX.Element {
                 </Grid>
                 <Grid item xs>
                     <Card variant="outlined" sx={{height: 'calc(100vh - 220px)'}}>
-                        <UserList/>
+                        <UserListDefalt/>
                     </Card>
                 </Grid>
                 <Grid item xs>
                     <Card variant="outlined" sx={{height: 'calc(100vh - 220px)', overflow: 'auto'}}>
-                        <MenuList/>
+                        <MenuListDefault/>
                     </Card>
                 </Grid>
             </Grid>

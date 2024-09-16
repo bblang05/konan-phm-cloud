@@ -45,7 +45,7 @@ export function BillingTable(): React.JSX.Element {
     return (
         <Box p="17px 20px">
             <Box display="flex" alignItems="center" justifyContent="flex-end" pb="17px">
-                <Stack direction="row" gap={2} alignItems="center">
+                <Stack direction="row" gap="10px" alignItems="center">
                     <IconButton className="outlined" color="inherit" disabled>
                         <Icon sx={{height: 16, width: 16}}>
                             <PageArrowLeft/>
@@ -61,7 +61,7 @@ export function BillingTable(): React.JSX.Element {
                     </IconButton>
                 </Stack>
             </Box>
-            <Box sx={{overflowX: 'auto'}}>
+            <Box sx={{overflowY: 'auto'}}>
                 <Table sx={{minWidth: '800px'}} className="even-table">
                     <colgroup>
                         <col width=""/>

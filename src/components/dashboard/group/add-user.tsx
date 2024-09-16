@@ -12,7 +12,7 @@ import {
     DialogTitle,
     IconButton,
     Table, TableBody, TableCell,
-    TableHead, TableRow, Checkbox, Icon
+    TableHead, TableRow, Checkbox, Icon, TableContainer
 } from '@mui/material';
 
 import Close from "@/components/svgIcon/Close";
@@ -170,94 +170,99 @@ export function AddUser(): React.JSX.Element {
                         <UserFilters/>
                     </Box>
 
-                    <Box sx={{ height: '360px', overflowX: 'auto' }}>
-                        <Table size="small" className="even-table dense">
-                            <colgroup>
-                                <col width="5%" />
-                                <col />
-                                <col />
-                                <col />
-                            </colgroup>
-                            <TableHead>
-                                <TableRow>
-                                    <TableCell>
-                                        {/* "Select All" Checkbox */}
-                                        <BpCheckbox
-                                            checked={isAllSelected}
-                                            onChange={(e) => handleSelectAll(e.target.checked)}
-                                        />
-                                    </TableCell>
-                                    <TableCell>
-                                        이름
-                                        <Icon
-                                            sx={{
-                                                width: 16,
-                                                height: 16,
-                                                fill: '#9EA6B8',
-                                                cursor: 'pointer',
-                                                marginLeft: '4px',
-                                            }}
-                                        >
-                                            <Sort />
-                                        </Icon>
-                                    </TableCell>
-                                    <TableCell>
-                                        아이디
-                                        <Icon
-                                            sx={{
-                                                width: 16,
-                                                height: 16,
-                                                fill: '#9EA6B8',
-                                                cursor: 'pointer',
-                                                marginLeft: '4px',
-                                            }}
-                                        >
-                                            <Sort />
-                                        </Icon>
-                                    </TableCell>
-                                    <TableCell>
-                                        권한
-                                        <Icon
-                                            sx={{
-                                                width: 16,
-                                                height: 16,
-                                                fill: '#9EA6B8',
-                                                cursor: 'pointer',
-                                                marginLeft: '4px',
-                                            }}
-                                        >
-                                            <Sort />
-                                        </Icon>
-                                    </TableCell>
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
-                                {rows.map((row) => {
-                                    const isSelected = selectedRows.includes(row.name);
-                                    return (
-                                        <TableRow
-                                            hover
-                                            key={row.name}
-                                            sx={{
-                                                backgroundColor: isSelected ? '#F0F6FC' : 'inherit',
-                                            }}
-                                        >
-                                            <TableCell align="center" sx={{ paddingTop: '5px', paddingBottom: '5px' }}>
-                                                <BpCheckbox
-                                                    checked={isSelected}
-                                                    onChange={() => handleRowSelection(row.name)}
-                                                />
-                                            </TableCell>
-                                            <TableCell sx={{ paddingTop: '5px', paddingBottom: '5px' }} component="th" scope="row">
-                                                {row.name}
-                                            </TableCell>
-                                            <TableCell sx={{ paddingTop: '5px', paddingBottom: '5px' }}>{row.email}</TableCell>
-                                            <TableCell sx={{ paddingTop: '5px', paddingBottom: '5px' }}>{row.authority}</TableCell>
-                                        </TableRow>
-                                    );
-                                })}
-                            </TableBody>
-                        </Table>
+                    <Box>
+                        <TableContainer sx={{
+                                            maxHeight: 360,
+                                            overflowY: 'auto',
+                                        }}>
+                            <Table size="small" className="even-table dense" stickyHeader>
+                                <colgroup>
+                                    <col width="5%" />
+                                    <col />
+                                    <col />
+                                    <col />
+                                </colgroup>
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell>
+                                            {/* "Select All" Checkbox */}
+                                            <BpCheckbox
+                                                checked={isAllSelected}
+                                                onChange={(e) => handleSelectAll(e.target.checked)}
+                                            />
+                                        </TableCell>
+                                        <TableCell>
+                                            이름
+                                            <Icon
+                                                sx={{
+                                                    width: 16,
+                                                    height: 16,
+                                                    fill: '#9EA6B8',
+                                                    cursor: 'pointer',
+                                                    marginLeft: '4px',
+                                                }}
+                                            >
+                                                <Sort />
+                                            </Icon>
+                                        </TableCell>
+                                        <TableCell>
+                                            아이디
+                                            <Icon
+                                                sx={{
+                                                    width: 16,
+                                                    height: 16,
+                                                    fill: '#9EA6B8',
+                                                    cursor: 'pointer',
+                                                    marginLeft: '4px',
+                                                }}
+                                            >
+                                                <Sort />
+                                            </Icon>
+                                        </TableCell>
+                                        <TableCell>
+                                            권한
+                                            <Icon
+                                                sx={{
+                                                    width: 16,
+                                                    height: 16,
+                                                    fill: '#9EA6B8',
+                                                    cursor: 'pointer',
+                                                    marginLeft: '4px',
+                                                }}
+                                            >
+                                                <Sort />
+                                            </Icon>
+                                        </TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {rows.map((row) => {
+                                        const isSelected = selectedRows.includes(row.name);
+                                        return (
+                                            <TableRow
+                                                hover
+                                                key={row.name}
+                                                sx={{
+                                                    backgroundColor: isSelected ? '#F0F6FC' : 'inherit',
+                                                }}
+                                            >
+                                                <TableCell align="center" sx={{ paddingTop: '5px', paddingBottom: '5px' }}>
+                                                    <BpCheckbox
+                                                        checked={isSelected}
+                                                        onChange={() => handleRowSelection(row.name)}
+                                                    />
+                                                </TableCell>
+                                                <TableCell sx={{ paddingTop: '5px', paddingBottom: '5px' }} component="th" scope="row">
+                                                    {row.name}
+                                                </TableCell>
+                                                <TableCell sx={{ paddingTop: '5px', paddingBottom: '5px' }}>{row.email}</TableCell>
+                                                <TableCell sx={{ paddingTop: '5px', paddingBottom: '5px' }}>{row.authority}</TableCell>
+                                            </TableRow>
+                                        );
+                                    })}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
                     </Box>
                 </DialogContent>
 

@@ -19,7 +19,9 @@ export const paths = {
         groupSettings: '/dashboard-a/group-setting',
         billingSettings: '/dashboard-a/billing-setting',
         usageSettings: '/dashboard-a/usage-setting',
+        groupSettingDefault: '/dashboard-a/group-setting-default',
         groupSetting: '/dashboard-a/group-setting',
+        groupSettingMenuAuthority: '/dashboard-a/group-setting-menu-authority',
 
         tenantCreate: '/dashboard-b/tenant-create',
         usageSetting: '/dashboard-b/usage-setting',

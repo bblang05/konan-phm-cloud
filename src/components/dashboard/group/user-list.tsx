@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import {useState, useEffect, useRef} from 'react';
 import {
     Box,
     TableCell,
@@ -12,7 +13,7 @@ import {
     TableHead,
     IconButton,
     Menu,
-    MenuItem, Icon
+    MenuItem, Icon, TableContainer
 } from "@mui/material";
 import {useSelection} from "@/hooks/use-selection";
 
@@ -29,6 +30,15 @@ function createData(
 }
 
 const rows = [
+    createData('이름', 'example1@konantech.com', '관리자'),
+    createData('이름', 'example1@konantech.com', '관리자'),
+    createData('이름', 'example1@konantech.com', '관리자'),
+    createData('이름', 'example1@konantech.com', '관리자'),
+    createData('이름', 'example1@konantech.com', '관리자'),
+    createData('이름', 'example1@konantech.com', '관리자'),
+    createData('이름', 'example1@konantech.com', '관리자'),
+    createData('이름', 'example1@konantech.com', '관리자'),
+    createData('이름', 'example1@konantech.com', '관리자'),
     createData('이름', 'example1@konantech.com', '관리자'),
     createData('이름', 'example1@konantech.com', '관리자'),
     createData('이름', 'example1@konantech.com', '관리자'),
@@ -60,104 +70,140 @@ export function UserList(): React.JSX.Element {
         setAnchorEl(null);
     };
 
+    const [paddingRight, setPaddingRight] = useState('20px');
+    const tableContainerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const adjustPadding = () => {
+            const container = tableContainerRef.current;
+            if (container) {
+                if (container.scrollHeight > container.clientHeight) {
+                    setPaddingRight('4px');
+                } else {
+                    setPaddingRight('20px');
+                }
+            }
+        };
+
+        adjustPadding();
+        window.addEventListener('resize', adjustPadding);
+
+        return () => {
+            window.removeEventListener('resize', adjustPadding);
+        };
+    }, []);
+
     return (
-        <Box p={'11px 20px'}>
-            <Box display="flex" justifyContent="space-between" alignItems="center" pb={'11px'}>
+        <Box>
+            <Box display="flex" justifyContent="space-between" alignItems="center" p={'11px 20px'}>
                 <Typography variant="subtitle2">사용자 목록</Typography>
                 <AddUser/>
             </Box>
 
-            <Box sx={{overflowX: 'auto'}}>
-                <Table className="even-table dense" >
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>
-                                이름
-                                <Icon sx={{
-                                    width: 16,
-                                    height: 16,
-                                    fill: '#9EA6B8',
-                                    cursor: 'pointer',
-                                    marginLeft: '4px'
+            <Box>
+                <TableContainer ref={tableContainerRef}
+                                sx={{
+                                    height: '630px',
+                                    paddingRight: paddingRight,
+                                    paddingLeft: '20px',
+                                    overflowY: 'auto',
                                 }}>
-                                    <Sort/>
-                                </Icon>
-                            </TableCell>
-                            <TableCell>
-                                아이디
-                                <Icon sx={{
-                                    width: 16,
-                                    height: 16,
-                                    fill: '#9EA6B8',
-                                    cursor: 'pointer',
-                                    marginLeft: '4px'
-                                }}>
-                                    <Sort/>
-                                </Icon>
-                            </TableCell>
-                            <TableCell>
-                                권한
-                                <Icon sx={{
-                                    width: 16,
-                                    height: 16,
-                                    fill: '#9EA6B8',
-                                    cursor: 'pointer',
-                                    marginLeft: '4px'
-                                }}>
-                                    <Sort/>
-                                </Icon>
-                            </TableCell>
-                            <TableCell/>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {rows.map((row) => {
-                            const isSelected = selected?.has(row.name);
-                            return (
-                                <TableRow hover
-                                          key={row.name}
-                                          selected={isSelected}
-                                >
-                                    <TableCell component="td" scope="row">
-                                        <Link href="#" underline="always" color="inherit"> {row.name}</Link>
-                                    </TableCell>
-                                    <TableCell>{row.email}</TableCell>
-                                    <TableCell>{row.authority}</TableCell>
-                                    <TableCell align="right">
-                                        <IconButton
-                                            aria-label="more"
-                                            id="long-button"
-                                            aria-controls={open ? 'long-menu' : undefined}
-                                            aria-expanded={open ? 'true' : undefined}
-                                            aria-haspopup="true"
-                                            onClick={handleClick}
-                                            disableRipple
-                                            size="small"
-                                            sx={{
-                                                height:'26px',
-                                                width:'26px',
-                                                '&:hover, &:focus': {
-                                                    backgroundColor: '#777D871A',
-                                                    borderRadius: '3px',
-                                                },
+                    <Table className="even-table dense" stickyHeader>
+                        <colgroup>
+                            <col width="30%"/>
+                            <col width="50%"/>
+                            <col width="20%"/>
+                        </colgroup>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>
+                                    이름
+                                    <Icon sx={{
+                                        width: 16,
+                                        height: 16,
+                                        fill: '#9EA6B8',
+                                        cursor: 'pointer',
+                                        marginLeft: '4px'
+                                    }}>
+                                        <Sort/>
+                                    </Icon>
+                                </TableCell>
+                                <TableCell>
+                                    아이디
+                                    <Icon sx={{
+                                        width: 16,
+                                        height: 16,
+                                        fill: '#9EA6B8',
+                                        cursor: 'pointer',
+                                        marginLeft: '4px'
+                                    }}>
+                                        <Sort/>
+                                    </Icon>
+                                </TableCell>
+                                <TableCell>
+                                    권한
+                                    <Icon sx={{
+                                        width: 16,
+                                        height: 16,
+                                        fill: '#9EA6B8',
+                                        cursor: 'pointer',
+                                        marginLeft: '4px'
+                                    }}>
+                                        <Sort/>
+                                    </Icon>
+                                </TableCell>
+                                <TableCell/>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {rows.map((row) => {
+                                const isSelected = selected?.has(row.name);
+                                return (
+                                    <TableRow hover
+                                              key={row.name}
+                                              selected={isSelected}
+                                    >
+                                        <TableCell component="td" scope="row">
+                                            <Link href="#" underline="always" color="inherit"> {row.name}</Link>
+                                        </TableCell>
+                                        <TableCell>{row.email}</TableCell>
+                                        <TableCell>{row.authority}</TableCell>
+                                        <TableCell align="right">
+                                            <IconButton
+                                                aria-label="more"
+                                                id="long-button"
+                                                aria-controls={open ? 'long-menu' : undefined}
+                                                aria-expanded={open ? 'true' : undefined}
+                                                aria-haspopup="true"
+                                                onClick={handleClick}
+                                                disableRipple
+                                                size="small"
+                                                sx={{
+                                                    height: '26px',
+                                                    width: '26px',
+                                                    '&:hover, &:focus': {
+                                                        backgroundColor: '#777D871A',
+                                                        borderRadius: '3px',
+                                                    },
 
-                                            }}
-                                        >
-                                            <Icon sx={{
-                                                width: 16,
-                                                height: 16,
-                                                fill: '#9EA6B8',
-                                                cursor: 'pointer',
-                                            }}>
-                                                <More/>
-                                            </Icon>
-                                        </IconButton>
-                                    </TableCell>
-                                </TableRow>
-                            )
-                        })}
-                    </TableBody>
-                </Table>
+                                                }}
+                                            >
+                                                <Icon sx={{
+                                                    width: 16,
+                                                    height: 16,
+                                                    fill: '#9EA6B8',
+                                                    cursor: 'pointer',
+                                                }}>
+                                                    <More/>
+                                                </Icon>
+                                            </IconButton>
+                                        </TableCell>
+                                    </TableRow>
+                                )
+                            })}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
                 <Menu
                     id="basic-menu"
                     anchorEl={anchorEl}
