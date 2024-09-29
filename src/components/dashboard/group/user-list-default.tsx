@@ -18,7 +18,7 @@ import {
 // import {useSelection} from "@/hooks/use-selection";
 
 import {AddUser} from "@/components/dashboard/group/add-user";
-import Sort from "@/components/svgIcon/Sort";
+import CmIcon from "@/components/CmIcon";
 // import More from "@/components/svgIcon/More";
 
 // function createData(
@@ -98,39 +98,15 @@ export function UserListDefalt(): React.JSX.Element {
                             <TableRow>
                                 <TableCell>
                                     이름
-                                    <Icon sx={{
-                                        width: 16,
-                                        height: 16,
-                                        fill: '#9EA6B8',
-                                        cursor: 'pointer',
-                                        marginLeft: '4px'
-                                    }}>
-                                        <Sort/>
-                                    </Icon>
+                                    <CmIcon name="ico_sort" width="16"></CmIcon>
                                 </TableCell>
                                 <TableCell>
                                     아이디
-                                    <Icon sx={{
-                                        width: 16,
-                                        height: 16,
-                                        fill: '#9EA6B8',
-                                        cursor: 'pointer',
-                                        marginLeft: '4px'
-                                    }}>
-                                        <Sort/>
-                                    </Icon>
+                                    <CmIcon name="ico_sort" width="16"></CmIcon>
                                 </TableCell>
                                 <TableCell>
                                     권한
-                                    <Icon sx={{
-                                        width: 16,
-                                        height: 16,
-                                        fill: '#9EA6B8',
-                                        cursor: 'pointer',
-                                        marginLeft: '4px'
-                                    }}>
-                                        <Sort/>
-                                    </Icon>
+                                    <CmIcon name="ico_sort" width="16"></CmIcon>
                                 </TableCell>
                                 <TableCell/>
                             </TableRow>

@@ -102,6 +102,7 @@ function CustomCalendar() {
                     <InputAdornment position="end">
                         <IconButton onClick={handleCalendarIconClick} edge="end" sx={{
                             borderRadius: '0 4px 4px 0',
+                            paddingTop: '7px',
                             marginRight: '-10px',
                             fill: open ? '#2668C9' : '#777D87',
                             border: open ? '1px solid #2668C9' : '1px solid #D3D7DE',

@@ -31,6 +31,7 @@ import {MuiToggleButton} from "@/styles/theme/components/toggle-button";
 import {MuiRadio} from "@/styles/theme/components/radio";
 import {MuiFormControlLabel} from "@/styles/theme/components/form-control-label";
 import {MuiPopper} from "@/styles/theme/components/popper";
+import {MuiPopover} from "@/styles/theme/components/popover";
 
 export const components = {
     MuiAvatar,
@@ -61,5 +62,6 @@ export const components = {
     MuiToggleButton,
     MuiRadio, MuiFormControlLabel,
     MuiTable,
-    MuiPopper
+    MuiPopper,
+    MuiPopover
 } satisfies Components<Theme>;

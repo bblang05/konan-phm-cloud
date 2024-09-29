@@ -1,3 +1,8 @@
+/* styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
     font-family: "Noto Sans KR";
     font-weight: 600;
@@ -92,6 +97,11 @@ table.even-table tr:nth-child(even) {
     background: #F5F6F7;
 }
 
+table.even-table tr th img {
+    display: inline-block;
+    margin-left: 4px;
+}
+
 table.even-table tr td {
     height: 40px;
 }
@@ -118,3 +128,7 @@ table.even-table.dense tr td {
     border-left: 1px solid #D3D7DE;
     padding: 3px 7px;
 }
+.MuiTouchRipple-root {
+    display: none !important;
+}
+

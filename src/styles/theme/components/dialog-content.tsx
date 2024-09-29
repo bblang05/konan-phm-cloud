@@ -5,10 +5,7 @@ import type {Theme} from '../types';
 export const MuiDialogContent = {
     styleOverrides: {
         root: {
-            paddingTop: '16px',
-            paddingLeft: '20px',
-            paddingRight: '20px',
-            paddingBottom: 0,
+            padding: '16px 20px 16px 20px !important',
         },
     },
 } satisfies Components<Theme>['MuiDialogContent'];

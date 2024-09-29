@@ -77,6 +77,14 @@ export function SignUpForm(): React.JSX.Element {
                                     <OutlinedInput
                                         placeholder="아이디 (이메일)"
                                         type="email"
+                                        sx={{
+                                            '& .MuiOutlinedInput-notchedOutline': {
+                                                borderWidth: errors.email ? '2px !important' : '1px',
+                                            },
+                                            '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                                                borderWidth: '2px !important',
+                                            },
+                                        }}
                                         {...field}
                                     />
                                     {errors.email && (
@@ -99,6 +107,14 @@ export function SignUpForm(): React.JSX.Element {
                                         placeholder="비밀번호"
                                         {...field}
                                         type={showPassword ? 'text' : 'password'}
+                                        sx={{
+                                            '& .MuiOutlinedInput-notchedOutline': {
+                                                borderWidth: errors.email ? '2px !important' : '1px',
+                                            },
+                                            '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                                                borderWidth: '2px !important',
+                                            },
+                                        }}
                                         endAdornment={
                                             <Box
                                                 sx={{display: 'flex', alignItems: 'center', cursor: 'pointer'}}
@@ -120,13 +136,27 @@ export function SignUpForm(): React.JSX.Element {
 
                     <Box pb="12px">
                         <FormControl fullWidth>
-                            <OutlinedInput placeholder="이름"/>
+                            <OutlinedInput placeholder="이름" sx={{
+                                '& .MuiOutlinedInput-notchedOutline': {
+                                    borderWidth : '1px',
+                                },
+                                '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                                    borderWidth: '2px !important',
+                                },
+                            }}/>
                         </FormControl>
                     </Box>
 
                     <Box pb="12px">
                         <FormControl fullWidth>
-                            <OutlinedInput placeholder="회사명"/>
+                            <OutlinedInput placeholder="회사명" sx={{
+                                '& .MuiOutlinedInput-notchedOutline': {
+                                    borderWidth: '1px',
+                                },
+                                '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                                    borderWidth: '2px !important',
+                                },
+                            }}/>
                         </FormControl>
                     </Box>
 
@@ -137,9 +167,9 @@ export function SignUpForm(): React.JSX.Element {
                     </Box>
 
                     {/* Login link */}
-                    <Box marginTop="24px" display="block" marginRight="auto" marginLeft="auto">
-                        <Link href="" color="inherit" underline="hover" sx={{display: 'block'}}>
-                            <Typography variant="subtitle2" fontWeight="400" align="center">로그인</Typography>
+                    <Box marginTop="24px" textAlign="center">
+                        <Link href="" color="inherit" underline="hover">
+                            <Typography variant="subtitle2" fontWeight="400" align="center" display="inline-block">로그인</Typography>
                         </Link>
                     </Box>
                 </form>

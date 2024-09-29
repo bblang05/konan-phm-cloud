@@ -1,5 +1,4 @@
 'use client';
-
 import * as React from 'react';
 import {styled} from '@mui/material/styles';
 import {CheckboxProps} from '@mui/material/Checkbox';
@@ -26,7 +25,8 @@ import {
     FormControlLabel,
     Icon, IconButton
 } from '@mui/material';
-import {SelectOption} from "@/components/dashboard/tenant/select-option";
+import {SelectOption01} from "@/components/dashboard/tenant/select-option01";
+import {SelectOption02} from "@/components/dashboard/tenant/select-option02";
 import Close from "@/components/svgIcon/Close";
 
 
@@ -52,7 +52,7 @@ const BpCheckedIcon = styled(BpIcon)({
         height: 16,
         backgroundImage:
             "url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath" +
-            " fill-rule='evenodd' clip-rule='evenodd' d='M12 5c-.28 0-.53.11-.71.29L7 9.59l-2.29-2.3a1.003 " +
+            " fillRule='evenodd' clip-rule='evenodd' d='M12 5c-.28 0-.53.11-.71.29L7 9.59l-2.29-2.3a1.003 " +
             "1.003 0 00-1.42 1.42l3 3c.18.18.43.29.71.29s.53-.11.71-.29l5-5A1.003 1.003 0 0012 5z' fill='%23fff'/%3E%3C/svg%3E\")",
         content: '""',
     },
@@ -118,8 +118,9 @@ function BpRadio(props: RadioProps) {
 
 
 export function SelectRatePlan(): React.JSX.Element {
-
     const [alignment, setAlignment] = React.useState('week');
+    const [open, setOpen] = React.useState(false);
+    const [selectedPlan, setSelectedPlan] = React.useState<string | null>(null);
 
     const handleChange = (
         _: React.MouseEvent<HTMLElement>,
@@ -130,14 +131,16 @@ export function SelectRatePlan(): React.JSX.Element {
         }
     };
 
-    const [open, setOpen] = React.useState(false);
-
     const handleClickOpen = () => {
         setOpen(true);
     };
 
     const handleClose = () => {
         setOpen(false);
+    };
+
+    const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSelectedPlan(event.target.value);
     };
 
     return (
@@ -202,8 +205,9 @@ export function SelectRatePlan(): React.JSX.Element {
                     <form>
                         <Box marginBottom="16px">
                             <RadioGroup
-                                defaultValue="free"
                                 name="basic-service-radio-group"
+                                value={selectedPlan}
+                                onChange={handleRadioChange}
                             >
                                 <TableContainer>
                                     <Table size="small" sx={{minWidth: 650}} aria-label="simple table"
@@ -220,7 +224,9 @@ export function SelectRatePlan(): React.JSX.Element {
                                             <TableRow>
                                                 <TableCell component="th" scope="row"/>
                                                 <TableCell component="th" align="center" scope="row">
-                                                    <FormControlLabel value="free" control={<BpRadio/>} label="Free"
+                                                    <FormControlLabel value="free"
+                                                                      control={<BpRadio/>}
+                                                                      label="Free"
                                                                       labelPlacement="bottom"
                                                                       sx={{
                                                                           margin: 0,
@@ -232,7 +238,9 @@ export function SelectRatePlan(): React.JSX.Element {
                                                                       }}/>
                                                 </TableCell>
                                                 <TableCell component="th" align="center" scope="row">
-                                                    <FormControlLabel value="basic" control={<BpRadio/>} label="Basic"
+                                                    <FormControlLabel value="basic"
+                                                                      control={<BpRadio/>}
+                                                                      label="Basic"
                                                                       labelPlacement="bottom"
                                                                       sx={{
                                                                           margin: 0,
@@ -244,7 +252,9 @@ export function SelectRatePlan(): React.JSX.Element {
                                                                       }}/>
                                                 </TableCell>
                                                 <TableCell component="th" align="center" scope="row">
-                                                    <FormControlLabel value="pro" control={<BpRadio/>} label="Pro"
+                                                    <FormControlLabel value="pro"
+                                                                      control={<BpRadio/>}
+                                                                      label="Pro"
                                                                       labelPlacement="bottom"
                                                                       sx={{
                                                                           margin: 0,
@@ -256,8 +266,10 @@ export function SelectRatePlan(): React.JSX.Element {
                                                                       }}/>
                                                 </TableCell>
                                                 <TableCell component="th" align="center" scope="row">
-                                                    <FormControlLabel value="premium" control={<BpRadio/>}
-                                                                      label="Premium" labelPlacement="bottom"
+                                                    <FormControlLabel value="premium"
+                                                                      control={<BpRadio/>}
+                                                                      label="Premium"
+                                                                      labelPlacement="bottom"
                                                                       sx={{
                                                                           margin: 0,
                                                                           paddingTop: '2px',
@@ -289,13 +301,13 @@ export function SelectRatePlan(): React.JSX.Element {
                                                     무료
                                                 </TableCell>
                                                 <TableCell align="center">
+                                                    50,000원 ⨉ IoT 개수
+                                                </TableCell>
+                                                <TableCell align="center">
                                                     40,000원 ⨉ IoT 개수
                                                 </TableCell>
                                                 <TableCell align="center">
-                                                    32,000원 ⨉ IoT 개수
-                                                </TableCell>
-                                                <TableCell align="center">
-                                                    24,000원 ⨉ IoT 개수
+                                                    30,000원 ⨉ IoT 개수
                                                 </TableCell>
                                                 <TableCell align="center" rowSpan={6}>
                                                     가격 별도 협의
@@ -374,13 +386,13 @@ export function SelectRatePlan(): React.JSX.Element {
                                                     -
                                                 </TableCell>
                                                 <TableCell align="center">
-                                                    <BpCheckbox/>
+                                                    <BpCheckbox disabled={selectedPlan !== 'basic'} />
                                                 </TableCell>
                                                 <TableCell align="center">
-                                                    <BpCheckbox/>
+                                                    <BpCheckbox disabled={selectedPlan !== 'pro'} />
                                                 </TableCell>
                                                 <TableCell align="center">
-                                                    <BpCheckbox/>
+                                                    <BpCheckbox disabled={selectedPlan !== 'premium'} />
                                                 </TableCell>
                                             </TableRow>
 
@@ -395,10 +407,10 @@ export function SelectRatePlan(): React.JSX.Element {
                                                     1
                                                 </TableCell>
                                                 <TableCell align="center">
-                                                    <SelectOption/>
+                                                    <SelectOption01/>
                                                 </TableCell>
                                                 <TableCell align="center">
-                                                    <SelectOption/>
+                                                    <SelectOption02/>
                                                 </TableCell>
                                             </TableRow>
 
@@ -432,7 +444,6 @@ export function SelectRatePlan(): React.JSX.Element {
                         </Box>
                         <form>
                             <RadioGroup
-                                defaultValue="aiBasic"
                                 name="additional-service-radio-button-group"
                             >
                                 <TableContainer>
@@ -498,10 +509,10 @@ export function SelectRatePlan(): React.JSX.Element {
                                                     1
                                                 </TableCell>
                                                 <TableCell align="center">
-                                                    <SelectOption/>
+                                                    <SelectOption01/>
                                                 </TableCell>
                                                 <TableCell align="center">
-                                                    <SelectOption/>
+                                                    <SelectOption02/>
                                                 </TableCell>
                                             </TableRow>
 
@@ -531,7 +542,7 @@ export function SelectRatePlan(): React.JSX.Element {
                                                     년 2회
                                                 </TableCell>
                                                 <TableCell align="center">
-                                                    년 3회
+                                                    년 2회
                                                 </TableCell>
                                             </TableRow>
                                         </TableBody>

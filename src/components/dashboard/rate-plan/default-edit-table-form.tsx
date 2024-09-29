@@ -22,7 +22,7 @@ export function DefaultEditTableForm(): React.JSX.Element {
     return (
         <Box>
             <Card variant="outlined">
-                <Box p="14px 20px">
+                <Box p="14px 20px 15px 20px">
                     <Box display="flex" justifyContent="space-between" alignItems="center" pb={'11px'}>
                         <Typography variant="subtitle2">기본 서비스</Typography>
                     </Box>

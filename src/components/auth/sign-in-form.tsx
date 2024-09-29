@@ -85,6 +85,9 @@ export function SignInForm(): React.JSX.Element {
                                         '& .MuiOutlinedInput-notchedOutline': {
                                             borderWidth: errors.email ? '2px !important' : '1px',
                                         },
+                                        '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                                            borderWidth: '2px !important',
+                                        },
                                     }}/>
                                 </FormControl>
                             )}
@@ -121,6 +124,9 @@ export function SignInForm(): React.JSX.Element {
                                         sx={{
                                             '& .MuiOutlinedInput-notchedOutline': {
                                                 borderWidth: errors.password ? '2px !important' : '1px',
+                                            },
+                                            '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                                                borderWidth: '2px !important',
                                             },
                                         }}
                                     />

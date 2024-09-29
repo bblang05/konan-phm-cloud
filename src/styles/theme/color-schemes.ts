@@ -58,12 +58,8 @@ export const colorSchemes = {
       },
       text: {
         primary: '#22262B',
-        // primary: 'var(--mui-palette-neutral-900)',
         primaryChannel: '240 242 245',
-        // primaryChannel: '33 38 54',
         secondary: 'var(--mui-palette-neutral-600)',
-
-        // secondary: 'var(--mui-palette-neutral-500)',
         secondaryChannel: '102 112 133',
         disabled: 'var(--mui-palette-neutral-400)',
       },

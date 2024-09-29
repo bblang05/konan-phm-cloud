@@ -38,7 +38,7 @@ export function CreateTableForm(): React.JSX.Element {
         <Box>
             <Box mb={1}>
                 <Card variant="outlined">
-                    <Box p="15px 20px">
+                    <Box p="14px 20px 15px 20px">
                         <Box display="flex" justifyContent="space-between" alignItems="center" pb={'11px'}>
                             <Typography variant="subtitle2">기본 정보</Typography>
                         </Box>
@@ -209,7 +209,7 @@ export function CreateTableForm(): React.JSX.Element {
             </Box>
 
             <Card variant="outlined">
-                <Box p="15px 20px">
+                <Box p="14px 20px 15px 20px">
                     <Box display="flex" justifyContent="space-between" alignItems="center" pb={'11px'}>
                         <Typography variant="subtitle2">관리자 정보</Typography>
                     </Box>

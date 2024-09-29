@@ -16,9 +16,9 @@ import {
 } from '@mui/material';
 
 import Close from "@/components/svgIcon/Close";
-import Sort from "@/components/svgIcon/Sort";
 import {UserFilters} from "@/components/dashboard/group/user-filters";
 import SmallAdd from "@/components/svgIcon/SmallAdd";
+import CmIcon from "@/components/CmIcon";
 
 
 function createData(
@@ -64,7 +64,7 @@ const BpCheckedIcon = styled(BpIcon)({
         height: 16,
         backgroundImage:
             "url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath" +
-            " fill-rule='evenodd' clip-rule='evenodd' d='M12 5c-.28 0-.53.11-.71.29L7 9.59l-2.29-2.3a1.003 " +
+            " fillRule='evenodd' clip-rule='evenodd' d='M12 5c-.28 0-.53.11-.71.29L7 9.59l-2.29-2.3a1.003 " +
             "1.003 0 00-1.42 1.42l3 3c.18.18.43.29.71.29s.53-.11.71-.29l5-5A1.003 1.003 0 0012 5z' fill='%23fff'/%3E%3C/svg%3E\")",
         content: '""',
     },
@@ -157,6 +157,8 @@ export function AddUser(): React.JSX.Element {
                         right: 14,
                         top: 8,
                         opacity: 0.4,
+                        width: '32px',
+                        height: '32px',
                         '&:hover': { opacity: 1 }
                     }}
                 >
@@ -193,45 +195,15 @@ export function AddUser(): React.JSX.Element {
                                         </TableCell>
                                         <TableCell>
                                             이름
-                                            <Icon
-                                                sx={{
-                                                    width: 16,
-                                                    height: 16,
-                                                    fill: '#9EA6B8',
-                                                    cursor: 'pointer',
-                                                    marginLeft: '4px',
-                                                }}
-                                            >
-                                                <Sort />
-                                            </Icon>
+                                            <CmIcon name="ico_sort" width="16"></CmIcon>
                                         </TableCell>
                                         <TableCell>
                                             아이디
-                                            <Icon
-                                                sx={{
-                                                    width: 16,
-                                                    height: 16,
-                                                    fill: '#9EA6B8',
-                                                    cursor: 'pointer',
-                                                    marginLeft: '4px',
-                                                }}
-                                            >
-                                                <Sort />
-                                            </Icon>
+                                            <CmIcon name="ico_sort" width="16"></CmIcon>
                                         </TableCell>
                                         <TableCell>
                                             권한
-                                            <Icon
-                                                sx={{
-                                                    width: 16,
-                                                    height: 16,
-                                                    fill: '#9EA6B8',
-                                                    cursor: 'pointer',
-                                                    marginLeft: '4px',
-                                                }}
-                                            >
-                                                <Sort />
-                                            </Icon>
+                                            <CmIcon name="ico_sort" width="16"></CmIcon>
                                         </TableCell>
                                     </TableRow>
                                 </TableHead>

@@ -15,30 +15,30 @@ import {
     Typography,
     Card, Icon
 } from '@mui/material';
-import dayjs from 'dayjs';
+// import dayjs from 'dayjs';
 
 import {useSelection} from '@/hooks/use-selection';
 import {CustomersFilters} from '@/components/dashboard/customer/customers-filters';
 import {SelectPage} from "@/components/dashboard/customer/select-page";
-import Sort from "@/components/svgIcon/Sort";
 import PageArrowRight from "@/components/svgIcon/PageArrowRight";
 import PageArrowLeft from "@/components/svgIcon/PageArrowLeft";
+import CmIcon from "@/components/CmIcon";
 
 function createData(
     name: string,
     email: string,
     authority: string,
     group: string,
-    lastAccessDate: Date) {
+    lastAccessDate: string) {
     return {name, email, authority, group, lastAccessDate};
 }
 
 const rows = [
-    createData('이름', 'admin@konantech.com', '사용자', 'DevOps', dayjs().subtract(2, 'hours').toDate()),
-    createData('이름', 'admin@konantech.com', '사용자', 'DevOps', dayjs().subtract(2, 'hours').toDate()),
-    createData('이름', 'admin@konantech.com', '사용자', 'DevOps', dayjs().subtract(2, 'hours').toDate()),
-    createData('이름', 'admin@konantech.com', '사용자', 'DevOps', dayjs().subtract(2, 'hours').toDate()),
-    createData('이름', 'admin@konantech.com', '사용자', 'DevOps', dayjs().subtract(2, 'hours').toDate()),
+    createData('이름', 'admin@konantech.com', '사용자', 'DevOps', '2024-09-30 09:02:11'),
+    createData('이름', 'admin@konantech.com', '사용자', 'DevOps', '2024-09-30 09:02:11'),
+    createData('이름', 'admin@konantech.com', '사용자', 'DevOps', '2024-09-30 09:02:11'),
+    createData('이름', 'admin@konantech.com', '사용자', 'DevOps', '2024-09-30 09:02:11'),
+    createData('이름', 'admin@konantech.com', '사용자', 'DevOps', '2024-09-30 09:02:11'),
 ];
 
 export function UserTable(): React.JSX.Element {
@@ -87,63 +87,23 @@ export function UserTable(): React.JSX.Element {
                                 <TableRow>
                                     <TableCell>
                                         이름
-                                        <Icon sx={{
-                                            width: 16,
-                                            height: 16,
-                                            fill: '#9EA6B8',
-                                            cursor: 'pointer',
-                                            marginLeft: '4px'
-                                        }}>
-                                            <Sort/>
-                                        </Icon>
+                                        <CmIcon name="ico_sort" width="16"></CmIcon>
                                     </TableCell>
                                     <TableCell>
                                         아이디
-                                        <Icon sx={{
-                                            width: 16,
-                                            height: 16,
-                                            fill: '#9EA6B8',
-                                            cursor: 'pointer',
-                                            marginLeft: '4px'
-                                        }}>
-                                            <Sort/>
-                                        </Icon>
+                                        <CmIcon name="ico_sort" width="16"></CmIcon>
                                     </TableCell>
                                     <TableCell>
                                         권한
-                                        <Icon sx={{
-                                            width: 16,
-                                            height: 16,
-                                            fill: '#9EA6B8',
-                                            cursor: 'pointer',
-                                            marginLeft: '4px'
-                                        }}>
-                                            <Sort/>
-                                        </Icon>
+                                        <CmIcon name="ico_sort" width="16"></CmIcon>
                                     </TableCell>
                                     <TableCell>
                                         그룹
-                                        <Icon sx={{
-                                            width: 16,
-                                            height: 16,
-                                            fill: '#9EA6B8',
-                                            cursor: 'pointer',
-                                            marginLeft: '4px'
-                                        }}>
-                                            <Sort/>
-                                        </Icon>
+                                        <CmIcon name="ico_sort" width="16"></CmIcon>
                                     </TableCell>
                                     <TableCell>
                                         마지막 접속일
-                                        <Icon sx={{
-                                            width: 16,
-                                            height: 16,
-                                            fill: '#9EA6B8',
-                                            cursor: 'pointer',
-                                            marginLeft: '4px'
-                                        }}>
-                                            <Sort/>
-                                        </Icon>
+                                        <CmIcon name="ico_sort" width="16"></CmIcon>
                                     </TableCell>
                                 </TableRow>
                             </TableHead>
@@ -164,7 +124,7 @@ export function UserTable(): React.JSX.Element {
                                             <TableCell>{row.group}</TableCell>
                                             <TableCell>
                                                 <Box color="#777D87">
-                                                    {dayjs(row.lastAccessDate).format('YYYY-MM-D hh:mm:ss')}
+                                                    {row.lastAccessDate}
                                                 </Box>
                                             </TableCell>
                                         </TableRow>

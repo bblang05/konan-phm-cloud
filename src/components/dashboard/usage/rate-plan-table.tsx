@@ -15,9 +15,9 @@ import {
 export function RatePlanTable(): React.JSX.Element {
 
     return (
-        <Box>
+        <Box marginBottom="8px">
             <Card variant="outlined">
-                <Box p="14px 20px">
+                <Box p="14px 20px 15px 20px">
                     <Box display="flex" justifyContent="space-between" alignItems="center" pb={'11px'}>
                         <Typography variant="subtitle2">요금제</Typography>
                     </Box>
@@ -38,7 +38,7 @@ export function RatePlanTable(): React.JSX.Element {
                                         <TableCell>
                                             <Box display="flex" alignItems="center" justifyContent="space-between" padding="0 10px">
                                                 <Box>Basic</Box>
-                                                <Box>500,000원</Box>
+                                                <Box fontWeight="500">500,000원</Box>
                                             </Box>
                                         </TableCell>
                                     </TableRow>
@@ -50,7 +50,7 @@ export function RatePlanTable(): React.JSX.Element {
                                         <TableCell>
                                             <Box display="flex" alignItems="center" justifyContent="space-between" padding="0 10px">
                                                 <Box>10GB</Box>
-                                                <Box>100,000원</Box>
+                                                <Box fontWeight="500">100,000원</Box>
                                             </Box>
                                         </TableCell>
                                     </TableRow>
@@ -62,7 +62,7 @@ export function RatePlanTable(): React.JSX.Element {
                                         <TableCell>
                                             <Box display="flex" alignItems="center" justifyContent="space-between" padding="0 10px">
                                                 <Box>사용</Box>
-                                                <Box>1,000,000원</Box>
+                                                <Box fontWeight="500">1,000,000원</Box>
                                             </Box>
                                         </TableCell>
                                     </TableRow>
@@ -74,7 +74,7 @@ export function RatePlanTable(): React.JSX.Element {
                                         <TableCell>
                                             <Box display="flex" alignItems="center" justifyContent="space-between" padding="0 10px">
                                                 <Box>AI Basic</Box>
-                                                <Box>1,666,667원</Box>
+                                                <Box fontWeight="500">1,666,667원</Box>
                                             </Box>
                                         </TableCell>
                                     </TableRow>
@@ -99,7 +99,7 @@ export function RatePlanTable(): React.JSX.Element {
                                     <TableCell>
                                         <Box display="flex" alignItems="center" justifyContent="end" padding="0 10px">
                                             <Box>
-                                                <Typography color="primary.main">총 3,266,667원</Typography>
+                                                <Typography color="primary.main" fontWeight="500">총 3,266,667원</Typography>
                                             </Box>
                                         </Box>
                                     </TableCell>

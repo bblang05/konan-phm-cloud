@@ -18,7 +18,7 @@ export function DetailTableForm(): React.JSX.Element {
     return (
         <Box>
             <Card variant="outlined">
-                <Box p="17px 20px">
+                <Box p="20px">
                     <form>
                         <TableContainer>
                             <Table sx={{minWidth: 650}} aria-label="simple table" className="form-table">

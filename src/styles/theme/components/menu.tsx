@@ -9,9 +9,11 @@ export const MuiMenuItem = {
             fontSize: '13px',
             padding: '6px 4px 6px 12px',
             minHeight: '30px',
-            minWidth: '70px',
+            minWidth: '50px',
             color: 'var(--mui-palette-neutral-800)',
-
+            '&.Mui-selected': {
+                backgroundColor: '#F0F6FC',
+            },
             [`& .${menuItemClasses.root}`]: {
                 icon: {
                     minWidth: '0',

@@ -19,6 +19,7 @@ import {useSelection} from '@/hooks/use-selection';
 import PageArrowRight from "@/components/svgIcon/PageArrowRight";
 import PageArrowLeft from "@/components/svgIcon/PageArrowLeft";
 import Sort from "@/components/svgIcon/Sort";
+import CmIcon from '@/components/CmIcon';
 
 function createData(
     startDay: Date,
@@ -43,7 +44,7 @@ export function BillingTable(): React.JSX.Element {
     const {selected} = useSelection(rowIds);
 
     return (
-        <Box p="17px 20px">
+        <Box p="17px 20px 15px 20px">
             <Box display="flex" alignItems="center" justifyContent="flex-end" pb="17px">
                 <Stack direction="row" gap="10px" alignItems="center">
                     <IconButton className="outlined" color="inherit" disabled>
@@ -72,45 +73,15 @@ export function BillingTable(): React.JSX.Element {
                         <TableRow>
                             <TableCell>
                                 구독 시작일
-                                <Icon
-                                    sx={{
-                                        width: 16,
-                                        height: 16,
-                                        fill: '#9EA6B8',
-                                        cursor: 'pointer',
-                                        marginLeft: '4px',
-                                    }}
-                                >
-                                    <Sort />
-                                </Icon>
+                                <CmIcon name="ico_sort" width="16"></CmIcon>
                             </TableCell>
                             <TableCell>
                                 구독 만료일
-                                <Icon
-                                    sx={{
-                                        width: 16,
-                                        height: 16,
-                                        fill: '#9EA6B8',
-                                        cursor: 'pointer',
-                                        marginLeft: '4px',
-                                    }}
-                                >
-                                    <Sort />
-                                </Icon>
+                                <CmIcon name="ico_sort" width="16"></CmIcon>
                             </TableCell>
                             <TableCell>
                                 구독 상태
-                                <Icon
-                                    sx={{
-                                        width: 16,
-                                        height: 16,
-                                        fill: '#9EA6B8',
-                                        cursor: 'pointer',
-                                        marginLeft: '4px',
-                                    }}
-                                >
-                                    <Sort />
-                                </Icon>
+                                <CmIcon name="ico_sort" width="16"></CmIcon>
                             </TableCell>
                         </TableRow>
                     </TableHead>

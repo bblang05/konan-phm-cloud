@@ -5,7 +5,6 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import { ArrowLeft as ArrowLeftIcon } from '@phosphor-icons/react/dist/ssr/ArrowLeft';
 
 import { config } from '@/config';
 import { paths } from '@/paths';
@@ -33,7 +32,6 @@ export default function NotFound(): React.JSX.Element {
         <Button
           component={RouterLink}
           href={paths.home}
-          startIcon={<ArrowLeftIcon fontSize="var(--icon-fontSize-md)" />}
           variant="contained"
         >
           Go back to home

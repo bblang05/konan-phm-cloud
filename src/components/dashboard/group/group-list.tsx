@@ -7,9 +7,8 @@ import {
     MenuList,
     ListItemIcon,
     ListItemText,
-    Menu,
     IconButton,
-    Icon
+    Icon, Popover
 } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 
@@ -66,6 +65,7 @@ export function GroupList(): React.JSX.Element {
                         <ListItemText sx={{ fontSize: '13px', color: 'var(--mui-palette-neutral-800)' }}>
                             {item}
                         </ListItemText>
+
                         <IconButton
                             aria-label="more"
                             id="long-button"
@@ -96,18 +96,23 @@ export function GroupList(): React.JSX.Element {
                             </Icon>
                         </IconButton>
 
-                        <Menu
+                        <Popover
                             id="basic-menu"
                             anchorEl={anchorEl}
                             open={open}
                             onClose={handleClose}
-                            MenuListProps={{
-                                'aria-labelledby': 'basic-button',
+                            anchorOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'right',
+                            }}
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
                             }}
                         >
                             <MenuItem onClick={handleClose}>수정</MenuItem>
                             <MenuItem onClick={handleClose}>삭제</MenuItem>
-                        </Menu>
+                        </Popover>
                     </MenuItem>
                 ))}
             </MenuList>

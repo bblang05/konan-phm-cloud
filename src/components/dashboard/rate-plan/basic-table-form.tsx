@@ -12,7 +12,7 @@ import {
     MenuItem,
     Typography,
     Button,
-    Card, Icon, Select
+    Card, Icon, Select, FormControl
 } from "@mui/material";
 import ArrowBottom from "@/components/svgIcon/ArrowBottom";
 import SmallEdit from "@/components/svgIcon/SmallEdit";
@@ -20,10 +20,15 @@ import SmallEdit from "@/components/svgIcon/SmallEdit";
 export function BasicTableForm(): React.JSX.Element {
     const [open, setOpen] = React.useState(false);
 
+    const handleIconClick = (event: React.MouseEvent) => {
+        event.stopPropagation();
+        setOpen((prevOpen) => !prevOpen); // Toggle open state
+    };
+
     return (
         <Box mb={1}>
             <Card variant="outlined">
-                <Box p="11px 20px">
+                <Box p="11px 20px 15px 20px">
                     <Box display="flex" justifyContent="space-between" alignItems="center" pb={'11px'}>
                         <Typography variant="subtitle2">기본 서비스</Typography>
                         <Button variant="contained" color="inherit"
@@ -59,39 +64,55 @@ export function BasicTableForm(): React.JSX.Element {
                                             요금제 타입
                                         </TableCell>
                                         <TableCell colSpan={3}>
-                                            <Box width={596} display="inline-block">
-                                                <Select
-                                                    fullWidth
-                                                    IconComponent={() => (
-                                                        <Icon sx={{
+                                            <FormControl sx={{ width: 596, position: 'relative' }}>
+                                                <Box
+                                                    onClick={handleIconClick}
+                                                    sx={{
+                                                        position: 'absolute',
+                                                        right: 8,
+                                                        top: '50%',
+                                                        transform: 'translateY(-50%)',
+                                                        cursor: 'pointer',
+                                                        zIndex: 1,
+                                                        pointerEvents: 'auto',
+                                                    }}
+                                                >
+                                                    <Icon
+                                                        sx={{
                                                             width: 12,
                                                             height: 12,
                                                             fill: '#777D87',
-                                                            transition: 'transform 0.3s ease',
-                                                            transform: open ? 'rotate(180deg)' : 'rotate(0deg)'
-                                                        }}>
-                                                            <ArrowBottom/>
-                                                        </Icon>
-                                                    )}
+                                                            transform: open ? 'rotate(180deg)' : 'rotate(0deg)',
+                                                        }}
+                                                    >
+                                                        <ArrowBottom />
+                                                    </Icon>
+                                                </Box>
+
+                                                <Select
+                                                    fullWidth
                                                     displayEmpty
                                                     size="small"
                                                     variant="outlined"
-                                                    style={open ? {backgroundColor: '#EBF1FA'} : {}}
+                                                    style={open ? { backgroundColor: '#EBF1FA' } : {}}
                                                     open={open}
                                                     onOpen={() => setOpen(true)}
                                                     onClose={() => setOpen(false)}
                                                     sx={{
                                                         height: '30px',
                                                         backgroundColor: 'var(--mui-palette-background-paper)',
+                                                        borderColor: open ? 'var(--mui-palette-primary-main)' : 'var(--mui-palette-divider)',
+                                                        transition: 'border-color 0.3s ease, border-width 0.3s ease',
                                                     }}
                                                     defaultValue={1}
+                                                    IconComponent={() => null} // Disable default MUI icon
                                                 >
                                                     <MenuItem value={0}>Free</MenuItem>
                                                     <MenuItem value={1}>Basic</MenuItem>
                                                     <MenuItem value={2}>Pro</MenuItem>
                                                     <MenuItem value={3}>Premium</MenuItem>
                                                 </Select>
-                                            </Box>
+                                            </FormControl>
                                         </TableCell>
                                     </TableRow>
 

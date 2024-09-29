@@ -12,7 +12,7 @@ export const MuiTableHead = {
         verticalAlign:'bottom',
         color: '#7B828C',
         fontSize: '12px',
-        padding: '3px 16px',
+        padding: '3px 12px',
         borderBottom: '1px solid #CED1D6',
       },
     },

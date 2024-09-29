@@ -70,6 +70,8 @@ export function CreateGroup(): React.JSX.Element {
                         right: 14,
                         top: 8,
                         opacity: 0.4,
+                        width: '32px',
+                        height: '32px',
                         '&:hover': {opacity: 1}
                     }}
                 >

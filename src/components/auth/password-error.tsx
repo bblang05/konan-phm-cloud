@@ -98,6 +98,9 @@ export function PasswordError(): React.JSX.Element {
                                         '& .MuiOutlinedInput-notchedOutline': {
                                             borderWidth: errors.email ? '2px !important' : '1px',
                                         },
+                                        '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                                            borderWidth: '2px !important',
+                                        },
                                     }}/>
                                 </FormControl>
                             )}
@@ -132,6 +135,9 @@ export function PasswordError(): React.JSX.Element {
                                         sx={{
                                             '& .MuiOutlinedInput-notchedOutline': {
                                                 borderWidth: errors.password ? '2px !important' : '1px',
+                                            },
+                                            '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                                                borderWidth: '2px !important',
                                             },
                                         }}
                                     />
@@ -170,8 +176,10 @@ export function PasswordError(): React.JSX.Element {
                         aria-labelledby="alert-dialog-title"
                         aria-describedby="alert-dialog-description"
                     >
-                        <DialogTitle className="alert-dialog-title" id="alert-dialog-title">{'비밀번호 5회 실패'}</DialogTitle>
                         <DialogContent>
+                            <DialogContentText sx={{ marginBottom: '12px'}}>
+                                <Typography variant="subtitle2"> 비밀번호 5회 실패</Typography>
+                            </DialogContentText>
                             <DialogContentText id="alert-dialog-description">
                                 <Box mb="5px">
                                     <Typography>비밀번호 5회 이상 실패로 계정이 비활성화되었습니다.</Typography>

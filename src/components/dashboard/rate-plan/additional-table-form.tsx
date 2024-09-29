@@ -21,10 +21,15 @@ import SmallEdit from "@/components/svgIcon/SmallEdit";
 export function AdditionalTableForm(): React.JSX.Element {
     const [open, setOpen] = React.useState(false);
 
+    const handleIconClick = (event: React.MouseEvent) => {
+        event.stopPropagation();
+        setOpen((prevOpen) => !prevOpen); // Toggle open state
+    };
+
     return (
 
         <Card variant="outlined">
-            <Box p="11px 20px">
+            <Box p="11px 20px 15px 20px">
                 <Box display="flex" justifyContent="space-between" alignItems="center" pb={'11px'}>
                     <Typography variant="subtitle2">추가 서비스</Typography>
                     <Button variant="contained" color="inherit"
@@ -60,40 +65,54 @@ export function AdditionalTableForm(): React.JSX.Element {
                                         요금제 타입
                                     </TableCell>
                                     <TableCell colSpan={3}>
-                                        <Box width={596} display="inline-block">
-                                            <FormControl fullWidth>
-                                                <Select
-                                                    fullWidth
-                                                    IconComponent={() => (
-                                                        <Icon sx={{
-                                                            width: 12,
-                                                            height: 12,
-                                                            fill: '#777D87',
-                                                            transition: 'transform 0.3s ease',
-                                                            transform: open ? 'rotate(180deg)' : 'rotate(0deg)'
-                                                        }}>
-                                                            <ArrowBottom/>
-                                                        </Icon>
-                                                    )}
-                                                    displayEmpty
-                                                    size="small"
-                                                    variant="outlined"
-                                                    style={open ? {backgroundColor: '#EBF1FA'} : {}}
-                                                    open={open}
-                                                    onOpen={() => setOpen(true)}
-                                                    onClose={() => setOpen(false)}
+                                        <FormControl sx={{ width: 596, position: 'relative' }}>
+                                            <Box
+                                                onClick={handleIconClick}
+                                                sx={{
+                                                    position: 'absolute',
+                                                    right: 8,
+                                                    top: '50%',
+                                                    transform: 'translateY(-50%)',
+                                                    cursor: 'pointer',
+                                                    zIndex: 1,
+                                                    pointerEvents: 'auto',
+                                                }}
+                                            >
+                                                <Icon
                                                     sx={{
-                                                        height: '30px',
-                                                        backgroundColor: 'var(--mui-palette-background-paper)',
+                                                        width: 12,
+                                                        height: 12,
+                                                        fill: '#777D87',
+                                                        transform: open ? 'rotate(180deg)' : 'rotate(0deg)',
                                                     }}
-                                                    defaultValue={0}
                                                 >
-                                                    <MenuItem value={0}>AI Basic</MenuItem>
-                                                    <MenuItem value={1}>AI Pro</MenuItem>
-                                                    <MenuItem value={2}>AI Premium</MenuItem>
-                                                </Select>
-                                            </FormControl>
-                                        </Box>
+                                                    <ArrowBottom />
+                                                </Icon>
+                                            </Box>
+
+                                            <Select
+                                                fullWidth
+                                                displayEmpty
+                                                size="small"
+                                                variant="outlined"
+                                                style={open ? { backgroundColor: '#EBF1FA' } : {}}
+                                                open={open}
+                                                onOpen={() => setOpen(true)}
+                                                onClose={() => setOpen(false)}
+                                                sx={{
+                                                    height: '30px',
+                                                    backgroundColor: 'var(--mui-palette-background-paper)',
+                                                    borderColor: open ? 'var(--mui-palette-primary-main)' : 'var(--mui-palette-divider)',
+                                                    transition: 'border-color 0.3s ease, border-width 0.3s ease',
+                                                }}
+                                                defaultValue={0}
+                                                IconComponent={() => null} // Disable default MUI icon
+                                            >
+                                                <MenuItem value={0}>AI Basic</MenuItem>
+                                                <MenuItem value={1}>AI Pro</MenuItem>
+                                                <MenuItem value={2}>AI Premium</MenuItem>
+                                            </Select>
+                                        </FormControl>
                                     </TableCell>
                                 </TableRow>
 

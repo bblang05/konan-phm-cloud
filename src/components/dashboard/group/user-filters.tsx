@@ -8,7 +8,6 @@ export function UserFilters(): React.JSX.Element {
 
     return (
         <OutlinedInput
-            defaultValue=""
             fullWidth
             size="small"
             placeholder="검색"
@@ -28,7 +27,7 @@ export function UserFilters(): React.JSX.Element {
                 ) : null
             }
             startAdornment={
-                <InputAdornment position="start">
+                <InputAdornment position="start" sx={{ minWidth: '16px' }}>
                     <Box
                         component="img"
                         alt="logo"

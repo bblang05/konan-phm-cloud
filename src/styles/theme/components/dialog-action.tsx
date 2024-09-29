@@ -5,7 +5,7 @@ import type {Theme} from '../types';
 export const MuiDialogActions = {
     styleOverrides: {
         root: {
-            padding: '20px 20px',
+            padding: '20px 20px 18px',
             '& button': {
                 padding: '6px 24px',
             }

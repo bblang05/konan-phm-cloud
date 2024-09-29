@@ -12,7 +12,7 @@ export function RatePlanGraph(): React.JSX.Element {
     return (
         <Box>
             <Card variant="outlined">
-                <Box p="10px 20px 14px 20px">
+                <Box p="14px 20px">
                     <Box display="flex" gap="20px">
                         <Box sx={{flexGrow: 1}}>
                             그래프

@@ -27,6 +27,8 @@ export const paths = {
         usageSetting: '/dashboard-b/usage-setting',
         ratePlanDetail: '/dashboard-b/rate-plan-detail',
         ratePlanEdit: '/dashboard-b/rate-plan-edit',
+        AdditionalRatePlanEdit: '/dashboard-b/additional-rate-plan-edit',
+        DefaultRatePlanEdit: '/dashboard-b/default-rate-plan-edit',
     },
     errors: {notFound: '/errors/not-found'},
 } as const;

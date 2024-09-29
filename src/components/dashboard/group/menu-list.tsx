@@ -52,7 +52,7 @@ function Minus() {
 function Collapse() {
     return (
         <Icon sx={{width: '12px', height: '12px', fill:'#43464D'}}>
-            <ArrowRightTriangle/>
+            <ArrowBottomTriangle/>
         </Icon>
     );
 }
@@ -60,7 +60,7 @@ function Collapse() {
 function Expand() {
     return (
         <Icon sx={{width: '12px', height: '12px', fill:'#43464D'}}>
-            <ArrowBottomTriangle/>
+            <ArrowRightTriangle/>
         </Icon>
     );
 }

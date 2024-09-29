@@ -26,11 +26,15 @@ export function EditTableForm(): React.JSX.Element {
     const toggleChecked = () => {
         setChecked((prev) => !prev);
     };
+    const handleIconClick = (event: React.MouseEvent) => {
+        event.stopPropagation();
+        setOpen((prevOpen) => !prevOpen);
+    };
 
     return (
         <Box>
             <Card variant="outlined">
-                <Box p="17px 20px">
+                <Box p="20px">
                     <form
                         onSubmit={(event) => {
                             event.preventDefault();
@@ -82,38 +86,55 @@ export function EditTableForm(): React.JSX.Element {
                                             <Box display="flex" alignItems="center" gap={1}>
                                                 <Box width={320}>
                                                     <FormControl fullWidth>
-                                                        <Select
-                                                            IconComponent={() => (
-                                                                <Icon sx={{
+                                                        <Box
+                                                            onClick={handleIconClick}
+                                                            sx={{
+                                                                position: 'absolute',
+                                                                right: 8,
+                                                                top: '50%',
+                                                                transform: 'translateY(-50%)',
+                                                                cursor: 'pointer',
+                                                                zIndex: 1,
+                                                                pointerEvents: 'auto',
+                                                            }}
+                                                        >
+                                                            <Icon
+                                                                sx={{
                                                                     width: 12,
                                                                     height: 12,
                                                                     fill: '#777D87',
-                                                                    transition: 'transform 0.3s ease',
-                                                                    transform: open ? 'rotate(180deg)' : 'rotate(0deg)'
-                                                                }}>
-                                                                    <ArrowBottom/>
-                                                                </Icon>
-                                                            )}
+                                                                    transform: open ? 'rotate(180deg)' : 'rotate(0deg)',
+                                                                }}
+                                                            >
+                                                                <ArrowBottom />
+                                                            </Icon>
+                                                        </Box>
+                                                        <Select
+                                                            fullWidth
                                                             displayEmpty
                                                             size="small"
                                                             variant="outlined"
-                                                            style={open ? {backgroundColor: '#EBF1FA'} : {}}
                                                             open={open}
+                                                            defaultValue={'관리자'}
                                                             onOpen={() => setOpen(true)}
                                                             onClose={() => setOpen(false)}
                                                             sx={{
                                                                 height: '30px',
-                                                                backgroundColor: 'var(--mui-palette-background-paper)',
+                                                                backgroundColor: open ? '#EBF1FA' : 'var(--mui-palette-background-paper)',
+                                                                borderColor: open ? 'var(--mui-palette-primary-main)' : 'var(--mui-palette-divider)',
+                                                                borderWidth: '1px',
                                                             }}
+                                                            IconComponent={() => null}
                                                             renderValue={(value: any) => {
                                                                 if (!value) {
-                                                                    return <Typography color="text.disabled"
-                                                                                       variant="body2">권한
-                                                                        선택</Typography>;
+                                                                    return (
+                                                                        <Typography color="text.disabled" variant="body2">
+                                                                            권한 선택
+                                                                        </Typography>
+                                                                    );
                                                                 }
                                                                 return value;
                                                             }}
-                                                            defaultValue={'관리자'}
                                                         >
                                                             <MenuItem value={'관리자'}>관리자</MenuItem>
                                                             <MenuItem value={'운영자'}>운영자</MenuItem>
