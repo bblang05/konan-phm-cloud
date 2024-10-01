@@ -18,7 +18,6 @@ import dayjs from 'dayjs';
 import {useSelection} from '@/hooks/use-selection';
 import PageArrowRight from "@/components/svgIcon/PageArrowRight";
 import PageArrowLeft from "@/components/svgIcon/PageArrowLeft";
-import Sort from "@/components/svgIcon/Sort";
 import CmIcon from '@/components/CmIcon';
 
 function createData(
@@ -73,15 +72,21 @@ export function BillingTable(): React.JSX.Element {
                         <TableRow>
                             <TableCell>
                                 구독 시작일
-                                <CmIcon name="ico_sort" width="16"></CmIcon>
+                                <Box sx={{ cursor: 'pointer', display: 'inline-block' }}>
+                                                <CmIcon name="ico_sort" width="16"></CmIcon>
+                                            </Box>
                             </TableCell>
                             <TableCell>
                                 구독 만료일
-                                <CmIcon name="ico_sort" width="16"></CmIcon>
+                                <Box sx={{ cursor: 'pointer', display: 'inline-block' }}>
+                                                <CmIcon name="ico_sort" width="16"></CmIcon>
+                                            </Box>
                             </TableCell>
                             <TableCell>
                                 구독 상태
-                                <CmIcon name="ico_sort" width="16"></CmIcon>
+                                <Box sx={{ cursor: 'pointer', display: 'inline-block' }}>
+                                                <CmIcon name="ico_sort" width="16"></CmIcon>
+                                            </Box>
                             </TableCell>
                         </TableRow>
                     </TableHead>

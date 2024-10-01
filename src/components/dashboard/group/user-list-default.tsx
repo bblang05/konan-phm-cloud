@@ -1,24 +1,28 @@
 'use client';
 
 import * as React from 'react';
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
     Box,
-    TableCell,
-    TableRow,
-    Table,
-    Typography,
-    TableHead,
+    // Icon,
     Menu,
-    MenuItem, Icon, TableContainer
+    MenuItem,
+    Table,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow,
+    Typography,
     // TableBody,
     // Link,
     // IconButton,
-} from "@mui/material";
+} from '@mui/material';
+
+import CmIcon from '@/components/CmIcon';
 // import {useSelection} from "@/hooks/use-selection";
 
-import {AddUser} from "@/components/dashboard/group/add-user";
-import CmIcon from "@/components/CmIcon";
+import { AddUser } from '@/components/dashboard/group/add-user';
+
 // import More from "@/components/svgIcon/More";
 
 // function createData(
@@ -34,7 +38,6 @@ import CmIcon from "@/components/CmIcon";
 // ];
 
 export function UserListDefalt(): React.JSX.Element {
-
     // const rowIds = React.useMemo(() => {
     //     return rows.map((customer) => customer.name);
     // }, [rows]);
@@ -77,38 +80,46 @@ export function UserListDefalt(): React.JSX.Element {
         <Box>
             <Box display="flex" justifyContent="space-between" alignItems="center" p={'11px 20px'}>
                 <Typography variant="subtitle2">사용자 목록</Typography>
-                <AddUser/>
+                <AddUser />
             </Box>
 
             <Box>
-                <TableContainer ref={tableContainerRef}
-                                sx={{
-                                    height: '630px',
-                                    paddingRight: paddingRight,
-                                    paddingLeft: '20px',
-                                    overflowY: 'auto',
-                                }}>
+                <TableContainer
+                    ref={tableContainerRef}
+                    sx={{
+                        height: 'calc(100vh - 270px)',
+                        paddingRight: paddingRight,
+                        paddingLeft: '20px',
+                        overflowY: 'auto',
+                    }}
+                >
                     <Table className="even-table dense" stickyHeader>
                         <colgroup>
-                            <col width="30%"/>
-                            <col width="50%"/>
-                            <col width="20%"/>
+                            <col width="30%" />
+                            <col width="50%" />
+                            <col width="20%" />
                         </colgroup>
                         <TableHead>
                             <TableRow>
                                 <TableCell>
                                     이름
-                                    <CmIcon name="ico_sort" width="16"></CmIcon>
+                                    <Box sx={{ cursor: 'pointer', display: 'inline-block' }}>
+                                        <CmIcon name="ico_sort" width="16"></CmIcon>
+                                    </Box>
                                 </TableCell>
                                 <TableCell>
                                     아이디
-                                    <CmIcon name="ico_sort" width="16"></CmIcon>
+                                    <Box sx={{ cursor: 'pointer', display: 'inline-block' }}>
+                                        <CmIcon name="ico_sort" width="16"></CmIcon>
+                                    </Box>
                                 </TableCell>
                                 <TableCell>
                                     권한
-                                    <CmIcon name="ico_sort" width="16"></CmIcon>
+                                    <Box sx={{ cursor: 'pointer', display: 'inline-block' }}>
+                                        <CmIcon name="ico_sort" width="16"></CmIcon>
+                                    </Box>
                                 </TableCell>
-                                <TableCell/>
+                                <TableCell />
                             </TableRow>
                         </TableHead>
                         {/*<TableBody>*/}

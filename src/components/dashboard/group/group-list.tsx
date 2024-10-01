@@ -1,19 +1,12 @@
 'use client';
 
 import * as React from 'react';
-import {
-    Box,
-    Typography,
-    MenuList,
-    ListItemIcon,
-    ListItemText,
-    IconButton,
-    Icon, Popover
-} from "@mui/material";
-import MenuItem from "@mui/material/MenuItem";
+import { Box, Icon, IconButton, ListItemIcon, ListItemText, MenuList, Popover, Typography } from '@mui/material';
+import MenuItem from '@mui/material/MenuItem';
+
+import More from '@/components/svgIcon/More';
 
 import { CreateGroup } from './create-group';
-import More from '@/components/svgIcon/More';
 
 export function GroupList(): React.JSX.Element {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -36,86 +29,93 @@ export function GroupList(): React.JSX.Element {
                 <CreateGroup />
             </Box>
 
-            <MenuList>
-                {['개발 1팀', '개발 2팀'].map((item, index) => (
-                    <MenuItem
-                        disableRipple
-                        key={index}
-                        sx={{
-                            paddingTop: '2px',
-                            paddingBottom: '2px',
-                            backgroundColor: selectedItem === item ? 'var(--mui-palette-primary-light)' : 'inherit',
-                            transition: 'none',
-                            borderRadius: '3px',
-                            '&:hover': {
-                                transition: 'none',
-                            },
-                        }}
-                        onClick={() => setSelectedItem(item)}
-                        selected={selectedItem === item}
-                    >
-                        <ListItemIcon sx={{ minWidth: '20px !important', marginRight: '8px' }}>
-                            <Box
-                                component="img"
-                                alt="그룹"
-                                src="/images/ico_group.svg"
-                                sx={{ display: 'inline-block', height: '20px', width: '20px' }}
-                            />
-                        </ListItemIcon>
-                        <ListItemText sx={{ fontSize: '13px', color: 'var(--mui-palette-neutral-800)' }}>
-                            {item}
-                        </ListItemText>
-
-                        <IconButton
-                            aria-label="more"
-                            id="long-button"
-                            aria-controls={open ? 'long-menu' : undefined}
-                            aria-expanded={open ? 'true' : undefined}
-                            aria-haspopup="true"
-                            onClick={(event) => handleClick(event, item)}
+            <Box sx={{ height: 'calc(100vh - 281px)' }}>
+                <MenuList>
+                    {['개발 1팀', '개발 2팀'].map((item, index) => (
+                        <MenuItem
                             disableRipple
-                            size="small"
+                            key={index}
                             sx={{
-                                height:'26px',
-                                width:'26px',
+                                paddingTop: '2px',
+                                paddingBottom: '2px',
+                                backgroundColor: selectedItem === item ? 'var(--mui-palette-primary-light)' : 'inherit',
+                                transition: 'none',
+                                borderRadius: '3px',
+                                height:'32px',
                                 '&:hover': {
-                                    backgroundColor: '#777D871A',
-                                    borderRadius: '3px',
+                                    transition: 'none',
                                 },
                             }}
+                            onClick={() => setSelectedItem(item)}
+                            selected={selectedItem === item}
                         >
-                            <Icon
+                            <ListItemIcon sx={{minWidth: '20px !important', marginRight: '8px'}}>
+                                <Box
+                                    component="img"
+                                    alt="그룹"
+                                    src="/images/ico_group.svg"
+                                    sx={{display: 'inline-block', height: '20px', width: '20px'}}
+                                />
+                            </ListItemIcon>
+                            <ListItemText sx={{fontSize: '13px', color: 'var(--mui-palette-neutral-800)'}}>
+                                {item}
+                            </ListItemText>
+
+                            <IconButton
+                                aria-label="more"
+                                id="long-button"
+                                aria-controls={open ? 'long-menu' : undefined}
+                                aria-expanded={open ? 'true' : undefined}
+                                aria-haspopup="true"
+                                onClick={(event) => handleClick(event, item)}
+                                disableRipple
+                                size="small"
                                 sx={{
-                                    width: 16,
-                                    height: 16,
-                                    fill: '#9EA6B8',
-                                    cursor: 'pointer',
+                                    height: '26px',
+                                    width: '26px',
+                                    '&:hover': {
+                                        backgroundColor: '#777D871A',
+                                        borderRadius: '3px',
+                                    },
                                 }}
                             >
-                                <More />
-                            </Icon>
-                        </IconButton>
+                                <Icon
+                                    sx={{
+                                        width: 16,
+                                        height: 16,
+                                        fill: '#777D87',
+                                        cursor: 'pointer',
+                                    }}
+                                >
+                                    <More/>
+                                </Icon>
+                            </IconButton>
 
-                        <Popover
-                            id="basic-menu"
-                            anchorEl={anchorEl}
-                            open={open}
-                            onClose={handleClose}
-                            anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'right',
-                            }}
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                        >
-                            <MenuItem onClick={handleClose}>수정</MenuItem>
-                            <MenuItem onClick={handleClose}>삭제</MenuItem>
-                        </Popover>
-                    </MenuItem>
-                ))}
-            </MenuList>
+                            <Popover
+                                id="basic-menu"
+                                anchorEl={anchorEl}
+                                open={open}
+                                onClose={handleClose}
+                                anchorOrigin={{
+                                    vertical: 'bottom',
+                                    horizontal: 'right',
+                                }}
+                                transformOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'right',
+                                }}
+                            >
+                                <MenuItem sx={{minWidth: '70px'}} onClick={handleClose}>
+                                    수정
+                                </MenuItem>
+                                <MenuItem sx={{minWidth: '70px'}} onClick={handleClose}>
+                                    삭제
+                                </MenuItem>
+                            </Popover>
+                        </MenuItem>
+                    ))}
+                </MenuList>
+            </Box>
         </Box>
     );
 }

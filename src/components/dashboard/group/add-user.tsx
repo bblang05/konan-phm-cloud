@@ -1,31 +1,32 @@
 'use client';
 
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import { CheckboxProps } from '@mui/material/Checkbox';
 import {
     Box,
     Button,
+    Checkbox,
     Dialog,
     DialogActions,
     DialogContent,
     DialogTitle,
+    Icon,
     IconButton,
-    Table, TableBody, TableCell,
-    TableHead, TableRow, Checkbox, Icon, TableContainer
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow,
 } from '@mui/material';
+import { CheckboxProps } from '@mui/material/Checkbox';
+import { styled } from '@mui/material/styles';
 
-import Close from "@/components/svgIcon/Close";
-import {UserFilters} from "@/components/dashboard/group/user-filters";
-import SmallAdd from "@/components/svgIcon/SmallAdd";
-import CmIcon from "@/components/CmIcon";
+import CmIcon from '@/components/CmIcon';
+import { UserFilters } from '@/components/dashboard/group/user-filters';
+import Close from '@/components/svgIcon/Close';
+import SmallAdd from '@/components/svgIcon/SmallAdd';
 
-
-function createData(
-    name: string,
-    email: string,
-    authority: string,
-) {
+function createData(name: string, email: string, authority: string) {
     return { name, email, authority };
 }
 
@@ -121,16 +122,19 @@ export function AddUser(): React.JSX.Element {
 
     return (
         <Box>
-            <Button variant="contained" color="inherit"
-                    size="small"
-                    disableElevation
-                    onClick={handleClickOpen}
-                    sx={{fontSize: '12px', height: '26px', lineHeight: 'inherit'}}
-                    startIcon={
-                        <Icon sx={{width: 12, height: 12}}>
-                            <SmallAdd/>
-                        </Icon>
-                    }>
+            <Button
+                variant="contained"
+                color="inherit"
+                size="small"
+                disableElevation
+                onClick={handleClickOpen}
+                sx={{ fontSize: '12px', height: '26px', lineHeight: 'inherit' }}
+                startIcon={
+                    <Icon sx={{ width: 12, height: 12 }}>
+                        <SmallAdd />
+                    </Icon>
+                }
+            >
                 추가
             </Button>
 
@@ -138,10 +142,10 @@ export function AddUser(): React.JSX.Element {
                 open={open}
                 onClose={handleClose}
                 sx={{
-                    "& .MuiDialog-container": {
-                        "& .MuiPaper-root": {
-                            width: "100%",
-                            maxWidth: "760px",
+                    '& .MuiDialog-container': {
+                        '& .MuiPaper-root': {
+                            width: '100%',
+                            maxWidth: '760px',
                         },
                     },
                 }}
@@ -159,7 +163,7 @@ export function AddUser(): React.JSX.Element {
                         opacity: 0.4,
                         width: '32px',
                         height: '32px',
-                        '&:hover': { opacity: 1 }
+                        '&:hover': { opacity: 1 },
                     }}
                 >
                     <Icon sx={{ height: 20, width: 20, fill: 'var(--mui-palette-text-primary)' }}>
@@ -169,14 +173,16 @@ export function AddUser(): React.JSX.Element {
 
                 <DialogContent>
                     <Box display="flex" justifyContent="space-between" alignItems="center" pb={'10px'}>
-                        <UserFilters/>
+                        <UserFilters />
                     </Box>
 
                     <Box>
-                        <TableContainer sx={{
-                                            maxHeight: 360,
-                                            overflowY: 'auto',
-                                        }}>
+                        <TableContainer
+                            sx={{
+                                maxHeight: 360,
+                                overflowY: 'auto',
+                            }}
+                        >
                             <Table size="small" className="even-table dense" stickyHeader>
                                 <colgroup>
                                     <col width="5%" />
@@ -195,15 +201,21 @@ export function AddUser(): React.JSX.Element {
                                         </TableCell>
                                         <TableCell>
                                             이름
-                                            <CmIcon name="ico_sort" width="16"></CmIcon>
+                                            <Box sx={{ cursor: 'pointer', display: 'inline-block' }}>
+                                                <CmIcon name="ico_sort" width="16"></CmIcon>
+                                            </Box>
                                         </TableCell>
                                         <TableCell>
                                             아이디
-                                            <CmIcon name="ico_sort" width="16"></CmIcon>
+                                            <Box sx={{ cursor: 'pointer', display: 'inline-block' }}>
+                                                <CmIcon name="ico_sort" width="16"></CmIcon>
+                                            </Box>
                                         </TableCell>
                                         <TableCell>
                                             권한
-                                            <CmIcon name="ico_sort" width="16"></CmIcon>
+                                            <Box sx={{ cursor: 'pointer', display: 'inline-block' }}>
+                                                <CmIcon name="ico_sort" width="16"></CmIcon>
+                                            </Box>
                                         </TableCell>
                                     </TableRow>
                                 </TableHead>
@@ -218,17 +230,38 @@ export function AddUser(): React.JSX.Element {
                                                     backgroundColor: isSelected ? '#F0F6FC' : 'inherit',
                                                 }}
                                             >
-                                                <TableCell align="center" sx={{ paddingTop: '5px', paddingBottom: '5px' }}>
+                                                <TableCell
+                                                    align="center"
+                                                    sx={{ paddingTop: '5px', paddingBottom: '5px' }}
+                                                >
                                                     <BpCheckbox
                                                         checked={isSelected}
                                                         onChange={() => handleRowSelection(row.name)}
                                                     />
                                                 </TableCell>
-                                                <TableCell sx={{ paddingTop: '5px', paddingBottom: '5px' }} component="th" scope="row">
+                                                <TableCell
+                                                    sx={{ paddingTop: '5px', paddingBottom: '5px' }}
+                                                    component="th"
+                                                    scope="row"
+                                                >
                                                     {row.name}
                                                 </TableCell>
-                                                <TableCell sx={{ paddingTop: '5px', paddingBottom: '5px' }}>{row.email}</TableCell>
-                                                <TableCell sx={{ paddingTop: '5px', paddingBottom: '5px' }}>{row.authority}</TableCell>
+                                                <TableCell
+                                                    sx={{
+                                                        paddingTop: '5px',
+                                                        paddingBottom: '5px',
+                                                    }}
+                                                >
+                                                    {row.email}
+                                                </TableCell>
+                                                <TableCell
+                                                    sx={{
+                                                        paddingTop: '5px',
+                                                        paddingBottom: '5px',
+                                                    }}
+                                                >
+                                                    {row.authority}
+                                                </TableCell>
                                             </TableRow>
                                         );
                                     })}

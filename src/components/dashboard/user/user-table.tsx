@@ -87,23 +87,33 @@ export function UserTable(): React.JSX.Element {
                                 <TableRow>
                                     <TableCell>
                                         이름
-                                        <CmIcon name="ico_sort" width="16"></CmIcon>
+                                        <Box sx={{ cursor: 'pointer', display: 'inline-block' }}>
+                                                <CmIcon name="ico_sort" width="16"></CmIcon>
+                                            </Box>
                                     </TableCell>
                                     <TableCell>
                                         아이디
-                                        <CmIcon name="ico_sort" width="16"></CmIcon>
+                                        <Box sx={{ cursor: 'pointer', display: 'inline-block' }}>
+                                                <CmIcon name="ico_sort" width="16"></CmIcon>
+                                            </Box>
                                     </TableCell>
                                     <TableCell>
                                         권한
-                                        <CmIcon name="ico_sort" width="16"></CmIcon>
+                                        <Box sx={{ cursor: 'pointer', display: 'inline-block' }}>
+                                                <CmIcon name="ico_sort" width="16"></CmIcon>
+                                            </Box>
                                     </TableCell>
                                     <TableCell>
                                         그룹
-                                        <CmIcon name="ico_sort" width="16"></CmIcon>
+                                        <Box sx={{ cursor: 'pointer', display: 'inline-block' }}>
+                                                <CmIcon name="ico_sort" width="16"></CmIcon>
+                                            </Box>
                                     </TableCell>
                                     <TableCell>
                                         마지막 접속일
-                                        <CmIcon name="ico_sort" width="16"></CmIcon>
+                                        <Box sx={{ cursor: 'pointer', display: 'inline-block' }}>
+                                                <CmIcon name="ico_sort" width="16"></CmIcon>
+                                            </Box>
                                     </TableCell>
                                 </TableRow>
                             </TableHead>

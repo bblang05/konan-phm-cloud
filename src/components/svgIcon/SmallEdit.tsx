@@ -8,7 +8,7 @@ export default function Edit() {
                     fill="none" opacity="0.1"/>
               <path id="Path_82" data-name="Path 82"
                     d="M-2026.2-15550.687a.8.8,0,0,1-.8-.8v-7.4a.8.8,0,0,1,.8-.8h5.37l-1.4,1.4h-3.37v6.2h6.2v-3.37l1.4-1.4v5.374a.8.8,0,0,1-.8.8Zm2.632-4.562,5.749-5.753,1.132,1.133-5.749,5.749-1.316.187Z"
-                    transform="translate(3696 15714.685)" fill="#777d87"/>
+                    transform="translate(3696 15714.685)"/>
           </g>
       </svg>
 
